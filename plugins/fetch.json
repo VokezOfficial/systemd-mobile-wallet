@@ -162,7 +162,7 @@
     "cordova-plugin-sqlite-2": {
         "source": {
             "type": "registry",
-            "id": "cordova-plugin-sqlite-2"
+            "id": "cordova-plugin-sqlite-2@~1.0.4"
         },
         "is_top_level": true,
         "variables": {}
@@ -236,11 +236,11 @@
     "cordova-android-support-gradle-release": {
         "source": {
             "type": "registry",
-            "id": "cordova-android-support-gradle-release@~1.4.3"
+            "id": "cordova-android-support-gradle-release"
         },
         "is_top_level": true,
         "variables": {
-            "ANDROID_SUPPORT_VERSION": "23.+"
+            "ANDROID_SUPPORT_VERSION": "25"
         }
     }
 }

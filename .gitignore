@@ -1,5 +1,5 @@
 platforms
-dist
+#dist
 www/.index.html.swo
 www/.index.html.swp
 *~

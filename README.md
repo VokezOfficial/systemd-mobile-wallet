@@ -1,21 +1,40 @@
-# Toast Wallet core
-This contains the core javascript and css of the wallet. Each specific platform has a repo that wraps the html5 app.
-# Minimalist wallet.
-We'll be building from the functionality of https://github.com/jatchili/minimalist-ripple-client
-# Ripple Js Lib
-https://github.com/ripple/bower-ripple/blob/master/ripple.js
-# Git usage
-Warning! Releases will be under release branches. The main branch is the development branch.
-# Phone builds
-We use Adobe Phonegap's cloud build service. The most recent phone builds can be found here. Warning these may be development builds.
-https://build.phonegap.com/apps/2733163/share
-# Manual compilation for browser build
-Clone the repo.
-Install phonegap https://phonegap.com/
-Run:
-	- phonegap platform add browser
-	- phonegap build browser
+Remove old version of phonegap
+`npm uninstall -g phonegap`
+Delete node_modules/ and platforms/ folders
 
-# Manual building of electron packages
-- Perform the steps above for the browser version.
-More instructions shortly
+Install correct version of phonegap
+`npm install -g phonegap@6.5.1`
+
+Install packages (while located in root of repo)
+`npm install`
+
+Need to have version 25 of Android sdk installed
+Download https://dl.google.com/android/repository/tools_r25.2.3-windows.zip
+Extract into C:\Users\<user>\AppData\Local\Android\Sdk\tools directory, overwrite any files needed
+Replace above path with the path to Android tools installation location on your system
+
+Remove any old platform installations
+```
+phonegap platform remove browser
+phonegap platform remove android
+```
+
+Reinstall platforms
+```
+phonegap platform add browser
+phonegap platform add android
+```
+
+Build platforms
+```bash
+phonegap build android
+# apk is output in platforms/android/build/outputs/apk
+phonegap build browser
+```
+
+Run/test platforms
+```bash
+phonegap run android
+phonegap run browser
+```
+
