@@ -20,6 +20,7 @@
 	<script src="js/clipboard.js"></script>
 	<script src="js/instascan.min.js"></script>
 	<script src="js/rippleutils-build.js"></script>
+	<script src="js/customJ-jquery.js"></script>
     
 	<script>if (window.module) module = window.module;
 
@@ -397,8 +398,8 @@
     <input ontouchend="te(event, quickSelectInput)" type="text" class="form-control" id="restorebackup" style="color:black">
     </div>
     <br>
-    <div>
-	<label >Passphrase or Recovery Phrase (of current wallet)</label>
+	<div>
+	<label class="Quicksand-Regular">Passphrase or Recovery Phrase (of current wallet)</label>
     <div class="input-group">
 	<input ontouchend="te(event, quickSelectInput)"  id="restorepassword" type="password" class="form-control" placeholder="">
 	<span class="input-group-btn">
@@ -449,17 +450,17 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 </div>
 
 <div id="tabaccountsecret" class="screentab" data-title="Secret" data-hasback="true" style="display:none">
-        <label>Account Public Address</label>
+        <label class="Quicksand-Regular addpublic">Account Public Address</label>
 	<center>
-		<input ontouchend="te(event, quickSelectInput)" type="text" id="accdetailssecretaddress" oninput="$(this).val($(this).data('content'));" style="color:black">
+		<input ontouchend="te(event, quickSelectInput)" type="text" id="accdetailssecretaddress" oninput="$(this).val($(this).data('content'));">
 	</center>
     <br>
-    <label id="lblacpassword">Enter your Passphrase</label>
+    <label id="lblacpassword" class="Quicksand-Regular">Enter your Passphrase</label>
     <div>
         <div class="input-group" id="divrsecaccpassword">
         <input ontouchend="te(event, quickSelectInput)"  id="rsecaccpassword" type="password" class="form-control" placeholder="">
         <span class="input-group-btn">
-            <button  class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { doRevealRippleSecret(content, $('#accdetailssecretaddress').val()) } )})"  type="button" style="min-width: 5em !important;">QR</button>
+            <button  class="btn btn-info qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { doRevealRippleSecret(content, $('#accdetailssecretaddress').val()) } )})"  type="button" style="min-width: 5em !important;">QR</button>
         </span>
         </div>
     </div><br>
@@ -477,34 +478,34 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 </div>
 
 <div id="tabaccountdelete" class="screentab" data-title="Delete Account" data-hasback="true" style="display:none">
-	<center><div id="accdeleteaddress" style="color:black"></div></center><br>
-	<p style="color:red; text-align:justify;">
+	<center><div id="accdeleteaddress" class="Quicksand-Medium"></div></center><br>
+	<p class="deleteAcoountSwitch_content Quicksand-Regular">
 	<span class="toggleswitch"><i class="fa fa-toggle-off" aria-hidden="true"></i></span>
 	I really want to delete this account. I understand there's no way to undo this action.</p>
-        <br><label>Enter your Passphrase to DELETE</label>
+        <br><label class="Quicksand-Regular deletePassphraseVerify">Enter your Passphrase to DELETE</label>
         <div class="input-group">
         <input ontouchend="te(event, quickSelectInput)"  id="delaccpassword" type="password" class="form-control" placeholder="">
         <span class="input-group-btn">
-            <button  class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#delaccpassword').val(content) } )})"  type="button" style="min-width: 5em !important;">QR</button>
+            <button  class="btn btn-info qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#delaccpassword').val(content) } )})"  type="button" style="min-width: 5em !important;">QR</button>
         </span>
         </div>
         <br>
-	<center><div><button  type="button" class="btn btn-danger" id="btnimport" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doDeleteAccount($('#delaccpassword').val(), $('#accdeleteaddress')[0].innerText, $('#tabaccountdelete .toggleswitch').data('checked') == 'true'); })">DELETE ACCOUNT</button></div></center>
+	<center><div><button  type="button" class="btn btn-danger Quicksand-Medium" id="btnimport" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doDeleteAccount($('#delaccpassword').val(), $('#accdeleteaddress')[0].innerText, $('#tabaccountdelete .toggleswitch').data('checked') == 'true'); })">Delete Account</button></div></center>
 </div>
 
-<div id="tabnickchange" class="screentab" data-hasback="true" data-title="Change Nickname" style="display:none">
-	<label >SystemD Address</label>
+<div id="tabnickchange" class="screentab custom-z_depth" data-hasback="true" data-title="Change Nickname" style="display:none">
+	<label class="Quicksand-Regular">SystemD Address</label>
 		<input ontouchend="te(event, quickSelectInput)"  class="form-control" readonly="readonly" type="text" placeholder=""  id="nickchangeaddress">
 	<br>
-        <label >Account Nickname (optional)</label>
+        <label class="Quicksand-Regular">Account Nickname (optional)</label>
         <div>
         <input ontouchend="te(event, quickSelectInput)"  type="text" id="nickchangenick" class="form-control" placeholder="">
 	</div>
-        <br><label>Enter your Passphrase</label>
+        <br><label class="Quicksand-Regular">Enter your Passphrase</label>
         <div class="input-group">
         <input ontouchend="te(event, quickSelectInput)"  id="nickchangepassword" type="password" class="form-control" placeholder="">
         <span class="input-group-btn">
-            <button  class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#nickchangepassword').val(content) } )})"  type="button" style="min-width: 5em !important;">QR</button>
+            <button  class="btn btn-info qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#nickchangepassword').val(content) } )})"  type="button" style="min-width: 5em !important;">QR</button>
         </span>
         </div>
         <br>
@@ -514,68 +515,68 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 </div>
 
 
-<div id="tabaccountflags" class="screentab" data-hasback="true" data-title="Set Account Flags" style="display:none">
+<div id="tabaccountflags" class="screentab custom-z_depth" data-hasback="true" data-title="Set Account Flags" style="display:none">
 
     <label >SystemD Address</label>
 		<input ontouchend="te(event, quickSelectInput)"  class="form-control" readonly="readonly" type="text" placeholder=""  id="afaddress">
     	<br>
-        <div style="color:black; text-align:justify;">These are your SystemD Account's global flags. You are strongly advised to research each setting before enabling it. To submit your changes scroll to the bottom.</div>
+        <div style="color:#bebebe; text-align:justify;">These are your SystemD Account's global flags. You are strongly advised to research each setting before enabling it. To submit your changes scroll to the bottom.</div>
         <br>
 
         <div id="afoflwarningdiv" style="display:none; color:red; text-align:justify;">Warning: You are in offline mode and your account flags cannot be read from the SYD Ledger. Please ensure you are aware of the current flags before changing them.<br></div>
 
     <div id="afofflinecodediv" style="display:none;">
         <br>
-        <label>Scan Red QR into Online Toast</label>
+        <label class="Quicksand-Regular">Scan Red QR into Online Toast</label>
         <center>
             <div id="aftabredqr">
             </div>
         </center>
       	<br />    
-        <label>Confirmation Code</label>
+        <label class="Quicksand-Regular">Confirmation Code</label>
         <input ontouchend="te(event, quickSelectInput)"  type="text" id="afofflinecode" class="form-control" placeholder="">
         <br>
     </div>
 
    
 
-    <div style="color:black;">
-    	<span class="toggleswitch"  data-after="" id="tglDefaultRipple"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div style="line-height: 2.5em; font-weight: bold;">Default SystemD</div>
+    <div>
+    	<span class="toggleswitch"  data-after="" id="tglDefaultRipple"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Default SystemD</div>
     </div>    
 	<br />       
 
-    <div style="color:black;">
-    	<span class="toggleswitch"  data-after="" id="tglDepositAuth"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div style="line-height: 2.5em; font-weight: bold;">Deposit Auth</div>
+    <div>
+    	<span class="toggleswitch"  data-after="" id="tglDepositAuth"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Deposit Auth</div>
     </div>    
 	<br />       
     
-    <div style="color:black;">
-    	<span class="toggleswitch"  data-after="" id="tglDisableMasterKey"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div style="line-height: 2.5em; font-weight: bold;">Disable Master Key</div>
+    <div>
+    	<span class="toggleswitch"  data-after="" id="tglDisableMasterKey"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Disable Master Key</div>
     </div>    
 	<br />       
 
-    <div style="color:black;">
-    	<span class="toggleswitch"  data-after="" id="tglDisallowIncomingXRP"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div style="line-height: 2.5em; font-weight: bold;">Disallow Incoming SYD</div>
+    <div>
+    	<span class="toggleswitch"  data-after="" id="tglDisallowIncomingXRP"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Disallow Incoming SYD</div>
     </div>    
 	<br />      
 
-    <div style="color:black;">
-    	<span class="toggleswitch"  data-after="" id="tglGlobalFreeze"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div style="line-height: 2.5em; font-weight: bold;">Global Freeze</div>
+    <div>
+    	<span class="toggleswitch"  data-after="" id="tglGlobalFreeze"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Global Freeze</div>
     </div>    
 	<br />      
 
-    <div style="color:black;">
-    	<span class="toggleswitch"  data-after="" id="tglNoFreeze"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div style="line-height: 2.5em; font-weight: bold;">No Freeze</div>
+    <div>
+    	<span class="toggleswitch"  data-after="" id="tglNoFreeze"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">No Freeze</div>
     </div>    
 	<br />      
 
-    <div style="color:black;">
-    	<span class="toggleswitch"  data-after="" id="tglRequireAuthorization"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div style="line-height: 2.5em; font-weight: bold;">Require Authorization</div>
+    <div>
+    	<span class="toggleswitch"  data-after="" id="tglRequireAuthorization"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Require Authorization</div>
     </div>    
 	<br />      
 
-    <div style="color:black;">
-    	<span class="toggleswitch"  data-after="" id="tglRequireDestinationTag"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div style="line-height: 2.5em; font-weight: bold;">Require Destination Tag</div>
+    <div>
+    	<span class="toggleswitch"  data-after="" id="tglRequireDestinationTag"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Require Destination Tag</div>
     </div>    
 	<br />      
 
@@ -652,7 +653,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 
 
 <div id="tabviewtransaction" class="screentab" data-hasback="true" data-title="Transaction Details" style="display:none">
-    <label>Transaction Hash (ID)</label>
+    <label class="Quicksand-Regular">Transaction Hash (ID)</label>
 		<div class="input-group">
 			<input ontouchend="te(event, quickSelectInput)" class="form-control" readonly="readonly" type="text" oninput="$(this).val($(this).data('content'));" id="vtxhash" style="color:black">
 			<span class="input-group-btn">
@@ -660,11 +661,11 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 			</span>
 		</div>        
     <br>
-    <label>Type &amp; Status</label>
+    <label class="Quicksand-Regular">Type &amp; Status</label>
 		<input ontouchend="te(event, quickSelectInput)"  class="form-control" readonly="readonly" type="text" placeholder=""  id="vtxstatus">
     <br>
     <div id="vtxdetails">
-    <label>From Address</label>
+    <label class="Quicksand-Regular">From Address</label>
 		<div class="input-group">
 			<input ontouchend="te(event, quickSelectInput)" class="form-control" readonly="readonly" type="text" oninput="$(this).val($(this).data('content'));" id="vtxfrom" style="color:black">
 			<span class="input-group-btn">
@@ -672,7 +673,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 			</span>
 		</div> 
     <br>
-    <label>To Address</label>
+    <label class="Quicksand-Regular">To Address</label>
 		<div class="input-group">
 			<input ontouchend="te(event, quickSelectInput)" class="form-control" readonly="readonly" type="text" oninput="$(this).val($(this).data('content'));" id="vtxto" style="color:black">
 			<span class="input-group-btn">
@@ -680,7 +681,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 			</span>
 		</div> 
     <br>
-    <label>Destination Tag</label>
+    <label class="Quicksand-Regular">Destination Tag</label>
 		<div class="input-group">
 			<input ontouchend="te(event, quickSelectInput)" class="form-control" readonly="readonly" type="text" oninput="$(this).val($(this).data('content'));" id="vtxdtag" style="color:black">
 			<span class="input-group-btn">
@@ -688,10 +689,10 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 			</span>
 		</div> 
     <br>
-    <label id="vtxlbldeliveredamount">Delivered Amount</label>
+    <label id="vtxlbldeliveredamount" class="Quicksand-Regular">Delivered Amount</label>
 	    <input ontouchend="te(event, quickSelectInput)"  class="form-control" readonly="readonly" type="text" placeholder=""  id="vtxdeliveredamount">
     <br>
-    <label id="vtxlbldeliveredamount">Raw Transaction</label>
+    <label id="vtxlbldeliveredamount" class="Quicksand-Regular">Raw Transaction</label>
 
 	<div id="vtxraw" class="textarealikediv">
             <div id='vtxrawtx'></div>
@@ -701,7 +702,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 
 </div>
 
-<div id="tabaddtrustline" class="screentab" data-hasback="true" data-title="Add Trustline" style="display:none">
+<div id="tabaddtrustline" class="screentab custom-z_depth" data-hasback="true" data-title="Add Trustline" style="display:none">
     <label >SystemD Address</label>
 		<input ontouchend="te(event, quickSelectInput)"  class="form-control" readonly="readonly" type="text" placeholder=""  id="atladdress">
 	<br>
@@ -718,25 +719,25 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     </div>
 
     
-	<label >Issuer Address</label>
+	<label class="Quicksand-Regular">Issuer Address</label>
 	<div class="input-group">
 		<input ontouchend="te(event, quickSelectInput)"  class="form-control" type="text" placeholder=""  id="atlissueraddr">
-		<span class="input-group-btn"><button  class="btn btn-primary" type="button" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#atlissueraddr').val(content) } )})">QR</button></span>
+		<span class="input-group-btn"><button  class="btn btn-primary qrBtn" type="button" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#atlissueraddr').val(content) } )})">QR</button></span>
 	</div>
 	<br>
-    <label >Currency</label>
+    <label class="Quicksand-Regular">Currency</label>
     <div>
     <input ontouchend="te(event, quickSelectInput)"  class="form-control" type="text" placeholder=""  id="atlcurrency" maxlength="3" >
     </div>
     <br>
-    <label >Trustline Limit</label>
+    <label class="Quicksand-Regular">Trustline Limit</label>
     <div>
     <input ontouchend="te(event, quickSelectInput)"  class="form-control" type="text" placeholder=""  id="atllimit" >
     </div>
     <br>
 
-    <label >Rippling</label>
-    <p style="color:black;">Leave disabled unless you understand how Rippling in trustlines works.</p>
+    <label class="Quicksand-Regular">Rippling</label>
+    <p style="color:#979797;">Leave disabled unless you understand how Rippling in trustlines works.</p>
     <div>
 	<select ontouchend="te(event, quickSelectInput)" id="atlrippling" class="form-control" onchange="">
         <option selected="selected">disabled</option>
@@ -768,17 +769,17 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     </div>
 
     
-	<label >Issuer Address</label>
+	<label class="Quicksand-Regular">Issuer Address</label>
     <input ontouchend="te(event, quickSelectInput)"  class="form-control" type="text" placeholder=""  id="mtlissueraddr"  readonly="readonly">
     <br>
-    <label >Currency</label>
+    <label class="Quicksand-Regular">Currency</label>
     <div>
     <input ontouchend="te(event, quickSelectInput)"  class="form-control" type="text" placeholder=""  id="mtlcurrency" maxlength="3"  readonly="readonly">
     </div>
     <br>
 
     <p style="color:black; text-align: justify">To delete this trustline ensure balance is 0 then set trustline limit to 0.</p>
-    <label >Trustline Limit</label>
+    <label class="Quicksand-Regular">Trustline Limit</label>
     <div>
     <input ontouchend="te(event, quickSelectInput)"  class="form-control" type="text" placeholder=""  id="mtllimit" >
     </div>
@@ -858,10 +859,10 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
         <li id="btnaccdetailsselecttransactions" ontouchstart="ts(event)" ontouchend="te(event, (x)=>{selectAccountDetailsSubTab(x, 'transactions')})">Transactions</li>
 	</ul>
 	<div id="accdetailsaddressdetails" class="innertab">
-		<div style="color:black; margin-bottom:0.4em;"><span id="accdetailsnickname">SystemD address</span><span id="accdetailsamount" class="amount" style="color:black;"></span></div>
-		<div class="input-group">
-			<input ontouchend="te(event, quickSelectInput)" type="text" oninput="$(this).val($(this).data('content'));" id="accdetailsaddress" style="color:black">
-			<span class="input-group-btn">
+		<div style="color:black; margin-bottom:0.4em;"><span id="accdetailsnickname" class="usernick-name Quicksand-Regular">SystemD address</span><span id="accdetailsamount" class="amount" style="color:black;"></span></div>
+		<div class="input-group accdetailscopyaddress">
+			<input ontouchend="te(event, quickSelectInput)" type="text" oninput="$(this).val($(this).data('content'));" id="accdetailsaddress" class="accountdetails_Qrcode Quicksand-Medium">
+			<span class="input-group-btn addbtncopyaddress">
 				<button type="button" id="btncopyaddress" class="btn copybtn copybtnaction" data-clipboard-target="#accdetailsaddress"><i class="fa fa-files-o" aria-hidden="true"></i></button>
 			</span>
 		</div>
@@ -878,7 +879,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
             <button id="btnsetflags" type="button" class="accopt btn btn-warning" ontouchstart="ts(event)" ontouchend="te(event, ()=>{ showAccountFlags($('#accdetailsaddress').data('content')); })">Modify Flags</button>
             <br>
             <!--button  type="button" id="btnrekeyacc" class="accopt btn btn-danger" ontouchstart="ts(event)" ontouchend="te(event, ()=>{$('#rekeyaddress').data('content', $('#accdetailsaddress').data('content') );  showTab('#tabrekeyaccount', true);})">Rekey Address</button-->
- 			<button  type="button" class="accopt btn btn-danger" ontouchstart="ts(event)" ontouchend="te(event, ()=>{$('#accdeleteaddress')[0].innerText = $('#accdetailsaddress').data('content'); showTab('#tabaccountdelete');})">Delete Address</button>
+ 			<button  type="button" id="acc_deleteaddress" class="accopt btn btn-danger" ontouchstart="ts(event)" ontouchend="te(event, ()=>{$('#accdeleteaddress')[0].innerText = $('#accdetailsaddress').data('content'); showTab('#tabaccountdelete');})">Delete Address</button>
 		</div>
         </center>
 	</div>
@@ -890,45 +891,45 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 
 <div id="tabaddaccount" class="screentab" data-hasback="true" data-title="Add Account" style="display:none">
 	<center>
-		<button  type="button" class="btn btn-primary" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doShowAndGenerateAccount();})">Generate New Address</button><br />
-		<button  type="button" class="btn btn-primary" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showTab('#tabaddexistingaccount');})">Add Existing Address</button><br />
-		<button type="button" class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{window.open('https://xrpvanity.com', '_system');})">Get a Vanity Address</button>
+		<button  type="button" class="btn btn-primary addcontact-btn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doShowAndGenerateAccount();})">Generate New Address</button><br />
+		<button  type="button" class="btn btn-primary addcontact-btn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showTab('#tabaddexistingaccount');})">Add Existing Address</button><br />
+		<button type="button" class="btn btn-info addcontact-btn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{window.open('https://xrpvanity.com', '_system');})">Get a Vanity Address</button>
 	</center>
 </div>
 
 <div id="tabaddexistingaccount" class="screentab" data-hasback="true" data-title="Add Existing Account" style="display:none">
-	<label >SystemD Secret</label>
+	<label class="Quicksand-Regular addexistinglabel">SystemD Secret</label>
 	<div class="input-group">
-		<input ontouchend="te(event, quickSelectInput)"  class="form-control" type="text" placeholder="Enter your secret key here"  id="txtsecret">
-		<span class="input-group-btn"><button  class="btn btn-primary" type="button" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('#txtsecret', '#vanityaddr', '#txtsecret', decodeSecretAddressURI, existingAddrSecretSwap);})">QR</button></span>
+		<input ontouchend="te(event, quickSelectInput)"  class="form-control addexistingInput" type="text" placeholder="Enter your secret key here"  id="txtsecret">
+		<span class="input-group-btn"><button  class="btn btn-primary qrBtn" type="button" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('#txtsecret', '#vanityaddr', '#txtsecret', decodeSecretAddressURI, existingAddrSecretSwap);})">QR</button></span>
 	</div>
 	<br>
-	<label >SystemD Address</label>
+	<label class="Quicksand-Regular addexistinglabel">SystemD Address</label>
 	<div class="input-group">
-		<input ontouchend="te(event, quickSelectInput)"  class="form-control" type="text" placeholder="Only if rekeyed"  id="vanityaddr">
-		<span class="input-group-btn"><button  class="btn btn-primary" type="button" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('#txtsecret', '#vanityaddr', '#vanityaddr', decodeSecretAddressURI, existingAddrSecretSwap);})">QR</button></span>
+		<input ontouchend="te(event, quickSelectInput)"  class="form-control addexistingInput" type="text" placeholder="Only if rekeyed"  id="vanityaddr">
+		<span class="input-group-btn"><button  class="btn btn-primary qrBtn" type="button" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('#txtsecret', '#vanityaddr', '#vanityaddr', decodeSecretAddressURI, existingAddrSecretSwap);})">QR</button></span>
 	</div>
 	<br>
-        <label >Account Nickname</label>
+        <label class="Quicksand-Regular addexistinglabel" >Account Nickname</label>
         <div>
-        <input ontouchend="te(event, quickSelectInput)"  type="text" id="extaccnick" class="form-control" placeholder="Optional">
+        <input ontouchend="te(event, quickSelectInput)"  type="text" id="extaccnick" class="form-control addexistingInput" placeholder="Optional">
 	</div>
-    <br><label>Enter your Passphrase</label>
+    <br><label class="Quicksand-Regular addexistinglabel">Enter your Passphrase</label>
         <div class="input-group">
-        <input ontouchend="te(event, quickSelectInput)"  id="extaccpassword" type="password" class="form-control" placeholder="">
+        <input ontouchend="te(event, quickSelectInput)"  id="extaccpassword" type="password" class="form-control addexistingInput" placeholder="">
         <span class="input-group-btn">
-            <button  class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#extaccpassword').val(content) } )})"  type="button" style="min-width: 5em !important;">QR</button>
+            <button  class="btn btn-info qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#extaccpassword').val(content) } )})"  type="button" style="min-width: 5em !important;">QR</button>
         </span>
         </div>
     <br>
 	<center><div><button  type="button" class="btn btn-primary" id="btnimport" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doImportExistingAccount($('#extaccpassword').val(), $('#extaccnick').val(), $('#txtsecret').val(), $('#vanityaddr').val());})">Import Account</button></div></center>
 </div>
 
-<div id="tabqrscan" class="screentab"  data-hasback="true"  data-dark="true" data-noright="true" data-title="Scan QR Key" style="display:none">
+<div id="tabqrscan" class="screentab custom-z_depth"  data-hasback="true"  data-dark="true" data-noright="true" data-title="Scan QR Key" style="display:none">
     <center>
 	    <div class="input-group"><video id="qrpreview"></video></div>
     	<br />
-	    <div class="input-group"><center><button  type="button" class="btn btn-primary" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showTab(-1);})">Cancel</button></center></div>
+	    <div class="input-group"><center><button  type="button" class="btn btn-primary tabqrscan-cancel" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showTab(-1);})">Cancel</button></center></div>
     </center>
 </div>
 
@@ -937,6 +938,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     
 	<center>
 	<div class="pinpad" style="">
+		<div class="pass-title Quicksand-Medium">Enter Passcode</div>
 	    <div class="pinnumber">
 	    <i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;
 		<i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;
@@ -996,7 +998,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 <div id="tabpinset2" class="screentab" data-primarytab="false" data-hasback="true"  data-dark="2" data-noright="true" data-title="Repeat New PIN" style="display: none;">
     
 	<center>
-	<div class="pinpad" style="">
+		<div class="pinpad" style="">
 	    <div class="pinnumber">
 	    <i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;
 		<i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;
@@ -1077,15 +1079,15 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
         <div class="input-group">
         <input ontouchend="te(event, quickSelectInput)"  id="genaccpassword" type="password" class="form-control" placeholder="">
         <span class="input-group-btn">
-            <button  class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#genaccpassword').val(content) } )})"  type="button" style="min-width: 5em !important;">QR</button>
+            <button  class="btn btn-info qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#genaccpassword').val(content) } )})"  type="button" style="min-width: 5em !important;">QR</button>
         </span>
     </div>        
     <br>
 
-	<div style="text-align:center; color:black;">Once imported your address will need to be activated by sending <span id="minxrp2"></span> SYD to it.</div>
+	<div style="text-align:center; color:#bebebe;">Once imported your address will need to be activated by sending <span id="minxrp2"></span> SYD to it.</div>
 	<br>
 	<center>
-        <div><button  type="button" class="btn btn-primary" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doImportGeneratedAccount($('#genaccpassword').val(), $('#newaccnick').val());})">Import this Address</button></div>
+        <div><button  type="button" class="btn btn-primary tabgenaccount-importbtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doImportGeneratedAccount($('#genaccpassword').val(), $('#newaccnick').val());})">Import this Address</button></div>
     </center>
     </div>
 
@@ -1335,7 +1337,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     </center>  
 </div>
 
-<div id="tabpayments" class="screentab" data-primarytab="false" data-hasback="true" data-title="Send" style="display:none">
+<div id="tabpayments" class="screentab custom-z_depth" data-primarytab="false" data-hasback="true" data-title="Send" style="display:none">
 	<label >From Account</label>
 	<div>
 	<select ontouchend="te(event, quickSelectInput)" id="payfromaccount" class="form-control" onchange="onPaymentSelectFromAccount();">
@@ -1357,7 +1359,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 	<div class="input-group">
 	<input ontouchend="te(event, quickSelectInput)"  type="text" id="toaddress" class="form-control" placeholder="">
 	<span class="input-group-btn">
-		<button  class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('#toaddress', '#desttag', '#payamount',  decodePaymentURI );})" id="btnqrpay" type="button">QR</button>
+		<button  class="btn btn-info qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('#toaddress', '#desttag', '#payamount',  decodePaymentURI );})" id="btnqrpay" type="button">QR</button>
 	</span>
 	</div>
 	<br />
@@ -1399,14 +1401,14 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     <br/>
 
 	<label >Amount</label>
-	<div class="input-group">
+	<div>
 	<input ontouchend="te(event, quickSelectInput)"  type="text" id="payamount" class="form-control" placeholder="">
-	<span class="input-group-btn">
+	<!--<span class="input-group-btn">
 	<button  class="btn btn-success" id="btnpay" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doPay(sodium.randombytes_random());})" type="button">Pay</button>
-	</span>
+	</span>-->
 	</div>
     <br>
-
+	<button  class="btn btn-success" id="btnpay" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doPay(sodium.randombytes_random());})" type="button">Pay</button>
 </div>
 
 
@@ -1493,19 +1495,22 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     </div>
 </div>
 
-<div id="tabrecovery" class="screentab" data-primarytab="false" data-hasback="true" data-title="Recovery Options"  data-noright="true" style="display: none;">  
+<div id="tabrecovery" class="screentab custom-z_depth" data-primarytab="false" data-hasback="true" data-title="Recovery Options"  data-noright="true" style="display: none;">  
     <div>
+	<div class="tabrecoveryimg">
+		<img src="images/image_recovery_option.png" alt="image_recovery_option.png">
+	</div>
 	<label >Passphrase or Recovery Phrase</label>
     <div class="input-group">
 	<input ontouchend="te(event, quickSelectInput)"  id="recoverypassword" type="password" class="form-control" placeholder="">
 	<span class="input-group-btn">
-        <button  class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { doResetPin(content, function(){showTab('#tabaccounts');}, function(){}); } )})"  type="button" style="min-width: 5em !important;">QR</button>
+        <button  class="btn btn-info qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { doResetPin(content, function(){showTab('#tabaccounts');}, function(){}); } )})"  type="button" style="min-width: 5em !important;">QR</button>
 	</span>
     </div>
     </div>
 
     <center>
-        <button  class="btn btn-primary" style="min-width: 20em !important;" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doResetPin($('#recoverypassword').val(), function(){showTab('#tabaccounts');}, function(){});})">Reset PIN</button></center>
+        <button  class="btn btn-primary tabrecovery-resetBtn" style="margin-top: 50px;" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doResetPin($('#recoverypassword').val(), function(){showTab('#tabaccounts');}, function(){});})">Reset PIN</button></center>
 </div>
 
 <div id="tabcorruptionprompt" class="screentab" data-primarytab="true" data-hasback="false"  data-noright="true" data-title="Recover Corrupt Data" style="display: none;">
@@ -1680,7 +1685,7 @@ NO WARRANTY
 </div>
 
 
-<ul id="navheader" style="display:none"><li class="headerleft"></li><li class="headermiddle"></li><li class="headerright"><i class="fa fa-lock" aria-hidden="true">&nbsp;</i>&nbsp;</li></ul>
+<ul id="navheader" style="display:none"><li class="headerleft"></li><li class="headermiddle"></li><li class="headerright"><i class="fa fa-lock" aria-hidden="true"></i></li></ul>
 
 <ul id="navfooter" style="display:none">
     <li id="navaccounts" ontouchstart="showTab('#tabaccounts');"><i class="fa fa-home" aria-hidden="true"></i></li>
@@ -3148,7 +3153,7 @@ function refreshTrustlines(account, after) {
     };
 
     var e = ()=>{
-        $('#adtrustlines')[0].innerHTML = '<li><center><i>There was an error loading the account. It may not be activated. If you know it is then check your connection or restart Toast Wallet.</i></center></li>';
+        $('#adtrustlines')[0].innerHTML = '<li><i class="trustlines-content Quicksand-Regular">There was an error loading the account. It may not be activated. If you know it is then check your connection or restart Toast Wallet.</i></li>';
         return;
     }
 
@@ -3433,7 +3438,7 @@ function refreshAccounts(after) {
                         function(e) {
                             if (debug) console.log("account refresh error: " + e);
                             try {
-                                $("#ra" + account + ">.accountline>.amount")[0].innerHTML = '<small style="opacity:0.7">not activated</small>';
+                                $("#ra" + account + ">.accountline>.amount")[0].innerHTML = '<small class="Quicksand-Medium account-status-bar" style="opacity:0.7">not activated</small>';
                                 $('#ra' + account + ' .accloadspinner').hide();
                                 $("#ra" + account).removeData('markforupdate');
                             } catch(e) {handle_error(e);}					
@@ -3458,7 +3463,7 @@ function refreshAccounts(after) {
             var toptouchend = 'te(event, ()=>{doSelectAccount(\''+i+'\', \''+nickname+'\', false);})';
             var bottomtouchend = 'te(event, (x)=>{ var f=(x, m)=>{ return ((m <=0 || x == undefined) ? false : ( $(x).data(\'tlcount\') > 0 ? true : f($(x).parent(), m-1)) ) }; doSelectAccount(\''+i+'\', \''+nickname+'\', f(x, 5));})';
             if ($('#ra' + i).length == 0) {
-                $("#accountslist").prepend('<li data-account="'+i+'" class="list-group-item accountitem '+(activeaccount == i?'active':'')+'" id="ra'+i+'"><div class="accountline" ontouchstart="ts(event)" ontouchend="'+toptouchend+'"><a class="address"><span class="address">'+(nickname == "" ? i : nickname)+'</span></a><div class="amount"><small style="opacity: 0.7">' + (offlinemode ? 'offline' : '') + '</small></div></div><div class="trustlines" ontouchstart="ts(event)" ontouchend="'+bottomtouchend+'"></div><i class="fa fa-refresh fa-spin accloadspinner" style="'+(offlinemode? 'display:none' : '')+'"></i></li>');
+                $("#accountslist").prepend('<li data-account="'+i+'" class="list-group-item accountitem '+(activeaccount == i?'active':'')+'" id="ra'+i+'"><div class="accountline" ontouchstart="ts(event)" ontouchend="'+toptouchend+'"><a class="address"><span class="address Quicksand-Medium">'+(nickname == "" ? i : nickname)+'</span></a><div class="amount"><small style="opacity: 0.7">' + (offlinemode ? 'offline' : '') + '</small></div></div><div class="trustlines" ontouchstart="ts(event)" ontouchend="'+bottomtouchend+'"></div><i class="fa fa-refresh fa-spin accloadspinner" style="'+(offlinemode? 'display:none' : '')+'"></i></li>');
             } else {
 
                 // passively update without rewriting the dom
@@ -3998,7 +4003,7 @@ function showTab(tab, dontClearText) {
         }	
 
 
-	$("body").removeClass("darkbackground");
+		$("body").removeClass("darkbackground");
 	$("body").removeClass("darkbackground2");
 	if ($(tab).data('dark')) { // dark background
 		if ($(tab).data('dark') == '2') {
@@ -5991,7 +5996,6 @@ function doRestoreBackup() {
 						function(doc) {
 							return { data: JSON.stringify({"lastreminder": "" + Math.floor(new Date().getTime()/1000) })	}; 
 					});
-				
 					navigator.notification.alert("Backup restored successfully!", 
 						function() {
 							unblockInput();
@@ -8413,13 +8417,13 @@ function doGetTransactions(address, marker) {
 			}
 		}
 		if (count == 0) {
-			tx = '<li style="color:black;"><center><i>No transactions found</i></center></li>';
+			tx = '<li><center><i>No transactions found</i></center></li>';
 		}
 		root.append('<ul class="transactionlist">'+tx+'</ul>');
 		if (x.marker != undefined && count > 0) {
 			root.append('<button  type="button" class="btn btn-primary" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doGetTransactions(\'' + address + '\', \'' + x.marker + '\')})">More</button>');
 		} else if (count > 0) {
-			root.append('<button  type="button" class="btn btn-primary" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doGetTransactions(\'' + address + '\', \'\')})">Back to Start</button>');			
+			root.append('<button  type="button" class="btn btn-primary backtostartBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doGetTransactions(\'' + address + '\', \'\')})">Back to Start</button>');			
 		}
 		if ((device.platform + "").toLowerCase() == 'browser') clickProxy();	
 		unblockInput();

@@ -1,4 +1,39 @@
 
+/** fonts  */
+@font-face {
+    font-family: 'Quicksand-Regular';
+    src: url('../fonts/Quicksand-Regular.ttf');
+    src: url('../fonts/Quicksand-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Quicksand-Light';
+    src: url('../fonts/Quicksand-Light.ttf');
+    src: url('../fonts/Quicksand-Light') format('truetype');
+}
+@font-face {
+    font-family: 'Quicksand-Medium';
+    src: url('../fonts/Quicksand-Medium.ttf');
+    src: url('../fonts/Quicksand-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Quicksand-Bold';
+    src: url('../fonts/Quicksand-Bold.ttf');
+    src: url('../fonts/Quicksand-Bold.ttf') format('truetype');
+}
+.Quicksand-Regular{
+    font-family: Quicksand-Regular !important;
+}
+.Quicksand-Light{
+    font-family: Quicksand-Light !important;
+}
+.Quicksand-Medium{
+    font-family: Quicksand-Medium !important;
+}
+.Quicksand-Bold{
+    font-family: Quicksand-Bold !important;
+}
+
+
 html {
 	height: 100vh;
 	min-height: 100vh;
@@ -6,7 +41,7 @@ html {
 	width: 100vw;
 	min-width: 100vw;
 	max-height: 100vw;
-}  
+}
 body {
 	font-family: sans-serif;
     font-family: sans-serif;
@@ -17,8 +52,9 @@ body {
     max-width: 100vw;
     height:100vh;
     min-height: 100vh;
-    max-height: 100vh; 
-    overflow: hidden;
+    max-height: 100vh;
+    overflow: hidden; 
+    background: #343232;
 }
 
 #walletbackup {
@@ -33,8 +69,9 @@ textarea {
 }
 #generatedaddress, #accdetailssecretaddress, #accsecret, #accdetailsaddress {
     font-size: 1.2em !important;
-    color: black;
-    border: 1px dashed black;
+    /* color: black; */
+    color :#979797;
+    border: 1px dashed#979797;
     box-shadow: none;
     text-align: center;
     overflow-wrap: break-word;
@@ -48,7 +85,7 @@ textarea {
 }
 #generatedaddress {
 	position:relative;
-
+    padding: 10px;
 }
 
 
@@ -67,15 +104,44 @@ textarea {
 
 
 /* pinpad lettering contributed by https://github.com/WietseWind */
+.pinpad button div{
+    font-size: 22pt;
+    margin-top: -7px;
+}
+
+.pinpad button div .fa-question-circle,
+.pinpad button .fa-chevron-circle-left{
+    position: relative;
+}
+.pinpad button .fa-chevron-circle-left:before ,
+.pinpad button div .fa-question-circle:before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width : 15.5pt;
+    height: 30pt;
+    background-repeat: no-repeat !important;
+}
+.pinpad button .fa-chevron-circle-left:before{
+    background: url(../images/left_arrow.png);
+
+}
+.pinpad button div .fa-question-circle:before{
+    background: url(../images/question.png);
+
+}
+
 .pinpad button i.char {
-    font-size: .5em;
+    font-size: .35em;
     text-transform: uppercase;
     font-style: normal;
     display: block;
     line-height: .4em;
     position: absolute;
     width: 100%;
-    margin-top: -20%;
+    margin-top: -15%;
     letter-spacing: 2px;
     font-weight: normal;
     padding-left: 2px;
@@ -96,6 +162,7 @@ textarea {
     font-size: 1.3em !important;
     line-height: 1.15em;
     filter: blur(3px);
+    padding: 10px 0;
 }
 
 #tabbackup2 h3 {
@@ -105,7 +172,7 @@ textarea {
 #tabsetpassphrase button, #tabchangepassphrase button, #tabshowrecovery button, 
 #tabcorruptionprompt button, #tabgenaccount1 button, #btnimport, #tabpaymentconfirm button,
 #tabrestore button {
-    min-width: 20em;
+    min-width: 16em;
     margin-bottom: 1em;
 }
 .toggleswitch {
@@ -113,7 +180,7 @@ textarea {
     vertical-align: middle;
     opacity: 0.5;
     margin-left: 0.5em;
-    color: black;
+    color: #fff;
     float: right;
     margin-left: 0.5em;
 }
@@ -161,7 +228,7 @@ div#generatedaddress {
 }
 
 ul#adtrustlines {
-    color: black;
+    color: #fff;
     margin-left: 1em;
     margin-right: 1em;    
 }
@@ -242,42 +309,47 @@ li.adtrustline:not(:first-of-type) {
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    background: #286abc;
+    /* background: #286abc; */
+}
+.accountdetailsselector .accdetailsinnertabselected{
+    border-color: #76f2fb;
 }
 
 .accountdetailsselector > *:not(.accdetailsinnertabselected) {
-    background: rgb(51, 122, 183) !important;
+    /* background: rgb(51, 122, 183) !important; */
     color: white !important;
 }
 
-.accountdetailsselector > .accdetailsinnertabselected {background: white;color: black;}
+.accountdetailsselector > .accdetailsinnertabselected {color: white;}
 
 .accountdetailsselector > li {
     flex: 2;
     text-align: center;
-    padding-top: 0.3em;
-    padding-bottom: 0.3em;
+    /* padding-top: 0.3em; */
+    padding-bottom: 0.6em;
     border-radius: 2px 2px 0px 0px;
+    border-bottom: 2px solid #979797;
+
 }
 
-div#tabaccountdetails {
+/* div#tabaccountdetails {
     padding: 0;
     margin-left: 0;
     margin-right: 0;
     width: 100%;
-}
+} */
 
 div#accdetailstransactiondetails {
     margin-left: 1em;
     margin-right: 1em;
 }
 
-.accountdetailsselector > li:not(:first-of-type) {
+/* .accountdetailsselector > li:not(:first-of-type) {
     border-left: 1px solid #286abc;
-}
+} */
 
-.accountdetailsselector > li:last-of-type {
-}
+/* .accountdetailsselector > li:last-of-type {
+} */
 
 div#accdetailsaddressdetails {
     margin-left: 1em;
@@ -285,7 +357,7 @@ div#accdetailsaddressdetails {
 }
 
 .txrow {
-    color: black;
+    color: #fff;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
 }
@@ -470,13 +542,13 @@ img.loader {
     left: calc(50% - 25px);
 }
 .amount {
-    //text-align: right;
+    /*text-align: right;*/
     flex: 1;
 }
 #accountslist > li {
     text-overflow: ellipsis;
     overflow: hidden;
-//    min-height: 4.5em;
+/*    min-height: 4.5em; */
     border: 0;
     margin: 0;
     border-radius: 3px;
@@ -490,7 +562,7 @@ i.fa {
     font-size: 1.5em;
 }
 label {
-    color: black;
+    color: #fff;
 }
 #fromaccountslist {
     margin-bottom: 0 !important;
@@ -557,7 +629,11 @@ div.input-group>span.input-group-btn>button {
     list-style: none;
     z-index: 90;
     border-bottom: 1px solid hsla(214, 50%, 25%, 0.2);
-    height: 4em !important;
+    /* height: 4em !important; */
+    height: 156.9pt !important;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    background-image: linear-gradient(#76f2fb, #78c8fe); 
 }
 #accdetailsqr {
     padding-top: 1em;
@@ -726,12 +802,12 @@ i.fa.fa-exchange {
     max-width: 10em;
 }
 
-.settingsbuttons {
+/* .settingsbuttons {
     max-width: 40em;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-}
+} */
 
 .settingsbuttons > button {
     margin: 0.5em;
@@ -873,12 +949,12 @@ i.fa.fa-exchange {
 
 .trustlines {
     display: flex;
-//    flex-direction: row-reverse;
+/*   flex-direction: row-reverse;*/
     flex-wrap: wrap;
     margin-right:0;
     margin-left:0;
     justify-content:space-between;   
-//    background: rgba(41, 206, 160, 0.05);
+/*    background: rgba(41, 206, 160, 0.05);*/
     padding: 0.2em;
 }
 
@@ -901,9 +977,9 @@ span.trustline_issuer {
 
 .copybtn {
     max-width: 2.5em;
-    max-height: 2.4em;
+    max-height: 2.5em;
     min-width: 2.5em !important;
-    min-height: 2.4em;
+    min-height: 3em;
     padding: 0;
     margin: 0;
     color: black;
@@ -914,8 +990,10 @@ span.trustline_issuer {
 
 #navheader > li {
     vertical-align: middle;
-    margin: 0;
+    /* margin: 0; */
     display: inline-block;
+    font-size: 14pt;
+    line-height: 26pt;
 }
 #navheader > li > * {
     padding-left: 0.5em;
@@ -930,17 +1008,17 @@ ul.iosheader > li > * {
     padding-bottom: 0.5em !important;
 }
 .headerleft {
-    width: 25%;
+    width: 15%;
     text-align: left;
 }
 
 .headerright {
-    width: 25%;
+    width: 15%;
     text-align: right;
 }
 
 .headermiddle {
-    width: 50%;
+    width: 70%;
     text-align: center;
 }
 #navfooter > li {
@@ -977,7 +1055,8 @@ ul.iosheader > li > * {
 
 
 .darkbackground {
-    background: rgb(51, 122, 183);
+    /* background: rgb(51, 122, 183); */
+    background: #343232;
     background-repeat: no-repeat;
 }
 .darkbackground2 {
@@ -998,7 +1077,9 @@ ul.iosheader > li > * {
     font-size: 2em !important;
 }
 .pinnumber {
-    color: rgba(255,255,255,0.7);
+    /* color: rgba(255,255,255,0.7); */
+    color: #78c8fe;
+    margin-bottom: 15px;
 }
 
 /*.darkbackground:after {*/
@@ -1052,7 +1133,8 @@ ul.iosheader > li > * {
 }
 
 * {
- font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+ /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
+ font-family: "Quicksand-Regular",sans-serif;
 }
 
 * {
@@ -1071,8 +1153,10 @@ input
 	user-select: text;
 }
 
-#tabrecovery div {
-    margin-bottom: 1em;
+#tabrecovery .tabrecoveryimg {
+    margin-bottom: 1.5em;
+    text-align: center;
+    margin-top: 10pt;
 }
 
 .shake {
@@ -1121,4 +1205,348 @@ input
     transform: translate3d(0, -15px, 0);
   }
 }
+ /** Backup Reminder page styles  **/
+ #tabbackupreminder.screentab,
+ #tabaccounts.screentab,
+ #tabaddaccount.screentab,
+ #tabgenaccount.screentab,
+ #tabaccountdelete.screentab,
+ #tabaccountdetails.screentab,
+ #tabaddexistingaccount.screentab,
+ #tabaccountsecret.screentab,
+ .custom-z_depth{
+    z-index: 99;
+ }
 
+#tabbackupreminder.screentab,
+#tabaddaccount.screentab,
+#tabgenaccount.screentab,
+#tabaccountdelete.screentab,
+#tabaccountdetails.screentab,
+#tabaddexistingaccount.screentab,
+#tabaccountsecret.screentab,
+.custom-z_depth{
+    background: #525252;
+    border-radius: 5px;
+    height: 330pt;
+    padding: 18px 16px 30px;
+    margin-top: 95px;
+}
+#tabaccountdetails.screentab{
+    padding: 10px 0;
+}
+#tabbackupreminder.screentab h1{
+    font-size: 18pt;
+    line-height: 24pt;
+    letter-spacing: 0.4pt;
+    font-weight: normal;
+    margin: 0 0 20pt;
+    font-family: Quicksand-Regular;
+}  
+#tabbackupreminder.screentab p{
+    /* font-size: 14pt;
+    line-height: 20pt; */
+    letter-spacing: 0.25pt;
+    text-align: left !important;
+    margin-bottom: 0;
+    font-family: 'Quicksand-Medium';
+}
+#tabbackupreminder.screentab div{
+    margin-top: -10px;
+}
+#tabbackupreminder.screentab div .btn-danger{
+    min-width: 17em !important;
+    background-image: linear-gradient(#ff9396, #f0595d);
+    padding: 15px;
+    border-radius: 50px;
+    border: 0;
+}
+/** add contacts  */
+
+#navheader > li div {
+    font-family: Quicksand-Medium ;
+    padding: 0 0.5em;
+}
+#tabaccounts{
+    margin-top: 100px;
+    position: relative;
+}
+#btnaddaccount{
+    background: #77d8fd;
+    width: 57.2pt;
+    border-radius: 50% !important;
+    height: 57.2pt;
+    position: fixed;
+    bottom: 43px;
+    right: 15px;
+}
+#btnaddaccount i{
+    padding: 7px;
+}
+#navfooter{
+    background: rgb(73, 73, 73);
+    text-align: left;
+    height: 80px !important;
+}
+#navfooter li {
+    min-width: calc(100%/4);
+    padding: 1.5em 0.5em 1.5em 0.5em; 
+}
+#accountslist{
+    background: #343232;
+}
+#accountslist .accountitem{
+    background: #525252;
+    color: #fff;
+    padding: 26pt 15pt 26pt 15pt;
+    margin-bottom: 20pt;
+}
+#accountslist .accountline .address{
+    font-size: 20pt;
+    line-height: 27pt;
+    padding-left: 12pt;
+    position: relative;
+    color: #fff;
+}
+#accountslist .accountline .amount{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+#accountslist .accountline a.address:before {
+    content: "";
+    background: url(../images/icn_wallet.png);
+    width: 19pt;
+    height: 24pt;
+    position: absolute;
+    background-repeat: no-repeat;
+    left: 0;
+    top: 4pt;
+}
+.account-status-bar{
+    font-size: 14pt;
+    line-height: 30pt;
+    text-transform: capitalize;
+}
+#tabaccounts.screentab{
+    height: calc(100vh - 15em) !important;
+}
+#tabaddaccount .addcontact-btn{
+    background: #979797;
+    border-color: #979797;
+    font-family: Quicksand-Medium;
+    border-radius: 50px;
+    padding: 12pt;
+    font-size: 15px;
+}
+
+#tabgenaccount label,
+.deletePassphraseVerify{
+    color: #fff;
+    font-family: Quicksand-Medium ;
+    font-weight: normal;
+}
+#tabgenaccount input {
+    background: transparent;
+    color: #979797;
+}
+.addNew_activeMessage{
+    text-align:center; 
+    color:#979797;
+    font-size: 12px;
+}
+.addNew_importBtn,
+#btnimport,
+#tabconnectionselect  #btnofflinemode{
+    background-image: linear-gradient(#76f2fb, #78c8fe); 
+    border-radius: 50px;
+    padding: 18px;
+    border: 0;
+    min-width: 16em !important;
+}
+
+#accdeleteaddress{
+    margin-top: 15px;
+    border: 1px dashed #979797 ;
+    padding: 10px;
+    color: #fff;
+    overflow: hidden;
+    background: transparent;
+}
+.deleteAcoountSwitch_content{
+    color: #fff;
+    text-align:justify;
+}
+#delaccpassword{
+    background: transparent;
+    height: 36pt;
+}
+.qrBtn{
+    padding: 13px !important;
+    background-image: linear-gradient(#76f2fb, #78c8fe); 
+}
+#accdetailsnickname.usernick-name {
+    color: #fff;
+}
+.accdetailscopyaddress{
+    position: relative;
+    width: 100%;
+}
+#accdetailsaddress.accountdetails_Qrcode{
+    font-size: 14px !important;
+    padding: 13px;
+    overflow: hidden;
+    background: transparent;
+    color: #fff;
+    padding-right: 40px;
+}
+.addbtncopyaddress{
+    position: absolute;
+    right: 0;
+    top: 4px;
+    z-index: 9999;
+}
+.addbtncopyaddress .copybtnaction{
+    background: transparent;
+    color: #fff;
+}
+.accdetailbuttons .btn,
+#btnrevealsecret {
+    padding: 13px;
+    border-radius: 50px;
+    border: 0;
+}
+#btnbackupkey,
+#btnaddtrustline,
+#btnsetflags,
+#btnrevealsecret{
+    background-image: linear-gradient(#76f2fb, #78c8fe); 
+}
+#btnrevealsecret{
+    min-width: 14em;
+}
+.addexistinglabel,
+#lblacpassword,
+.addpublic{
+    color: #fff;
+}
+.trustlines-content{
+    color: #fff;
+    font-size: 12pt;
+    text-align: left;
+}
+.addexistingInput,
+#rsecaccpassword{
+    font-size: 14px !important;
+    background: transparent;
+    color: #fff;
+    height: 35pt;
+}
+#rsecaccpassword{
+    height: 36pt;
+
+}
+#accdetailssecretaddress{
+    color: #979797;
+    background: transparent;
+    padding: 10pt;
+    font-size: 12px !important;
+    text-align: left;
+}
+.form-control[disabled],
+.form-control[readonly], 
+fieldset[disabled] .form-control,
+.form-control{
+    background: transparent;
+    height: 47px;
+    color: #979797;
+}
+.btn-default{
+    padding: 13px;
+}
+.tabqrscan-cancel{
+    width: 200px;
+    border-radius: 50px;
+    background-image: linear-gradient(#ff9396, #f0595d);
+    border: 0;
+    padding: 13px;
+}
+#navheader .headerleft{
+    position: relative;
+}
+#navheader .headerleft .fa-chevron-left:before {
+    content: "";
+    position: absolute;
+    background: url(../images/left-arrow.png);
+    width: 23px;
+    height: 15px;
+    background-repeat: no-repeat;
+}
+.resetpin-btn,#btnsetaccountflags,.backtostartBtn,#btnpay,.tabrecovery-resetBtn,.tabgenaccount-importbtn{
+    min-width: 14em !important;
+    padding: 13px;
+    border-radius: 50px;
+    border: 0;
+    margin-top: 10px;
+    background-image: linear-gradient(#76f2fb, #78c8fe); 
+}
+.backtostartBtn,#btnpay {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+.pass-title{
+    font-size: 15pt;
+    font-family: Quicksand-Medium;
+    margin-bottom: 20px;
+}
+.pinpad .pinnumber i.fa{
+    margin: 0 5px;
+}
+#btnchangenick{
+    background-image: linear-gradient(#63fdab, #10f58a); 
+    white-space: normal;
+    line-height: 14px;
+    padding: 8px;
+}
+#acc_deleteaddress{
+    background-image: linear-gradient(#ff9396, #f0595d);
+}
+#tabaccountsecret.screentab{
+    height: 300px;
+}
+#tabaddtrustline #btnaddtrustline{
+    min-width: 14em;
+    padding: 13px;
+    border: 0;
+    border-radius: 50px;
+}
+#tabsettings .settingsbuttons button {
+    background: transparent;
+    border: 0;
+    text-align: left;
+    padding-left: 40px;
+}
+#tabconnectionselect .connection-error{
+    padding-bottom: 40px;
+}
+#tabconnectionselect #btnconnect1{
+    min-width: 16em;
+    background-image: linear-gradient(#63fdab, #10f58a);
+    border: 0;
+    border-radius: 50px;
+    padding: 17px;
+}
+#btncopyaddress .fa-files-o {
+    position: relative;
+}
+#btncopyaddress .fa-files-o:before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 19px;
+    background: url(../images/icn_copy.png);
+    background-repeat: no-repeat;
+    top: -15px;
+    right: 0;
+}
