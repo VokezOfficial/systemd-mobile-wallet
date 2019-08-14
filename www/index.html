@@ -364,30 +364,30 @@
 <br><center><h2>WARNING THIS IS AN ALPHA</h2><p>Do NOT send real SYD. This wallet is connected to the SystemD TESTNET.</p></center>
 </div>
 
-<div id="tabbackup2" class="screentab" data-primarytab="false" hasback="true" data-title="Encrypted Backup" style="display: none;">
+<div id="tabbackup2" class="screentab custom-z_depth" data-primarytab="false" hasback="true" data-title="Encrypted Backup" style="display: none;">
     <div class="divbackuprompt">
-        <h3 style="color:black; text-align:center;">The data below is your encrypted wallet backup</h3>
-        <p style="color:black;">You should make a new backup whenever you add a new account to your wallet, change your passphrase or change your pin. Toast Wallet will prompt you when a new backup is required.</p>
+        <h3 class="Quicksand-Medium" style="text-align:center;">The data below is your encrypted wallet backup</h3>
+        <p>You should make a new backup whenever you add a new account to your wallet, change your passphrase or change your pin. Toast Wallet will prompt you when a new backup is required.</p>
     	<center>
 		    <button  id="btncopywallet" data-clipboard-target="#walletbackup" type="button" class="btn btn-info copybtnaction">Copy</button>
 	    </center>
     	<label>Your backup</label>
-	    <textarea oninput="$(this).val($(this).data('content'));" style="color:black;" id="walletbackup"></textarea>
+	    <textarea oninput="$(this).val($(this).data('content'));" id="walletbackup"></textarea>
     </div>
 </div>
 
-<div id="tabrestore2" class="screentab" data-primarytab="false" data-hasback="true" data-title="Restore an Existing Wallet" style="padding-bottom: 0em;" data-dark="true" data-noright="true">  
-    <p style="text-align:justify;">If you have a backup code you exported from another copy of Toast Wallet you can import it here. Doing so will create a copy of that wallet on this device.</p>
+<div id="tabrestore2" class="screentab custom-z_depth" data-primarytab="false" data-hasback="true" data-title="Restore an Existing Wallet" style="padding-bottom: 0em;" data-dark="true" data-noright="true">  
+    <p class="tabrestore2text" style="text-align:justify;">If you have a backup code you exported from another copy of Toast Wallet you can import it here. Doing so will create a copy of that wallet on this device.</p>
     <div>
     <label style="color:white;">Backup code</label>
-    <input ontouchend="te(event, quickSelectInput)" type="text" class="form-control" id="restorebackup2" style="color:black">
+    <input ontouchend="te(event, quickSelectInput)" type="text" class="form-control" id="restorebackup2">
     </div>
     
     <br> 
     <div align="center">
     
     
-    <button class="btn btn-success" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doRestoreBackupFreshInstall();})">Restore Backup</button></div>
+    <button id="tabrestore2Btn" class="btn btn-success" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doRestoreBackupFreshInstall();})">Restore Backup</button></div>
     </div>
 </div>
 
@@ -419,23 +419,20 @@
     <button  class="btn btn-danger" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doRestoreBackup();})">Restore Backup</button></div>
 </div>
 <div id="tabshowrecovery" class="screentab" data-title="Your Recovery Phrase" data-primarytab="true" data-hasback="false" data-noright="true" style="display: none;">
-    <h1 style="color:red; text-align:center;">IMPORTANT!!!</h1>
-<div><p style="color:black; font-weight:bold; text-align:justify;">Your six(6) word recovery phrase appears below. <u style="color:red;">Write it down on paper</u> and store it in a safe location. If you ever forget your passphrase this code will be the <u style="
-
-    color:red;
-
-    ">only way for you to regain access to your SYD.</u>&nbsp;
+<div class="tabshowrecoveryImportant">
+<h3>Important!!!</h3>
+<div><p style=" text-align:justify;">Your six(6) word recovery phrase appears below. Write it down on paper and store it in a safe location. If you ever forget your passphrase this code will be the only way for you to regain access to your SYD. &nbsp;
     Never share your recovery phrase with anyone.</p></div>
 
-<div><p style="color:black; text-align:justify; font-weight:bold;">This recovery phrase is <u style="color:red">useless without a backup</u>. Please make a backup using the settings menu <u style="color:red">after</u> you finish adding or generating <u style="color:red">all</u> of your addresses. Toast Wallet backups are <u style="color:red">data backups</u>, this means you will <u style="color:red">only have access to the addresses you had in your wallet at the time you made the backup!</u></p></div>
-
-<div id="showrecoveryphrase">
-</div><br>
-<p style="color:black;">
-<span class="toggleswitch" id="tglsw1"><i class="fa fa-toggle-off" aria-hidden="true"></i></span>
+<div><p style="text-align:justify;">This recovery phrase is useless without a backup. Please make a backup using the settings menu after you finish adding or generating all of your addresses. Toast Wallet backups are data backups, this means you will only have access to the addresses you had in your wallet at the time you made the backup!</p></div>
+</div>
+<div id="showrecoveryphrase" class="Quicksand-Medium"></div>
+<br>
+<p>
+<span class="toggleswitch custom-switch" id="tglsw1"><i class="fa fa-toggle-off" aria-hidden="true"></i></span>
 I sincerely promise I've written my recovery phrase down.</p><br>
-<p style="color:black;">
-<span class="toggleswitch" id="tglsw2"><i class="fa fa-toggle-off" aria-hidden="true"></i></span>
+<p>
+<span class="toggleswitch custom-switch" id="tglsw2"><i class="fa fa-toggle-off" aria-hidden="true"></i></span>
 I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 <center><button  class="btn btn-success" id="btnfinishedsetup" type="button" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doFinishSetup();})">Finish Setup</button></center>
 
@@ -480,7 +477,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 <div id="tabaccountdelete" class="screentab" data-title="Delete Account" data-hasback="true" style="display:none">
 	<center><div id="accdeleteaddress" class="Quicksand-Medium"></div></center><br>
 	<p class="deleteAcoountSwitch_content Quicksand-Regular">
-	<span class="toggleswitch"><i class="fa fa-toggle-off" aria-hidden="true"></i></span>
+	<span class="toggleswitch custom-switch"><i class="fa fa-toggle-off" aria-hidden="true"></i></span>
 	I really want to delete this account. I understand there's no way to undo this action.</p>
         <br><label class="Quicksand-Regular deletePassphraseVerify">Enter your Passphrase to DELETE</label>
         <div class="input-group">
@@ -541,42 +538,42 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
    
 
     <div>
-    	<span class="toggleswitch"  data-after="" id="tglDefaultRipple"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Default SystemD</div>
+    	<span class="toggleswitch custom-switch"  data-after="" id="tglDefaultRipple"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Default SystemD</div>
     </div>    
 	<br />       
 
     <div>
-    	<span class="toggleswitch"  data-after="" id="tglDepositAuth"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Deposit Auth</div>
+    	<span class="toggleswitch custom-switch"  data-after="" id="tglDepositAuth"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Deposit Auth</div>
     </div>    
 	<br />       
     
     <div>
-    	<span class="toggleswitch"  data-after="" id="tglDisableMasterKey"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Disable Master Key</div>
+    	<span class="toggleswitch custom-switch"  data-after="" id="tglDisableMasterKey"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Disable Master Key</div>
     </div>    
 	<br />       
 
     <div>
-    	<span class="toggleswitch"  data-after="" id="tglDisallowIncomingXRP"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Disallow Incoming SYD</div>
+    	<span class="toggleswitch custom-switch"  data-after="" id="tglDisallowIncomingXRP"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Disallow Incoming SYD</div>
     </div>    
 	<br />      
 
     <div>
-    	<span class="toggleswitch"  data-after="" id="tglGlobalFreeze"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Global Freeze</div>
+    	<span class="toggleswitch custom-switch"  data-after="" id="tglGlobalFreeze"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Global Freeze</div>
     </div>    
 	<br />      
 
     <div>
-    	<span class="toggleswitch"  data-after="" id="tglNoFreeze"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">No Freeze</div>
+    	<span class="toggleswitch custom-switch"  data-after="" id="tglNoFreeze"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">No Freeze</div>
     </div>    
 	<br />      
 
     <div>
-    	<span class="toggleswitch"  data-after="" id="tglRequireAuthorization"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Require Authorization</div>
+    	<span class="toggleswitch custom-switch"  data-after="" id="tglRequireAuthorization"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Require Authorization</div>
     </div>    
 	<br />      
 
     <div>
-    	<span class="toggleswitch"  data-after="" id="tglRequireDestinationTag"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Require Destination Tag</div>
+    	<span class="toggleswitch custom-switch"  data-after="" id="tglRequireDestinationTag"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div class="Quicksand-Regular" style="line-height: 2.5em;">Require Destination Tag</div>
     </div>    
 	<br />      
 
@@ -969,6 +966,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     
 	<center>
 	<div class="pinpad" style="">
+		<div class="Quicksand-Medium header-text">Set New PIN</div>
 	    <div class="pinnumber">
 	    <i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;
 		<i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;
@@ -999,6 +997,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     
 	<center>
 		<div class="pinpad" style="">
+		<div class="Quicksand-Medium header-text">Repeat PIN</div>
 	    <div class="pinnumber">
 	    <i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;
 		<i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;
@@ -1025,7 +1024,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     
 </div>
 
-<div id="tabsetpassphrase" class="screentab" data-primarytab="true" data-title="Set Passphrase" data-noright="true" style="display:none">
+<div id="tabsetpassphrase" class="screentab custom-z_depth" data-primarytab="true" data-title="Set Passphrase" data-noright="true" style="display:none">
 	<label>Set a Passphrase</label>
 	<div>
 		<input ontouchend="te(event, quickSelectInput)"  type="password" id="setpassword1" class="form-control" placeholder="">
@@ -1035,7 +1034,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 		<input ontouchend="te(event, quickSelectInput)"  type="password" id="setpassword2" class="form-control" placeholder="">
 	</div>
 	<br>
-	<p style="color:black; text-align: justify;">Your passphrase will be used to encrypt your wallet. You will only enter it when you wish to send SYD. It should be long and strong. Never share it with anyone.</p>
+	<p style="color:#bebebe; text-align: justify;">Your passphrase will be used to encrypt your wallet. You will only enter it when you wish to send SYD. It should be long and strong. Never share it with anyone.</p>
 	<br>
 	<center>
 		<button  class="btn btn-primary" id="btnsetpassphrase" type="button" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doResetPassphrase($('#setpassword1').val(), $('#setpassword2').val(), '', function(){blockInput(); setAndShowNewRecoveryPhrase($('#setpassword1').val());}, true);})">Set Passphrase</button>
@@ -1415,15 +1414,15 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 
 
 
-<div id="tabsubmitofflinetx" class="screentab" data-primarytab="false" data-hasback="true" data-dark="false" data-noright="true" data-title="Offline Transaction" style="padding-bottom: 0em;">
+<div id="tabsubmitofflinetx" class="screentab custom-z_depth" data-primarytab="false" data-hasback="true" data-dark="false" data-noright="true" data-title="Offline Transaction" style="padding-bottom: 0em;">
 	<center>
-		<p style="color: black;">Open Toast Wallet 2.2.0 or newer on your offline device and use the send tab to create a payment then follow the steps below to submit the payment.</p><br>
+		<p class="tabsubmitofflinetx-content">Open Toast Wallet 2.2.0 or newer on your offline device and use the send tab to create a payment then follow the steps below to submit the payment.</p><br>
 	</center>
     <div id="submitofflinetxstep1">
 	<label>Scan red QR code</label><div class="input-group">
 	<input ontouchend="te(event, quickSelectInput)" type="text" id="txtredqr" class="form-control" placeholder="">
 	<span class="input-group-btn">
-        <button class="btn btn-danger" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('#txtredqrcode', undefined, undefined, (content, intofield1, intofield2, intofield3, after)=>{$('#txtredqr').val(content); doSubmitOfflineTransaction(1, content);}, ()=>{});})" type="button" style="
+        <button style="padding:14px !important;" class="btn btn-danger qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('#txtredqrcode', undefined, undefined, (content, intofield1, intofield2, intofield3, after)=>{$('#txtredqr').val(content); doSubmitOfflineTransaction(1, content);}, ()=>{});})" type="button" style="
 ">QR</button>
 	</span>
 	</div>
@@ -1473,8 +1472,8 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 </div>
 
 
-<div id="tabsettings" class="screentab" data-primarytab="true" data-title="Settings" style="display:none">
-    <center>
+<div id="tabsettings" class="screentab custom-z_depth" data-primarytab="true" data-title="Settings" style="display:none">
+    
         <div class="settingsbuttons">
             <button type="button" class="btn btn-success" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showDonationTab();})">Support Toast Wallet</button>
             <button type="button" class="btn btn-primary" id="btnfaq" ontouchstart="ts(event)" ontouchend="te(event, ()=>{window.open('https://toastwallet.com/faq', '_system');})">FAQ / Help</button>
@@ -1486,12 +1485,12 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
             <!--<button type="button" class="btn btn-primary" id="btnsettingsgateways2" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showTab('#tabaddgateway');})">Add Gateway</button>-->
             <button type="button" class="btn btn-primary" id="btnsettingsofflinetx" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doSubmitOfflineTransaction(0);})">Submit Offline Transaction</button>
         </div>
-    </center>
+    
 
-    <div>
-        <center style="color:black;" data-version="version">Version: 2.4.0</center>
-    	<center style="color:black;" class="deviceversion"></center>
-	    <center style="color:black;" class="currentgateway">Connected to: </center>
+    <div class="appversion-details">
+        <div data-version="version">Version: 2.4.0</div>
+    	<div class="deviceversion"></div>
+	    <div class="currentgateway">Connected to: </div>
     </div>
 </div>
 
@@ -1514,15 +1513,19 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 </div>
 
 <div id="tabcorruptionprompt" class="screentab" data-primarytab="true" data-hasback="false"  data-noright="true" data-title="Recover Corrupt Data" style="display: none;">
-    <p style="color:red; text-align:justify;">Toast Wallet may be able to recover some of your data, please enter your passphrase and recovery phrase <u>if you know them</u>. If you only know one only then enter the one you know. If you don't know either then don't enter either. <b>Warning entering these incorrectly may result in further corruption.</b></p>
-    <p style="color:black; text-align:justify;">A valid alternative, if you have a backup, is simply to reinstall the app and restore your backup from the settings menu.</p>
-    <div>
-        <label >Passphrase</label><input ontouchend="te(event, quickSelectInput)"  type="password" id="corruptionpp" class="form-control" placeholder="">
-    </div>
-    <div>
-        <label >Recovery Phrase</label><input ontouchend="te(event, quickSelectInput)"  type="password" id="corruptionrp" class="form-control" placeholder="">
-    </div><br>
-    <div><center><button  type="button" class="btn btn-primary" id="btncorruptionprompt" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doDataCorruptionRecovery(corruptionstate, $('#corruptionpp').val(), $('#corruptionrp').val());})">Attempt Recovery</button></center></div>
+    <div class="tabcorruptionprompt-text">
+		<p style="text-align:justify;">Toast Wallet may be able to recover some of your data, please enter your passphrase and recovery phrase <u>if you know them</u>. If you only know one only then enter the one you know. If you don't know either then don't enter either. <b>Warning entering these incorrectly may result in further corruption.</b></p>
+	</div>
+	<div class="tabcorruptionprompt-innerdiv">
+		<p style="text-align:justify;padding-bottom: 15px;">A valid alternative, if you have a backup, is simply to reinstall the app and restore your backup from the settings menu.</p>
+		<div>
+			<label >Passphrase</label><input ontouchend="te(event, quickSelectInput)"  type="password" id="corruptionpp" class="form-control" placeholder="">
+		</div>
+		<div>
+			<label >Recovery Phrase</label><input ontouchend="te(event, quickSelectInput)"  type="password" id="corruptionrp" class="form-control" placeholder="">
+		</div><br>
+		<div><center><button  type="button" class="btn btn-primary" id="btncorruptionprompt" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doDataCorruptionRecovery(corruptionstate, $('#corruptionpp').val(), $('#corruptionrp').val());})">Attempt Recovery</button></center></div>
+	</div>
 </div>
 
 
@@ -1546,9 +1549,9 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 
 
 
-<div id="tabdonate" class="screentab" data-primarytab="true" data-hasback="false" data-dark="true" data-noright="true" data-title="Support Toast Wallet" style="padding-bottom: 0em;">
+<div id="tabdonate" class="screentab custom-z_depth" data-primarytab="true" data-hasback="false" data-dark="true" data-noright="true" data-title="Support Toast Wallet" style="padding-bottom: 0em;">
    <center>
-    <h1>Toast Wallet</h1>
+    <h1 class="Quicksand-Medium">Toast Wallet</h1>
 
 	<center>
 <p style="text-align:center;">We rely on your contributions to keep Toast Wallet free and running smoothly.</p>
@@ -1567,17 +1570,18 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     <p></p></center></div>
 
 <div id="tablicense" class="screentab" data-primarytab="true" data-hasback="false"  data-dark="true" data-noright="true" data-title="License Agreement" style="display: none;">
-   <center>
-	<div style="padding: 0.4em;background: rgba(255,0,0,0.7);border-radius: 3px;margin-bottom: 1em;">
-		<p>IMPORTANT NOTICE&mdash;</p>
+  
+	<div class="tablicenseImpNote ">
+		<p class="Quicksand-Medium">IMPORTANT NOTICE&mdash;</p>
 		<p>There is a <b><span id="minxrp3">20</span> SYD reserve requirement</b> for all SystemD accounts on the SYD Ledger. When you activate an account you will not get these funds back until the network lowers the reserve requirement.</p>
 		<p>Toast Wallet keeps your data on your devices. It does not send your data back to our servers&mdash;we cannot help you if you lose your phrases or backup.</p>
 	</div>
-    <h1>Toast Wallet</h1>
-
-	<p>This software is licensed under the GPL 2.0 <br><b>without any warranty. Use at own risk.</b></p>
-<p><a href="https://github.com/ToastWallet/core" target="_blank" style="color:lime; ">Tap here to view full source code on GitHub</a></p></center> 
-<blockquote style="font-size:0.8em; text-align:justify;">GNU GENERAL PUBLIC LICENSE
+	<div class="toast-center">
+    	<h1 class="Quicksand-Medium">Toast Wallet</h1>
+		<p>This software is licensed under the GPL 2.0 <br><b>without any warranty. Use at own risk.</b></p>
+		<p><a href="https://github.com/ToastWallet/core" target="_blank" style="color:#10f58a; ">Tap here to view full source code on GitHub</a></p></center> 
+	</div>
+<blockquote class="publiclicense-section">GNU GENERAL PUBLIC LICENSE
 
 Version 2, June 1991
 
@@ -1664,24 +1668,26 @@ NO WARRANTY
 
     END OF TERMS AND CONDITIONS<p></p></blockquote>
 
-<center>
 <p style="text-align:center;">If you understand and agree to the above then choose an option below:</p><br/>
-	<div>
-		<button class="btn btn-success" type="button" id="btnbootstrapsequence" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doResetPin('', function(){showTab('#tabsetpassphrase');}, function(){}, true);})" style="min-width: 20em; ">Create a New Wallet</button>
+	<div class="toast-center licence-buttons">
+		<button class="btn btn-success btnsequencesuccess" type="button" id="btnbootstrapsequence" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doResetPin('', function(){showTab('#tabsetpassphrase');}, function(){}, true);})" style="min-width: 20em; ">Create a New Wallet</button>
 	</div>
 	<br/>
-	<div>
+	<div class="toast-center licence-buttons">
 		<button class="btn btn-info" type="button" id="btnbootstrapsequence" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showTab('#tabrestore2');})" style="min-width: 20em;">Restore an Existing Wallet </button>
 	</div>
 	<br>
-	<div>
+	<div class="toast-center licence-buttons">
 		<button class="btn btn-danger" type="button" id="btnsendofflinetx" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doSubmitOfflineTransaction();})" style="min-width: 20em;">Submit Offline Transaction</button>
 	</div>
 	<br>
 	<p style="text-align:center;">If you do not agree then close and uninstall this application.</p>
 </center>
-    <p><center style="color:white;" data-version="version">Version: 2.4.0</center></p>
-<p><center style="color:white;" class="deviceversion"></center></p>
+<div class="version-details">
+	<p><center style="color:white;" data-version="version">Version: 2.4.0</center></p>
+	<p><center style="color:white;" class="deviceversion"></center></p>
+</div>
+    
 </div>
 
 

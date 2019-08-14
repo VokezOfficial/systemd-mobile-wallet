@@ -401,8 +401,8 @@ div#accdetailsaddressdetails {
 
 
 #showrecoveryphrase {
-    color: blue;
-    font-size: 2em;
+    color: #979797;
+    font-size: 25px;
     text-align: center;
     font-weight: bold;
     border: 1px dashed;
@@ -994,6 +994,7 @@ span.trustline_issuer {
     display: inline-block;
     font-size: 14pt;
     line-height: 26pt;
+    margin-top: 30px;
 }
 #navheader > li > * {
     padding-left: 0.5em;
@@ -1060,7 +1061,7 @@ ul.iosheader > li > * {
     background-repeat: no-repeat;
 }
 .darkbackground2 {
-    background: linear-gradient(45deg, #41a447, rgb(51, 122, 183)), rgb(51, 122, 183);
+    /* background: linear-gradient(45deg, #41a447, rgb(51, 122, 183)), rgb(51, 122, 183); */
     background-repeat: no-repeat;
 }
 
@@ -1230,7 +1231,7 @@ input
     border-radius: 5px;
     height: 330pt;
     padding: 18px 16px 30px;
-    margin-top: 95px;
+    margin-top: 110px;
 }
 #tabaccountdetails.screentab{
     padding: 10px 0;
@@ -1289,7 +1290,7 @@ input
     height: 80px !important;
 }
 #navfooter li {
-    min-width: calc(100%/4);
+    min-width: calc(100%/4.5);
     padding: 1.5em 0.5em 1.5em 0.5em; 
 }
 #accountslist{
@@ -1382,8 +1383,9 @@ input
     height: 36pt;
 }
 .qrBtn{
-    padding: 13px !important;
+    padding: 14px !important;
     background-image: linear-gradient(#76f2fb, #78c8fe); 
+    border: 0;
 }
 #accdetailsnickname.usernick-name {
     color: #fff;
@@ -1526,6 +1528,34 @@ fieldset[disabled] .form-control,
     border: 0;
     text-align: left;
     padding-left: 40px;
+    position: relative;
+}
+#tabsettings .settingsbuttons button:before {
+    content: "";
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 0;
+    background-repeat: no-repeat !important;
+    top: 1px;
+}
+#tabsettings .settingsbuttons button:first-child:before{
+    background: url(../images/icn_support.png); 
+}
+#tabsettings .settingsbuttons button:nth-child(5)::before{
+    background: url(../images/icn_backup_wallet.png); 
+}
+#tabsettings #btnfaq:before{
+    background: url(../images/icn_faq-help.png); 
+}
+#tabsettings #btnsettingschangepassphrase:before{
+    background: url(../images/icn_changepassphrase.png); 
+}
+#tabsettings #btnsettingsresortbackup:before{
+    background: url(../images/icn_restore_wallet.png);
+}
+#tabsettings #btnsettingsofflinetx:before{
+    background: url(../images/icn_submit_oofline_transaction.png);
 }
 #tabconnectionselect .connection-error{
     padding-bottom: 40px;
@@ -1537,7 +1567,8 @@ fieldset[disabled] .form-control,
     border-radius: 50px;
     padding: 17px;
 }
-#btncopyaddress .fa-files-o {
+#btncopyaddress .fa-files-o,
+#btnaddaccount .fa-plus-circle {
     position: relative;
 }
 #btncopyaddress .fa-files-o:before {
@@ -1549,4 +1580,183 @@ fieldset[disabled] .form-control,
     background-repeat: no-repeat;
     top: -15px;
     right: 0;
+}
+#btnaddaccount .fa-plus-circle:before{
+    content: "";
+    position: absolute;
+    background: url(../images/plus.png);
+    width: 26px;
+    height: 26px;
+    background-repeat: no-repeat;
+    right: -7px;
+    top: 13px;
+}
+.appversion-details{
+    font-size: 10px;
+    margin-top: 20px;
+    color: #a7a7a7;
+}
+.appversion-details div{
+    margin-top: 5px;
+}
+#tablicense{
+    z-index: 99;
+    margin-top: 110px;
+    background: #343232;
+}
+.tablicenseImpNote{
+    background-image: linear-gradient(#ff9396, #f0595d);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 1em;
+    margin-top: -9px;
+}
+#tabshowrecovery{
+    z-index: 99;
+    margin-top: 110px;
+}
+.tabshowrecoveryImportant{
+    background-image: linear-gradient(#ff9396, #f0595d);
+    padding: 15px;
+    color: #fff;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+.toast-center{
+    text-align: center;
+}
+.publiclicense-section{
+    font-size: 14px;
+    text-align: justify;
+    background: #525252;
+    border-radius: 15px;
+    padding: 20px;
+    border-left:0;
+}
+.licence-buttons button,
+#tabrestore2Btn,
+#btncorruptionprompt,
+#btnsetpassphrase,
+#btndonatecustom,
+#btndonate0,
+#btncopywallet,
+#btnfinishedsetup{
+    width: 220px;
+    border-radius: 50px;
+    border: 0;
+    padding: 13px;
+}
+#btncopywallet{
+    width: 170px !important;
+}
+#btnbootstrapsequence.btnsequencesuccess,
+#btndonatecustom{
+    background-image: linear-gradient(#63fdab, #10f58a);
+}
+#btnbootstrapsequence,
+#tabrestore2Btn,
+#btncorruptionprompt,
+#btnsetpassphrase,
+#btncopywallet,
+#btnfinishedsetup{
+    background-image: linear-gradient(#76f2fb, #78c8fe); 
+}
+#btnsendofflinetx,
+#btndonate0{
+    background-image: linear-gradient(#ff9396, #f0595d);
+}
+.version-details{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.header-text{
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+#tabpinset1,#tabpinset2,#tablogin{
+    padding-bottom: 0em;
+    background: #343232;
+    width: 100%;
+    margin: 0;
+    height: 100%;
+    z-index: 9999;
+}
+.tabrestore2text{
+    color: #bebebe;
+    padding: 40px 0 30px;
+}
+.tabsubmitofflinetx-content{
+    text-align: left;
+    padding: 40px 0 0;
+}
+#tabcorruptionprompt{
+    z-index: 99;
+    margin-top: 110px;
+}
+.tabcorruptionprompt-text{
+    background-image: linear-gradient(#ff9396, #f0595d);
+    padding: 15px;
+    border-radius: 3px;
+    margin-bottom: 1em;
+}
+input#corruptionpp {
+    margin-bottom: 20px;
+}
+.tabcorruptionprompt-innerdiv{
+    background: #525252;
+    padding: 15px;
+    border-radius: 10px;
+}
+#tabpinset1 .fa-times,
+#tabpinset2 .fa-times{
+    position: relative;
+}
+#tabpinset1 .fa-times:before,
+#tabpinset2 .fa-times:before{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: url(../images/close.png);
+    top: -17px;
+    right: -10px;
+}
+.custom-switch .fa-toggle-off,
+.custom-switch .fa-toggle-on{
+    width: 60px;
+    height: 30px;
+    border-radius: 50px;
+    position: relative;
+}
+.custom-switch .fa-toggle-off{
+    background: #979797;
+}
+.custom-switch .fa-toggle-on{
+    background: #fff;
+}
+.custom-switch .fa-toggle-off:before{
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 26px;
+    background: #000;
+    left: 3px;
+    border-radius: 50%;
+    top: 2px;
+}
+.custom-switch .fa-toggle-on:before{
+    content: "";
+    position: absolute;
+    width: 25px;
+    height: 26px;
+    background-image: linear-gradient(#76f2fb, #78c8fe); 
+    right: 3px;
+    border-radius: 50%;
+    top: 2px;
+}
+textarea#walletbackup{
+    color: #fff;
+    background: transparent;
+    border: 1px dashed #fff;
 }
