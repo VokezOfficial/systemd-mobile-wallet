@@ -464,11 +464,13 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 	<center>
 		<div><button  type="button" class="btn btn-primary" id="btnrevealsecret" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doRevealRippleSecret($('#rsecaccpassword').val(), $('#accdetailssecretaddress').val());})">Reveal SystemD Secret</button></div>
 	</center>
-	<center>
+	<div>
 		<label id="lblaccsecret">Account Secret</label>
-		<input ontouchend="te(event, quickSelectInput)" type="text" id="accsecret" style="color:blue" oninput="$(this).val($(this).data('content'));" >
-	</center>
-	<button  style="display:none;" type="button" id="btncopysecret" class="btn copybtn copybtnaction" data-clipboard-target="#accsecret"><i class="fa fa-files-o" aria-hidden="true"></i></button>
+		<div style="position: relative;">
+			<input ontouchend="te(event, quickSelectInput)" type="text" id="accsecret" oninput="$(this).val($(this).data('content'));" >
+			<button  style="display:none;" type="button" id="btncopysecret" class="btn copybtn copybtnaction" data-clipboard-target="#accsecret"><i class="fa fa-files-o" aria-hidden="true"></i></button>
+		</div>
+	</div>
 	<br>
 	<br>
 	<center><div id="accsecretqr"></div></center>
@@ -589,63 +591,67 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     <label>Account</label>
 	<div id="cafaddress"></div>
     </div>
+	<div class="flagconfirm-wrapper">
+		<div class="paygrouping">
+		<label>Default SystemD</label>
+		<div id="cafdefaultripple"></div>
+		</div>
 
-	<div class="paygrouping">
-    <label>Default SystemD</label>
-	<div id="cafdefaultripple"></div>
-    </div>
+		<div class="paygrouping">
+		<label>Deposit Auth</label>
+		<div id="cafdepositauth"></div>
+		</div>
 
-	<div class="paygrouping">
-    <label>Deposit Auth</label>
-	<div id="cafdepositauth"></div>
-    </div>
+		<div class="paygrouping">
+		<label>Disable Master Key</label>
+		<div id="cafdisablemasterkey"></div>
+		</div>
 
-	<div class="paygrouping">
-    <label>Disable Master Key</label>
-	<div id="cafdisablemasterkey"></div>
-    </div>
+		<div class="paygrouping">
+		<label>Disallow Incoming SYD</label>
+		<div id="cafdisallowincomingxrp"></div>
+		</div>
 
-	<div class="paygrouping">
-    <label>Disallow Incoming SYD</label>
-	<div id="cafdisallowincomingxrp"></div>
-    </div>
+		<div class="paygrouping">
+		<label>Global Freeze</label>
+		<div id="cafglobalfreeze"></div>
+		</div>
 
-	<div class="paygrouping">
-    <label>Global Freeze</label>
-	<div id="cafglobalfreeze"></div>
-    </div>
+		<div class="paygrouping">
+		<label>No Freeze</label>
+		<div id="cafnofreeze"></div>
+		</div>
 
-	<div class="paygrouping">
-    <label>No Freeze</label>
-	<div id="cafnofreeze"></div>
-    </div>
+		<div class="paygrouping">
+		<label>Require Authorization</label>
+		<div id="cafrequireauthorization"></div>
+		</div>
 
-	<div class="paygrouping">
-    <label>Require Authorization</label>
-	<div id="cafrequireauthorization"></div>
-    </div>
+		<div class="paygrouping">
+		<label>Require Destination Tag</label>
+		<div id="cafrequiredestinationtag"></div>
+		</div>
 
-	<div class="paygrouping">
-    <label>Require Destination Tag</label>
-	<div id="cafrequiredestinationtag"></div>
-    </div>
-
-	<div class="paygrouping">
-    <label>These changes require</label>
-	<div id="cafnotransactions"></div>
-    </div>
+		<div class="paygrouping">
+		<label>These changes require</label>
+		<div id="cafnotransactions"></div>
+		</div>
 
 
 
-    <br>
-    <label>Enter your Passphrase</label>    
-    <div class="input-group">
-	<input ontouchend="te(event, quickSelectInput)"  type="password" id="confirmafpassword" class="form-control" placeholder="">
-	<span class="input-group-btn">
-        <button  class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { doConfirmAccountFlags(content);  }  );})" id="btnqrpassconfirmaf" type="button" style="min-width: 5em !important;">QR</button>
-	</span>
-    </div><br>
-	<center><div><button  type="button" class="btn btn-success" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doConfirmAccountFlags($('#confirmafpassword').val());})">Submit Settings</button></div></center>
+		<br>
+		<div style="padding: 0 15px;">
+			<label>Enter your Passphrase</label>    
+			<div class="input-group">
+			<input ontouchend="te(event, quickSelectInput)"  type="password" id="confirmafpassword" class="form-control" placeholder="">
+			<span class="input-group-btn">
+				<button  class="btn btn-info qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { doConfirmAccountFlags(content);  }  );})" id="btnqrpassconfirmaf" type="button" style="min-width: 5em !important;">QR</button>
+			</span>
+			</div>
+		</div>
+		<br>
+		<center><div><button  type="button" class="btn btn-success flagsettings-btn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doConfirmAccountFlags($('#confirmafpassword').val());})">Submit Settings</button></div></center>
+	</div>
 </div>
 
 
@@ -794,39 +800,42 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     <label>Address</label>
 	<div id="ctladdress"></div>
     </div>
+	<div class="tabtrustlineconfirm">
+		<div class="paygrouping">
+		<label>Issuer</label>
+		<div id="ctlissueraddr">&nbsp;</div>
+		</div>
 
-	<div class="paygrouping">
-    <label>Issuer</label>
-	<div id="ctlissueraddr"></div>
-    </div>
+		<div class="paygrouping">
+		<label>Currency</label>
+		<div id="ctlcurrency"></div>
+		</div>
 
-	<div class="paygrouping">
-    <label>Currency</label>
-	<div id="ctlcurrency"></div>
-    </div>
+		<div class="paygrouping">
+		<label>Limit</label>
+		<div id="ctllimit"></div>
+		</div>
 
-	<div class="paygrouping">
-    <label>Limit</label>
-	<div id="ctllimit"></div>
-    </div>
-
-	<div class="paygrouping">
-    <label>Rippling</label>
-	<div id="ctlrippling"></div>
-    </div>
-
-
+		<div class="paygrouping">
+		<label>Rippling</label>
+		<div id="ctlrippling"></div>
+		</div>
 
 
-    <br>
-    <label>Enter your Passphrase</label>    
-    <div class="input-group">
-	<input ontouchend="te(event, quickSelectInput)"  type="password" id="confirmatlpassword" class="form-control" placeholder="">
-	<span class="input-group-btn">
-        <button  class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { doConfirmTrustline(content);  }  );})" id="btnqrpassconfirmatl" type="button" style="min-width: 5em !important;">QR</button>
-	</span>
-    </div><br>
-	<center><div><button  type="button" class="btn btn-success" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doConfirmTrustline($('#confirmatlpassword').val());})">Submit Trustline</button></div></center>
+
+
+		<br>
+		<div style="padding:0 15px">
+			<label>Enter your Passphrase</label>    
+			<div class="input-group">
+				<input ontouchend="te(event, quickSelectInput)"  type="password" id="confirmatlpassword" class="form-control" placeholder="">
+				<span class="input-group-btn">
+					<button  class="btn btn-info qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { doConfirmTrustline(content);  }  );})" id="btnqrpassconfirmatl" type="button" style="min-width: 5em !important;">QR</button>
+				</span>
+			</div>
+		</div><br>
+		<center><div><button  type="button" class="btn btn-success tabtrustlineconfirm-btn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doConfirmTrustline($('#confirmatlpassword').val());})">Submit Trustline</button></div></center>
+	</div>
 </div>
 
 
@@ -934,7 +943,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 <div id="tablogin" class="screentab" data-primarytab="true" data-title="Toast Wallet" data-dark="true" data-recovery="true" style="display: none;">
     
 	<center>
-	<div class="pinpad" style="">
+	<div class="pinpad">
 		<div class="landing-img">
 			<img src="images/logo_systemD.png" alt="landing img">
 		</div>
@@ -968,7 +977,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 <div id="tabpinset1" class="screentab" data-primarytab="false" data-title="Set New PIN"  data-dark="2" data-noright="true" style="display: none;">
     
 	<center>
-	<div class="pinpad" style="">
+	<div class="pinpad">
 		<div class="landing-img">
 			<img src="images/logo_systemD.png" alt="landing img">
 		</div>
@@ -1002,7 +1011,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 <div id="tabpinset2" class="screentab" data-primarytab="false" data-hasback="true"  data-dark="2" data-noright="true" data-title="Repeat New PIN" style="display: none;">
     
 	<center>
-		<div class="pinpad" style="">
+		<div class="pinpad">
 		<div class="landing-img">
 			<img src="images/logo_systemD.png" alt="landing img">
 		</div>
@@ -1439,8 +1448,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 	<label>Scan red QR code</label><div class="input-group">
 	<input ontouchend="te(event, quickSelectInput)" type="text" id="txtredqr" class="form-control" placeholder="">
 	<span class="input-group-btn">
-        <button style="padding:14px !important;" class="btn btn-danger qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('#txtredqrcode', undefined, undefined, (content, intofield1, intofield2, intofield3, after)=>{$('#txtredqr').val(content); doSubmitOfflineTransaction(1, content);}, ()=>{});})" type="button" style="
-">QR</button>
+        <button style="padding:14px !important;" class="btn btn-danger qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('#txtredqrcode', undefined, undefined, (content, intofield1, intofield2, intofield3, after)=>{$('#txtredqr').val(content); doSubmitOfflineTransaction(1, content);}, ()=>{});})" type="button">QR</button>
 	</span>
 	</div>
     </div>
@@ -1453,7 +1461,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 	<label>Press Pay in Offline Wallet then Scan green QR code</label><div class="input-group">
 	<input ontouchend="te(event, quickSelectInput)" type="text" id="txtgreenqr" class="form-control" placeholder="">
 	<span class="input-group-btn">
-		<button class="btn btn-success" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('#txtgreenqr', undefined, undefined, (content, intofield1, intofield2, intofield3, after)=>{$('#txtgreenqr').val(content);doSubmitOfflineTransaction(2, content);}, ()=>{});})" type="button" style="">QR</button>
+		<button class="btn btn-success" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('#txtgreenqr', undefined, undefined, (content, intofield1, intofield2, intofield3, after)=>{$('#txtgreenqr').val(content);doSubmitOfflineTransaction(2, content);}, ()=>{});})" type="button">QR</button>
 	</span>
 	</div>
 </div>
@@ -1709,9 +1717,9 @@ NO WARRANTY
 
 <div class="popup-wrapper" id="popupMessage">
 	<div class="popup-imagewrapper">
-		<img src="images/check-mark.png" alt="popup-img">
+		<img id="popup-imagewrapper" src="images/check-mark.png" alt="popup-img">
 	</div>
-	<div class="popup-status Quicksand-Medium">Success</div>
+	<div id="popup-status" class="popup-status Quicksand-Medium">Success</div>
 	<div class="popup-message" id="popupMessageText">Nickname successfully Updated.</div>
 	<button class="btn-primary popup-btn Quicksand-Medium"  id="popupCloseBtn">OK</button>
 </div>
@@ -2335,7 +2343,20 @@ function doResetPin(passphrase, successfunc, failfunc, firstrun) {
 						// wasn't recovery code either
 
 						unblockInput();
-						navigator.notification.alert('The passphrase or recovery phrase is incorrect.', function(){}, 'Error', 'OK');
+						// navigator.notification.alert('The passphrase or recovery phrase is incorrect.', function(){}, 'Error', 'OK');
+						var  recoveryPhraseStatus = "Error";
+						var recoveryPhraseMess = "The passphrase or recovery phrase is incorrect.";
+						$("#popup-status").text(recoveryPhraseStatus);
+						$("#popupMessageText").text(recoveryPhraseMess);
+						$(".popup-imagewrapper").addClass("bg-danger");
+						$('#popup-imagewrapper').attr('src', 'images/close.png');
+						document.getElementById("popupMessage").style.display = "block";
+						document.getElementById("popupOverlay").style.display = "block";
+						$("#popupCloseBtn").click(function(){
+							$("#popupMessage").hide();
+							$("#popupOverlay").hide();
+							$(".popup-imagewrapper").removeClass("bg-danger");
+						});
 					},
 					s
 				);
@@ -2409,13 +2430,27 @@ function doResetPassphrase(pp1, pp2, oldpp, successfunc, firstrun) {
 	if (debug) console.log("doResetPassphrase");
 	blockInput();
 	if (pp1 != pp2) {
-		navigator.notification.alert("The passphrases do not match.", 
-			function(){
-				unblockInput();
-			}, 
-			"Error", 
-			"OK"
-		);
+		// navigator.notification.alert("The passphrases do not match.", 
+		// 	function(){
+		// 		unblockInput();
+		// 	}, 
+		// 	"Error", 
+		// 	"OK"
+		// );
+		var passMatchStatus = "Error";
+		var passMatchMess = "The passphrases do not match.";
+		$("#popup-status").text(passMatchStatus);
+		$("#popupMessageText").text(passMatchMess);
+		$(".popup-imagewrapper").addClass("bg-danger");
+		$('#popup-imagewrapper').attr('src', 'images/close.png');
+		document.getElementById("popupMessage").style.display = "block";
+		document.getElementById("popupOverlay").style.display = "block";
+		$("#popupCloseBtn").click(function(){
+			$("#popupMessage").hide();
+			$("#popupOverlay").hide();
+			$(".popup-imagewrapper").removeClass("bg-danger");
+			unblockInput();
+		});	
 		return;
 	}
 
@@ -2438,7 +2473,9 @@ function doResetPassphrase(pp1, pp2, oldpp, successfunc, firstrun) {
 			// 		unblockInput();
 			// 		successfunc();
 			// 	}, "Success", "OK");
+			var newPassStatus = "Success";
 			var newPassMess = "Your new passphrase has been set";
+			$("#popup-status").text(newPassStatus);
 			$("#popupMessageText").text(newPassMess);
 			document.getElementById("popupMessage").style.display = "block";
 			document.getElementById("popupOverlay").style.display = "block";
@@ -2462,13 +2499,27 @@ function doResetPassphrase(pp1, pp2, oldpp, successfunc, firstrun) {
 
 					// failure for the second time
 
-					navigator.notification.alert("Old passphrase is incorrect. If you are trying to use recovery phrase you may need to restore backup to PC version first for some devices.", 
-						function(){
-							unblockInput();
-						},
-						"Failure", 
-						"OK"
-					);
+					// navigator.notification.alert("Old passphrase is incorrect. If you are trying to use recovery phrase you may need to restore backup to PC version first for some devices.", 
+					// 	function(){
+					// 		unblockInput();
+					// 	},
+					// 	"Failure", 
+					// 	"OK"
+					// );
+					var oldPassStatus = "Error";
+					var oldPassMess = "Old passphrase is incorrect. If you are trying to use recovery phrase you may need to restore backup to PC version first for some devices.";
+					$("#popup-status").text(oldPassStatus);
+					$("#popupMessageText").text(oldPassMess);
+					$(".popup-imagewrapper").addClass("bg-danger");
+					$('#popup-imagewrapper').attr('src', 'images/close.png');
+					document.getElementById("popupMessage").style.display = "block";
+					document.getElementById("popupOverlay").style.display = "block";
+					$("#popupCloseBtn").click(function(){
+						$("#popupMessage").hide();
+						$("#popupOverlay").hide();
+						$(".popup-imagewrapper").removeClass("bg-danger");
+						unblockInput();
+					});	
 			}, firstrun);
 	},firstrun);
 			
@@ -2673,9 +2724,25 @@ function doDeleteAccount(passphrase, address, toggle) {
 	if (debug) console.log("doDeleteAccount");
 	blockInput();
         if (!toggle) {
-                navigator.notification.alert("You must confirm you wish to DELETE " + address, function(){}, "STOP", "OK");
-		unblockInput();
-                return;
+        //         navigator.notification.alert("You must confirm you wish to DELETE " + address, function(){}, "STOP", "OK");
+		// unblockInput();
+        //         return;
+			var stopDeleteStatus = "STOP";
+			var stopDeleteMess = "You must confirm you wish to DELETE " + address;
+			$("#popup-status").text(stopDeleteStatus);
+			$("#popupMessageText").text(stopDeleteMess);
+			$(".popup-imagewrapper").addClass("bg-danger");
+			$('#popup-imagewrapper').attr('src', 'images/close.png');
+			document.getElementById("popupMessage").style.display = "block";
+			document.getElementById("popupOverlay").style.display = "block";
+			$("#popupCloseBtn").click(function(){
+				// document.getElementById("popupMessage").style.display = "none";
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				$(".popup-imagewrapper").removeClass("bg-danger");
+			});
+			unblockInput();
+			return;
         }
 
 	validatePassphrase( passphrase, false,
@@ -2690,13 +2757,13 @@ function doDeleteAccount(passphrase, address, toggle) {
 					// 	"Success", 
 					// 	"OK"
 					// );
+					var deleteStatus = "Success";
 					var deleteMess = "Account deleted successfully";
+					$("#popup-status").text(deleteStatus);
 					$("#popupMessageText").text(deleteMess);
-					console.log($("#popupMessageText").text(deleteMess));
 					document.getElementById("popupMessage").style.display = "block";
 					document.getElementById("popupOverlay").style.display = "block";
 					$("#popupCloseBtn").click(function(){
-						// document.getElementById("popupMessage").style.display = "none";
 						$("#popupMessage").hide();
 						$("#popupOverlay").hide();
 						showTab("#tabaccounts");
@@ -2715,13 +2782,29 @@ function doDeleteAccount(passphrase, address, toggle) {
 			);
 		},
 		function() {
-			navigator.notification.alert("Your passphrase is incorrect. Recovery phrase cannot be used here.", 
-				function(){
-					unblockInput();
-				}, 
-				"Error", 
-				"OK"
-			);
+			// navigator.notification.alert("Your passphrase is incorrect. Recovery phrase cannot be used here.", 
+			// 	function(){
+			// 		unblockInput();
+			// 	}, 
+			// 	"Error", 
+			// 	"OK"
+			// );
+			var errorPassphraseStatus = "Error";
+			var errorPassphraseMess = "Your passphrase is incorrect. Recovery phrase cannot be used here.";
+			$("#popup-status").text(errorPassphraseStatus);
+			$("#popupMessageText").text(errorPassphraseMess);
+			$(".popup-imagewrapper").addClass("bg-danger");
+			$('#popup-imagewrapper').attr('src', 'images/close.png');
+			document.getElementById("popupMessage").style.display = "block";
+			document.getElementById("popupOverlay").style.display = "block";
+			$("#popupCloseBtn").click(function(){
+				// document.getElementById("popupMessage").style.display = "none";
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				$(".popup-imagewrapper").removeClass("bg-danger");
+				$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
+				unblockInput();
+			});
 		},
 		function() {
 			navigator.notification.alert("Account deletion failed. Your wallet may be corrupted. We recommend making a backup.", 
@@ -2764,14 +2847,31 @@ function doRevealRippleSecret(passphrase, address) {
 
                 },
                 function() {
-                        navigator.notification.alert("Your passphrase was entered incorrectly. Note you cannot use a recovery phrase here.", 
-				function(){
-					$("#genaccpassword").focus();
-					unblockInput();
-				}, 
-				"Error", 
-				"OK"
-			);
+                    // navigator.notification.alert("Your passphrase was entered incorrectly. Note you cannot use a recovery phrase here.", 
+					// function(){
+					// 	alert("45");
+					// 	$("#genaccpassword").focus();
+					// 	unblockInput();
+					// }, 
+					// 	"Error", 
+					// 	"OK"
+					// );
+					var errorSecretStatus = "Error";
+					var errorSecretMess = "Your passphrase was entered incorrectly. Note you cannot use a recovery phrase here.";
+					$("#popup-status").text(errorSecretStatus);
+					$("#popupMessageText").text(errorSecretMess);
+					$(".popup-imagewrapper").addClass("bg-danger");
+					$('#popup-imagewrapper').attr('src', 'images/close.png');
+					document.getElementById("popupMessage").style.display = "block";
+					document.getElementById("popupOverlay").style.display = "block";
+					$("#popupCloseBtn").click(function(){
+						$("#popupMessage").hide();
+						$("#popupOverlay").hide();
+						$(".popup-imagewrapper").removeClass("bg-danger");
+						$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
+						$("#genaccpassword").focus();
+						unblockInput();
+					});
                 },
                 function() {
                         navigator.notification.alert("Your wallet data may have been corrupted. Please backup via the settings menu then restart the app to run data recovery.", 
@@ -4125,14 +4225,30 @@ function doChangeNickname(address, nickname, passphrase) {
 			);
 		},
 		function() {
-			navigator.notification.alert("Your passphrase was entered incorrectly. Note you cannot use a recovery phrase here.", 
-				function(){
-					$("#nickchangepassword").focus();
-					unblockInput();
-				}, 
-				"Error", 
-				"OK"
-			);
+			// navigator.notification.alert("Your passphrase was entered incorrectly. Note you cannot use a recovery phrase here.", 
+			// 	function(){
+			// 		$("#nickchangepassword").focus();
+			// 		unblockInput();
+			// 	}, 
+			// 	"Error", 
+			// 	"OK"
+			// );
+			var errorNicknameStatus = "Error";
+			var errorNicknameeMess = "Your passphrase was entered incorrectly. Note you cannot use a recovery phrase here.";
+			$("#popup-status").text(errorNicknameStatus);
+			$("#popupMessageText").text(errorNicknameeMess);
+			$(".popup-imagewrapper").addClass("bg-danger");
+			$('#popup-imagewrapper').attr('src', 'images/close.png');
+			document.getElementById("popupMessage").style.display = "block";
+			document.getElementById("popupOverlay").style.display = "block";
+			$("#popupCloseBtn").click(function(){
+				// document.getElementById("popupMessage").style.display = "none";
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				$(".popup-imagewrapper").removeClass("bg-danger");
+				$("#nickchangepassword").focus();
+				unblockInput();
+			});
 		},
 		function() {
 			navigator.notification.alert("Your wallet data may have been corrupted. Please backup via the settings menu then restart the app to run data recovery.", 
@@ -4188,14 +4304,31 @@ function doImportGeneratedAccount(passphrase, nickname) {
 			);
 		},
 		function() {
-			navigator.notification.alert("Your passphrase was entered incorrectly. Note you cannot use a recovery phrase here.", 
-				function(){
-					$("#genaccpassword").focus();
-					unblockInput();
-				}, 
-				"Error", 
-				"OK"
-			);
+			// navigator.notification.alert("Your passphrase was entered incorrectly. Note you cannot use a recovery phrase here.", 
+			// 	function(){
+			// 		$("#genaccpassword").focus();
+			// 		unblockInput();
+			// 	}, 
+			// 	"Error", 
+			// 	"OK"
+			// );
+			var errorPassphraseStatus = "Error";
+			var errorPassphraseMess = "Your passphrase was entered incorrectly. Note you cannot use a recovery phrase here.";
+			$("#popup-status").text(errorPassphraseStatus);
+			$("#popupMessageText").text(errorPassphraseMess);
+			$(".popup-imagewrapper").addClass("bg-danger");
+			$('#popup-imagewrapper').attr('src', 'images/close.png');
+			document.getElementById("popupMessage").style.display = "block";
+			document.getElementById("popupOverlay").style.display = "block";
+			$("#popupCloseBtn").click(function(){
+				// document.getElementById("popupMessage").style.display = "none";
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				$(".popup-imagewrapper").removeClass("bg-danger");
+				$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
+				$("#genaccpassword").focus();
+				unblockInput();
+			});
 		},
 		function() {
 			navigator.notification.alert("Your wallet data may have been corrupted. Please backup via the settings menu then restart the app to run data recovery.", 
@@ -4589,7 +4722,24 @@ function doModifyTrustline(nonce) {
 			}, 
 			"Unusual address format", 
 			"OK"
-		);    
+		); 
+		// var errorTrustlineStatus = "Error";
+		// var errorTrustlineMess = "The counterparty / issuer address for the trustline is not a valid SystemD address.";
+		// $("#popup-status").text(errorTrustlineStatus);
+		// $("#popupMessageText").text(errorTrustlineMess);
+		// $(".popup-imagewrapper").addClass("bg-danger");
+		// $('#popup-imagewrapper').attr('src', 'images/close.png');
+		// document.getElementById("popupMessage").style.display = "block";
+		// document.getElementById("popupOverlay").style.display = "block";
+		// $("#popupCloseBtn").click(function(){
+		// 	// document.getElementById("popupMessage").style.display = "none";
+		// 	$("#popupMessage").hide();
+		// 	$("#popupOverlay").hide();
+		// 	$(".popup-imagewrapper").removeClass("bg-danger");
+		// 	$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
+		// 	$("#mtlissueraddr").focus();
+		// 	unblockInput();
+		// });   
     }
 
     if (!validateCurrency(mtlcurrency)) {
@@ -4600,7 +4750,8 @@ function doModifyTrustline(nonce) {
 			}, 
 			"Invalid currency code", 
 			"OK"
-		);    
+		);  
+		  
     }
 
 
@@ -5662,14 +5813,29 @@ function doPay(nonce) {
 
 
 	if (payto == "") {
-		navigator.notification.alert("You must select an address to pay to", 
-			function(){
-				$("#toaddress").focus();
-				unblockInput();
-			}, 
-			"Select a to address", 
-			"OK"
-		);
+		// navigator.notification.alert("You must select an address to pay to", 
+		// 	function(){
+		// 		$("#toaddress").focus();
+		// 		unblockInput();
+		// 	}, 
+		// 	"Select a to address", 
+		// 	"OK"
+		// );
+		var selectAddressStatus = "Error";
+		var selectAddressMess = "You must select an address to pay to";
+		$("#popup-status").text(selectAddressStatus);
+		$("#popupMessageText").text(selectAddressMess);
+		$(".popup-imagewrapper").addClass("bg-danger");
+		$('#popup-imagewrapper').attr('src', 'images/close.png');
+		document.getElementById("popupMessage").style.display = "block";
+		document.getElementById("popupOverlay").style.display = "block";
+		$("#popupCloseBtn").click(function(){
+			$("#popupMessage").hide();
+			$("#popupOverlay").hide();
+			$(".popup-imagewrapper").removeClass("bg-danger");
+			$("#toaddress").focus();
+			unblockInput();
+		});
 		return;
 	}
 
@@ -6030,13 +6196,27 @@ function doRestoreBackup() {
 	if (debug) console.log('doRestoreBackup');
 	blockInput();
 	if ($('#tabrestore .toggleswitch').data('checked') != 'true') {
-		navigator.notification.alert("You must acknowledge that you understand this will DESTROY your current wallet.", 
-			function(){
-				unblockInput();
-			}, 
-			"STOP",
-			"OK"
-		);
+		// navigator.notification.alert("You must acknowledge that you understand this will DESTROY your current wallet.", 
+		// 	function(){
+		// 		unblockInput();
+		// 	}, 
+		// 	"STOP",
+		// 	"OK"
+		// );
+		var restoreWalletStatus = "WARNING";
+		var restoreWalletMess = "You must acknowledge that you understand this will DESTROY your current wallet.";
+		$("#popup-status").text(restoreWalletStatus);
+		$("#popupMessageText").text(restoreWalletMess);
+		$(".popup-imagewrapper").addClass("bg-danger");
+		$('#popup-imagewrapper').attr('src', 'images/close.png');
+		document.getElementById("popupMessage").style.display = "block";
+		document.getElementById("popupOverlay").style.display = "block";
+		$("#popupCloseBtn").click(function(){
+			$("#popupMessage").hide();
+			$("#popupOverlay").hide();
+			$(".popup-imagewrapper").removeClass("bg-danger");
+			unblockInput();
+		});	
 		return;
 	}
 
@@ -6060,9 +6240,10 @@ function doRestoreBackup() {
 					// 	"Success", 
 					// 	"OK"
 					// );
+					var backupsuccessStatus = "Success"
 					var backupsuccessMess = "Backup restored successfully!";
+					$("#popup-status").text(backupsuccessStatus);
 					$("#popupMessageText").text(backupsuccessMess);
-					console.log($("#popupMessageText").text(backupsuccessMess));
 					document.getElementById("popupMessage").style.display = "block";
 					document.getElementById("popupOverlay").style.display = "block";
 					$("#popupCloseBtn").click(function(){
@@ -6074,24 +6255,52 @@ function doRestoreBackup() {
 					});
 				},
 				function() {
-					navigator.notification.alert("Invalid backup. Check that you copied the whole text.",
-						function() {
-							unblockInput();
-						},
-						"Error",
-						"OK"
-					);
+					// navigator.notification.alert("Invalid backup. Check that you copied the whole text.",
+					// 	function() {
+					// 		unblockInput();
+					// 	},
+					// 	"Error",
+					// 	"OK"
+					// );
+					var InvalidBackupStatus = "Error";
+					var InvalidBackupMess = "Invalid backup. Check that you copied the whole text.";
+					$("#popup-status").text(InvalidBackupStatus);
+					$("#popupMessageText").text(InvalidBackupMess);
+					$(".popup-imagewrapper").addClass("bg-danger");
+					$('#popup-imagewrapper').attr('src', 'images/close.png');
+					document.getElementById("popupMessage").style.display = "block";
+					document.getElementById("popupOverlay").style.display = "block";
+					$("#popupCloseBtn").click(function(){
+						$("#popupMessage").hide();
+						$("#popupOverlay").hide();
+						$(".popup-imagewrapper").removeClass("bg-danger");
+						unblockInput();
+					});	
 				}
 			);
 		},
 		function() {
-			navigator.notification.alert("Invalid pass/recovery phrase.",
-				function() {
-					unblockInput();
-				},
-				"Error",
-				"OK"
-			);
+			// navigator.notification.alert("Invalid pass/recovery phrase.",
+			// 	function() {
+			// 		unblockInput();
+			// 	},
+			// 	"Error",
+			// 	"OK"
+			// );
+			var InvalidPassStatus = "Error";
+			var InvalidPassMess = "Invalid pass/recovery phrase.";
+			$("#popup-status").text(InvalidPassStatus);
+			$("#popupMessageText").text(InvalidPassMess);
+			$(".popup-imagewrapper").addClass("bg-danger");
+			$('#popup-imagewrapper').attr('src', 'images/close.png');
+			document.getElementById("popupMessage").style.display = "block";
+			document.getElementById("popupOverlay").style.display = "block";
+			$("#popupCloseBtn").click(function(){
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				$(".popup-imagewrapper").removeClass("bg-danger");
+				unblockInput();
+			});	
 		},
 		f // if no passphrase is set then we can restore the wallet
 	);
@@ -6630,7 +6839,9 @@ function changeNickname(address, nickname, successfunc, failurefunc) {
 
 		db.upsert("accounts", function(doc) { return { data: JSON.stringify(accounts)}; }).then(function(x){
 			// navigator.notification.alert("Nickname successfully updated.", function(){}, "Success", "OK");
+			var nicknameStatus = "Success"
 			var nicknameMess = "Nickname successfully updated.";
+			$("#popup-status").text(nicknameStatus);
 			$("#popupMessageText").text(nicknameMess);
 			document.getElementById("popupMessage").style.display = "block";
 			document.getElementById("popupOverlay").style.display = "block";
@@ -6752,8 +6963,19 @@ function importAddress(secret, address, nickname, passphrase, successfunc, failu
 				};
 
 				db.upsert("accounts", function(doc) { return { data: JSON.stringify(accounts)}; }).then(function(x){
-					navigator.notification.alert("SystemD address added successfully.", function(){}, "Success", "OK");
-					successfunc();
+					// navigator.notification.alert("SystemD address added successfully.", function(){}, "Success", "OK");
+					// successfunc();
+					var addAccountStatus = "Success";
+					var addAccountMess = "SystemD address added successfully.";
+					$("#popup-status").text(addAccountStatus);
+					$("#popupMessageText").text(addAccountMess);
+					document.getElementById("popupMessage").style.display = "block";
+					document.getElementById("popupOverlay").style.display = "block";
+					$("#popupCloseBtn").click(function(){
+						$("#popupMessage").hide();
+						$("#popupOverlay").hide();
+						successfunc();
+					});
 				}).catch(function(x){
 					navigator.notification.alert("Failed to add address.", function(){}, "Error", "OK");
 					failurefunc();

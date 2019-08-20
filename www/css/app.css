@@ -68,20 +68,21 @@ textarea {
     min-height: 4em;
 }
 #generatedaddress, #accdetailssecretaddress, #accsecret, #accdetailsaddress {
-    font-size: 1.2em !important;
+    font-size: 15px !important;
     /* color: black; */
     color :#979797;
     border: 1px dashed#979797;
     box-shadow: none;
-    text-align: center;
+    /* text-align: center; */
     overflow-wrap: break-word;
-    padding: 0.2em;
+    padding: 10px;
 /*    display: inline-block; */
     max-width: 100%;
     overflow: hidden;
     text-overflow: clip;
     word-wrap: break-word;
     width: 100%;
+    background: transparent;
 }
 #generatedaddress {
 	position:relative;
@@ -1453,7 +1454,7 @@ input
     color: #979797;
     background: transparent;
     padding: 10pt;
-    font-size: 12px !important;
+    font-size: 15px !important;
     text-align: left;
 }
 .form-control[disabled],
@@ -1515,9 +1516,9 @@ fieldset[disabled] .form-control,
 #acc_deleteaddress{
     background-image: linear-gradient(#ff9396, #f0595d);
 }
-#tabaccountsecret.screentab{
+/* #tabaccountsecret.screentab{
     height: 300px;
-}
+} */
 #tabaddtrustline #btnaddtrustline{
     min-width: 14em;
     padding: 13px;
@@ -1530,6 +1531,7 @@ fieldset[disabled] .form-control,
     text-align: left;
     padding-left: 40px;
     position: relative;
+    width: 100%;
 }
 #tabsettings .settingsbuttons button:before {
     content: "";
@@ -1643,7 +1645,9 @@ fieldset[disabled] .form-control,
 #btncopywallet,
 #btnfinishedsetup,
 .restorewallet-btn,
-.sendconfirm-btn{
+.sendconfirm-btn,
+.flagsettings-btn,
+.tabtrustlineconfirm-btn{
     width: 220px;
     border-radius: 50px;
     border: 0;
@@ -1663,11 +1667,14 @@ fieldset[disabled] .form-control,
 #btncopywallet,
 #btnfinishedsetup,
 .restorewallet-btn,
-.sendconfirm-btn{
+.sendconfirm-btn,
+.flagsettings-btn,
+.tabtrustlineconfirm-btn{
     background-image: linear-gradient(#76f2fb, #78c8fe); 
 }
 #btnsendofflinetx,
-#btndonate0{
+#btndonate0,
+.popup-imagewrapper.bg-danger{
     background-image: linear-gradient(#ff9396, #f0595d);
 }
 .version-details{
@@ -1794,6 +1801,7 @@ textarea#walletbackup{
 }
 .popup-message{
     margin-bottom: 20px;
+    word-break: break-word;
 }
 .popup-btn{
     padding: 10px;
@@ -1812,12 +1820,16 @@ textarea#walletbackup{
     z-index: 99999;
     display: none;
 }
-#tabpaymentconfirm{
+#tabpaymentconfirm,
+#tabaccountflagsconfirm,
+#tabtrustlineconfirm{
     padding-bottom: 4em;
     z-index: 99;
     margin-top: 110px;
 }
-#tabpaymentconfirm > .paygrouping{
+#tabpaymentconfirm > .paygrouping,
+#tabaccountflagsconfirm > .paygrouping,
+#tabtrustlineconfirm > .paygrouping{
     background: #525252;
     padding: 10px 15px;
     border-radius: 10px;
@@ -1825,17 +1837,25 @@ textarea#walletbackup{
     display: flex;
     align-items: center;
     margin-top: 25px;
+    justify-content: space-between;
 }
-#tabpaymentconfirm #confirmpayfromaccount{
-    overflow: hidden !important;
+#tabpaymentconfirm #confirmpayfromaccount,
+#tabaccountflagsconfirm .flagconfirm-wrapper,
+#tabtrustlineconfirm .tabtrustlineconfirm{
+    overflow: auto !important;
     white-space: nowrap;
+    height: 64%;
 }
-.confirmsend-wrapper{
+.confirmsend-wrapper,
+.flagconfirm-wrapper,
+.tabtrustlineconfirm{
     background: #525252;
     border-radius: 10px;
     padding-bottom: 20px;
 }
-.confirmsend-wrapper .paygrouping{
+.confirmsend-wrapper .paygrouping,
+.flagconfirm-wrapper .paygrouping,
+.tabtrustlineconfirm .paygrouping{
     border-bottom: 1px solid #bebebe80;
     padding: 15px 20px;
     margin-bottom: 0;
@@ -1847,4 +1867,29 @@ textarea#walletbackup{
     position: absolute;
     bottom: 25%;
     right: 50%;
+}
+#cafaddress,
+#ctladdress{
+    overflow: hidden;
+    white-space: nowrap;
+}
+#btncopysecret{
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: transparent;
+    color: #979797;
+}
+#btncopysecret .fa-files-o{
+    position: relative;
+}
+#btncopysecret .fa-files-o:before{
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 19px;
+    background: url(../images/icn_copy.png);
+    background-repeat: no-repeat;
+    top: -15px;
+    right: 0;
 }
