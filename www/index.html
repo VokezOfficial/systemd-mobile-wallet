@@ -391,11 +391,11 @@
     </div>
 </div>
 
-<div id="tabrestore" class="screentab" data-primarytab="false" data-hasback="true" data-title="Restore Wallet" style="display: none;">  
-    <p style="color:black; text-align:justify;">To restore a previously backed up wallet paste it below. This will DESTROY any data in your current wallet and cannot be undone. Further, this will restore your PIN, passphrase and recovery phrase AT THE TIME THE BACKUP WAS MADE.</p>
+<div id="tabrestore" class="screentab custom-z_depth" data-primarytab="false" data-hasback="true" data-title="Restore Wallet" style="display: none;">  
+    <p style=" text-align:justify;">To restore a previously backed up wallet paste it below. This will DESTROY any data in your current wallet and cannot be undone. Further, this will restore your PIN, passphrase and recovery phrase AT THE TIME THE BACKUP WAS MADE.</p>
     <div>
     <label>Backup code</label>
-    <input ontouchend="te(event, quickSelectInput)" type="text" class="form-control" id="restorebackup" style="color:black">
+    <input ontouchend="te(event, quickSelectInput)" type="text" class="form-control" id="restorebackup">
     </div>
     <br>
 	<div>
@@ -403,20 +403,20 @@
     <div class="input-group">
 	<input ontouchend="te(event, quickSelectInput)"  id="restorepassword" type="password" class="form-control" placeholder="">
 	<span class="input-group-btn">
-        <button  class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#restorepassword').val(content) } )})"  type="button" style="min-width: 5em !important;">QR</button>
+        <button  class="btn btn-info qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#restorepassword').val(content) } )})"  type="button" style="min-width: 5em !important;">QR</button>
 	</span>
     </div>
     </div>
     <br>
-    <p style="color:black;">
-    	<span class="toggleswitch"><i class="fa fa-toggle-off" aria-hidden="true"></i></span>
-	I understand this will <b style="color:red;">DESTROY</b> my current wallet.
+    <p>
+    	<span class="toggleswitch custom-switch"><i class="fa fa-toggle-off" aria-hidden="true"></i></span>
+	I understand this will <b>DESTROY</b> my current wallet.
     </p>
     <br> 
     <div align="center">
     
     
-    <button  class="btn btn-danger" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doRestoreBackup();})">Restore Backup</button></div>
+    <button  class="btn btn-danger restorewallet-btn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doRestoreBackup();})">Restore Backup</button></div>
 </div>
 <div id="tabshowrecovery" class="screentab" data-title="Your Recovery Phrase" data-primarytab="true" data-hasback="false" data-noright="true" style="display: none;">
 <div class="tabshowrecoveryImportant">
@@ -935,6 +935,9 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     
 	<center>
 	<div class="pinpad" style="">
+		<div class="landing-img">
+			<img src="images/logo_systemD.png" alt="landing img">
+		</div>
 		<div class="pass-title Quicksand-Medium">Enter Passcode</div>
 	    <div class="pinnumber">
 	    <i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;
@@ -966,6 +969,9 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     
 	<center>
 	<div class="pinpad" style="">
+		<div class="landing-img">
+			<img src="images/logo_systemD.png" alt="landing img">
+		</div>
 		<div class="Quicksand-Medium header-text">Set New PIN</div>
 	    <div class="pinnumber">
 	    <i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;
@@ -997,6 +1003,9 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     
 	<center>
 		<div class="pinpad" style="">
+		<div class="landing-img">
+			<img src="images/logo_systemD.png" alt="landing img">
+		</div>
 		<div class="Quicksand-Medium header-text">Repeat PIN</div>
 	    <div class="pinnumber">
 	    <i class="fa fa-circle-thin" aria-hidden="true"></i>&nbsp;
@@ -1041,15 +1050,15 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 	</center>
 </div>
 
-<div id="tabchangepassphrase" class="screentab" data-hasback="true" data-title="Change Passphrase" style="display:none">
+<div id="tabchangepassphrase" class="screentab custom-z_depth" data-hasback="true" data-title="Change Passphrase" style="display:none">
 	<br><label>Current Passphrase or Recovery Phrase</label>
     <div class="input-group">
 	<input ontouchend="te(event, quickSelectInput)"  id="setpassword3" type="password" class="form-control" placeholder="">
 	<span class="input-group-btn">
-        <button  class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#setpassword3').val(content) } )})"  type="button" style="min-width: 5em !important;">QR</button>
+        <button  class="btn btn-info qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { $('#setpassword3').val(content) } )})"  type="button" style="min-width: 5em !important;">QR</button>
 	</span>
     </div>
-	<div style="text-align:center; color:black;">If you are using your recovery phrase please ensure it is all lower case with a single space between each word and no spaces at either end.</div>
+	<div style="margin-top: 10px;">If you are using your recovery phrase please ensure it is all lower case with a single space between each word and no spaces at either end.</div>
 	<br><label>New Passphrase</label>
 	<div>
 	<input ontouchend="te(event, quickSelectInput)"  type="password" id="setpassword4" class="form-control" placeholder="">
@@ -1291,41 +1300,45 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
     <label>From Account</label>
 	<div id="confirmpayfromaccount"></div>
     </div>
-    <div class="paygrouping">
-	<label>To Address</label>
-	<div id="confirmpaytoaddress"></div>
-    </div>
-    <div class="paygrouping">
-	<label>Destination Tag</label>
-	<div id="confirmdesttag"></div>
-    </div>
-    <div class="paygrouping">
-	<label>Invoice ID</label>
-	<div id="confirminvoiceid"></div>
-    </div>
-    <div class="paygrouping">
-    <label>Currency</label>
-    <div id="confirmasset"></div>
-    </div>
+	<div class="confirmsend-wrapper">
+		<div class="paygrouping">
+		<label>To Address</label>
+		<div id="confirmpaytoaddress"></div>
+		</div>
+		<div class="paygrouping">
+		<label>Destination Tag</label>
+		<div id="confirmdesttag"></div>
+		</div>
+		<div class="paygrouping">
+		<label>Invoice ID</label>
+		<div id="confirminvoiceid"></div>
+		</div>
+		<div class="paygrouping">
+		<label>Currency</label>
+		<div id="confirmasset"></div>
+		</div>
 
-    <div class="paygrouping" id="confirmissuerpaygroup">
-    <label>Issuer</label>
-    <div id="confirmissuer"></div>
-    </div>
+		<div class="paygrouping" id="confirmissuerpaygroup">
+		<label>Issuer</label>
+		<div id="confirmissuer"></div>
+		</div>
 
-    <div class="paygrouping">
-	<label>Amount</label>
-	
-    <div id="confirmpayamount"></div></div>
-    <br>
-    <label>Enter your Passphrase</label>    
-    <div class="input-group">
-	<input ontouchend="te(event, quickSelectInput)"  type="password" id="confirmpaypassword" class="form-control" placeholder="">
-	<span class="input-group-btn">
-        <button  class="btn btn-info" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { doConfirmPay(content);  }  );})" id="btnqrpassconfirmpay" type="button" style="min-width: 5em !important;">QR</button>
-	</span>
-    </div><br>
-	<center><div><button  type="button" class="btn btn-success" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doConfirmPay($('#confirmpaypassword').val());})">Confirm Payment</button></div></center>
+		<div class="paygrouping">
+		<label>Amount</label>
+		
+		<div id="confirmpayamount"></div></div>
+		<br>
+		<div style="padding: 0 15px;">
+			<label>Enter your Passphrase</label>    
+			<div class="input-group">
+			<input ontouchend="te(event, quickSelectInput)"  type="password" id="confirmpaypassword" class="form-control" placeholder="">
+			<span class="input-group-btn">
+				<button  class="btn btn-info qrBtn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{scanQR('', '', '', (content, intofield1, intofield2, intofield3, after) => { doConfirmPay(content);  }  );})" id="btnqrpassconfirmpay" type="button" style="min-width: 5em !important;">QR</button>
+			</span>
+		</div>
+		</div><br>
+		<center><div><button  type="button" class="btn btn-success sendconfirm-btn" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doConfirmPay($('#confirmpaypassword').val());})">Confirm Payment</button></div></center>
+	</div>
 </div>
 
 <div id="tabgreenqr" class="screentab" data-primarytab="true" data-title="Offline Transaction" style="display:none">
@@ -1380,8 +1393,8 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 	<input ontouchend="te(event, quickSelectInput)"  type="text" id="invoiceid" class="form-control" placeholder="Only if provided by receiver">
 	</div>
 	<br />
-    <div style="color:black;">
-    	<span class="toggleswitch"  data-after="onToggleIssueOwnCurrency();" id="tglIssueOwnCurrency"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div style="line-height: 2.5em; font-weight: bold;">Issue Own Currency</div>
+    <div>
+    	<span class="toggleswitch custom-switch"  data-after="onToggleIssueOwnCurrency();" id="tglIssueOwnCurrency"><i class="fa fa-toggle-off" aria-hidden="true"></i></span><div style="line-height: 2.5em; font-weight: bold;">Issue Own Currency</div>
         <p>DefaultRipple must be enabled to allow peer to peer transfer of your currency.</p>
     </div>    
 	<br />    
@@ -1416,6 +1429,10 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 
 <div id="tabsubmitofflinetx" class="screentab custom-z_depth" data-primarytab="false" data-hasback="true" data-dark="false" data-noright="true" data-title="Offline Transaction" style="padding-bottom: 0em;">
 	<center>
+		<div class="tabsubmitofflinetx-imagewrapper">
+			<img src="images/image_offlinetransaction.png" alt="image_offlinetransaction">
+			<img class="no-wifi-img" src="images/no-wifi.png" alt="no-wifi">
+		</div>
 		<p class="tabsubmitofflinetx-content">Open Toast Wallet 2.2.0 or newer on your offline device and use the send tab to create a payment then follow the steps below to submit the payment.</p><br>
 	</center>
     <div id="submitofflinetxstep1">
@@ -1442,7 +1459,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 </div>
 </div>
 
-<div id="tabconnectionselect" class="screentab" data-primarytab="true" data-hasback="false" data-dark="true" data-noright="true" data-title="Connection Issue" style="padding-bottom: 0em;">
+<div id="tabconnectionselect" class="screentab custom-z_depth" data-primarytab="true" data-hasback="false" data-dark="true" data-noright="true" data-title="Connection Issue" style="padding-bottom: 0em;">
     <center>
         <h1>Connection Issue</h1>
 	<p>Toast Wallet is unable to connect either because your device has no network connectivity, or because the public gateway servers Toast Wallet uses to connect to the SYD Ledger are down or under heavy load&mdash;this has nothing to do with the SYD Ledger itself, only the servers that Toast Wallet uses to <i>access</i> the network.</p><br>
@@ -1689,6 +1706,16 @@ NO WARRANTY
 </div>
     
 </div>
+
+<div class="popup-wrapper" id="popupMessage">
+	<div class="popup-imagewrapper">
+		<img src="images/check-mark.png" alt="popup-img">
+	</div>
+	<div class="popup-status Quicksand-Medium">Success</div>
+	<div class="popup-message" id="popupMessageText">Nickname successfully Updated.</div>
+	<button class="btn-primary popup-btn Quicksand-Medium"  id="popupCloseBtn">OK</button>
+</div>
+<div id="popupOverlay"></div>
 
 
 <ul id="navheader" style="display:none"><li class="headerleft"></li><li class="headermiddle"></li><li class="headerright"><i class="fa fa-lock" aria-hidden="true"></i></li></ul>
@@ -2406,11 +2433,22 @@ function doResetPassphrase(pp1, pp2, oldpp, successfunc, firstrun) {
 	
 	var setsuccess = function() {
 			//success
-			navigator.notification.alert("Your new passphrase has been set", 
-				function(){
-					unblockInput();
-					successfunc();
-				}, "Success", "OK");
+			// navigator.notification.alert("Your new passphrase has been set", 
+			// 	function(){
+			// 		unblockInput();
+			// 		successfunc();
+			// 	}, "Success", "OK");
+			var newPassMess = "Your new passphrase has been set";
+			$("#popupMessageText").text(newPassMess);
+			document.getElementById("popupMessage").style.display = "block";
+			document.getElementById("popupOverlay").style.display = "block";
+			$("#popupCloseBtn").click(function(){
+				// document.getElementById("popupMessage").style.display = "none";
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				unblockInput();
+				successfunc();
+			});		
 		};
 
 	setPassphrase(pp1, oldpp, false, setsuccess, function() {
@@ -2644,14 +2682,26 @@ function doDeleteAccount(passphrase, address, toggle) {
 		function() {
 			removeSecret(address, 
 				function() { 
-					navigator.notification.alert("Account deleted successfully", 
-						function(){
-							showTab("#tabaccounts");
-							unblockInput();
-						}, 
-						"Success", 
-						"OK"
-					);
+					// navigator.notification.alert("Account deleted successfully", 
+					// 	function(){
+					// 		showTab("#tabaccounts");
+					// 		unblockInput();
+					// 	}, 
+					// 	"Success", 
+					// 	"OK"
+					// );
+					var deleteMess = "Account deleted successfully";
+					$("#popupMessageText").text(deleteMess);
+					console.log($("#popupMessageText").text(deleteMess));
+					document.getElementById("popupMessage").style.display = "block";
+					document.getElementById("popupOverlay").style.display = "block";
+					$("#popupCloseBtn").click(function(){
+						// document.getElementById("popupMessage").style.display = "none";
+						$("#popupMessage").hide();
+						$("#popupOverlay").hide();
+						showTab("#tabaccounts");
+						unblockInput();
+					});
 				}, 
 				function() {
 					navigator.notification.alert("Account deletion failed. Your wallet may be corrupted. We recommend making a backup.", 
@@ -3887,7 +3937,7 @@ function showTab(tab, dontClearText) {
 	if (tab == '#tabpayments') {
 		var to = $('#toaddress').val();
 		if (to == 'rToastMYRQh8boeo5Ys1CnPySmt3c9x3Y') {
-			$('#toaddress').css('background-color', 'rgba(92, 184, 104, 0.63)');
+			// $('#toaddress').css('background-color', 'rgba(92, 184, 104, 0.63)');
 			$('#toaddress').css('color', 'white');
 			$('#toaddress').attr('readonly', 'readonly');
 			$('#btnqrpay').attr('ontouchend', null);
@@ -6002,14 +6052,26 @@ function doRestoreBackup() {
 						function(doc) {
 							return { data: JSON.stringify({"lastreminder": "" + Math.floor(new Date().getTime()/1000) })	}; 
 					});
-					navigator.notification.alert("Backup restored successfully!", 
-						function() {
-							unblockInput();
-							doShowLogin();
-						}, 
-						"Success", 
-						"OK"
-					);
+					// navigator.notification.alert("Backup restored successfully!", 
+					// 	function() {
+					// 		unblockInput();
+					// 		doShowLogin();
+					// 	}, 
+					// 	"Success", 
+					// 	"OK"
+					// );
+					var backupsuccessMess = "Backup restored successfully!";
+					$("#popupMessageText").text(backupsuccessMess);
+					console.log($("#popupMessageText").text(backupsuccessMess));
+					document.getElementById("popupMessage").style.display = "block";
+					document.getElementById("popupOverlay").style.display = "block";
+					$("#popupCloseBtn").click(function(){
+						// document.getElementById("popupMessage").style.display = "none";
+						$("#popupMessage").hide();
+						$("#popupOverlay").hide();
+						unblockInput();
+						doShowLogin();
+					});
 				},
 				function() {
 					navigator.notification.alert("Invalid backup. Check that you copied the whole text.",
@@ -6567,8 +6629,19 @@ function changeNickname(address, nickname, successfunc, failurefunc) {
 		accounts[address].nickname = nickname;
 
 		db.upsert("accounts", function(doc) { return { data: JSON.stringify(accounts)}; }).then(function(x){
-			navigator.notification.alert("Nickname successfully updated.", function(){}, "Success", "OK");
-			successfunc();
+			// navigator.notification.alert("Nickname successfully updated.", function(){}, "Success", "OK");
+			var nicknameMess = "Nickname successfully updated.";
+			$("#popupMessageText").text(nicknameMess);
+			document.getElementById("popupMessage").style.display = "block";
+			document.getElementById("popupOverlay").style.display = "block";
+			
+			$("#popupCloseBtn").click(function(){
+				// document.getElementById("popupMessage").style.display = "none";
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				successfunc();
+			});
+			// successfunc();
 		}).catch(function(x){
 			navigator.notification.alert("Failed to change nickname.", function(){}, "Error", "OK");
 			failurefunc();
