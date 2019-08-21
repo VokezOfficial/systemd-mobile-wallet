@@ -22,7 +22,18 @@
 	<script src="js/rippleutils-build.js"></script>
 	<script src="js/customJ-jquery.js"></script>
     
-	<script>if (window.module) module = window.module;
+	<script>
+	var isFinal = false;
+		$( document ).ready(function() {
+			$("#splash-screen").show();
+			setTimeout(function(){
+				$("#splash-screen").hide();
+			}, 3000);
+			
+		});
+	
+	
+	if (window.module) module = window.module;
 
         function blockInput(noloading) {
             $("#inputblocker").show();
@@ -442,7 +453,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 
 <div id="tabaccounts" class="screentab" data-title="Accounts" data-primarytab="true" style="display:none">
 	<ul class="list-group" id="accountslist">
-	<li class="list-group-item bottom-list-button" id="btnaddaccount" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showTab('#tabaddaccount');})"><a href="#"><i class="fa fa-plus-circle" style="font-size: 2.7em" aria-hidden="true"></i></a></li>
+	<!--<li class="list-group-item bottom-list-button" id="btnaddaccount" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showTab('#tabaddaccount');})"><a href="#"><i class="fa fa-plus-circle" style="font-size: 2.7em" aria-hidden="true"></i></a></li>-->
 	</ul>
 </div>
 
@@ -1722,8 +1733,20 @@ NO WARRANTY
 	<div id="popup-status" class="popup-status Quicksand-Medium">Success</div>
 	<div class="popup-message" id="popupMessageText">Nickname successfully Updated.</div>
 	<button class="btn-primary popup-btn Quicksand-Medium"  id="popupCloseBtn">OK</button>
+	<button class="btn-primary popup-btn Quicksand-Medium"  id="popupCancelBtn">Cancel</button>
 </div>
 <div id="popupOverlay"></div>
+
+<div class="landing-wrapper" id="splash-screen">
+	<div class="landing-header"></div>
+		<div class="landing-image-container">
+			<img src="images/logo_systemD.png" alt="splash-image">
+		</div>
+</div>
+<div style="position: relative;">
+	<div class="list-group-item bottom-list-button" id="btnaddaccount" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showTab('#tabaddaccount');})"><a href="#"><i class="fa fa-plus-circle" style="font-size: 2.7em" aria-hidden="true"></i></a></div>
+	<div></div>
+</div>
 
 
 <ul id="navheader" style="display:none"><li class="headerleft"></li><li class="headermiddle"></li><li class="headerright"><i class="fa fa-lock" aria-hidden="true"></i></li></ul>
@@ -2184,13 +2207,29 @@ function showAccountFlags(account) {
         // flip the switch back -- they can't change this setting on this screen
         setToggleSwitch('#tglDisableMasterKey',  checked);
 
-        return 	navigator.notification.alert("Master key cannot be enabled or disabled here, it is shown for information only. Please use Rekey in the Account Details screen instead.", 
-            function(){
-                unblockInput();
-            }, 
-            "WARNING", 
-            "OK"
-        );                
+        // return 	navigator.notification.alert("Master key cannot be enabled or disabled here, it is shown for information only. Please use Rekey in the Account Details screen instead.", 
+        //     function(){
+        //         unblockInput();
+        //     }, 
+        //     "WARNING", 
+        //     "OK"
+        // );   
+		var masterKeyStatus = "WARNING";
+		var masterKeyMess = "Master key cannot be enabled or disabled here, it is shown for information only. Please use Rekey in the Account Details screen instead.";
+		$("#popup-status").text(masterKeyStatus);
+		$("#popupMessageText").text(masterKeyMess);
+		$(".popup-imagewrapper").addClass("bg-danger");
+		$('#popup-imagewrapper').attr('src', 'images/close.png');
+		document.getElementById("popupMessage").style.display = "block";
+		document.getElementById("popupOverlay").style.display = "block";
+		$("#popupCloseBtn").click(function(){
+			$("#popupMessage").hide();
+			$("#popupOverlay").hide();
+			$(".popup-imagewrapper").removeClass("bg-danger");
+			$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
+			lasttrustlinenonce = "";
+			unblockInput();
+		});             
 
     });
    
@@ -2849,7 +2888,6 @@ function doRevealRippleSecret(passphrase, address) {
                 function() {
                     // navigator.notification.alert("Your passphrase was entered incorrectly. Note you cannot use a recovery phrase here.", 
 					// function(){
-					// 	alert("45");
 					// 	$("#genaccpassword").focus();
 					// 	unblockInput();
 					// }, 
@@ -4440,22 +4478,56 @@ function doConfirmPay(passphrase) {
 									});
 								});
 							} else {
-								navigator.notification.alert("Your payment was successfully " + ( wasqueued ? "queued, and will be sent shortly." : "sent." ), 
-									function(){
-										clearPaymentScreen();
-										showTab("#tabaccounts");
-										unblockInput();
-									}, "Success", "OK"); 
-								}
+								// navigator.notification.alert("Your payment was successfully " + ( wasqueued ? "queued, and will be sent shortly." : "sent." ), 
+								// 	function(){
+								// 		clearPaymentScreen();
+								// 		showTab("#tabaccounts");
+								// 		unblockInput();
+								// 	}, "Success", "OK"); 
+									var paymentStatus = "Success";
+									var paymentMess = "Your payment was successfully " + ( wasqueued ? "queued, and will be sent shortly." : "sent.");
+									$("#popup-status").text(paymentStatus);
+									$("#popupMessageText").text(paymentMess);
+									document.getElementById("popupMessage").style.display = "block";
+									document.getElementById("popupOverlay").style.display = "block";
+									setTimeout(function(){
+										$("#popupCloseBtn").on("click",() => {
+											$("#popupMessage").hide();
+											$("#popupOverlay").hide();
+											clearPaymentScreen();
+											showTab("#tabaccounts");
+											unblockInput();
+										});
+									}, 1000); 
+								}	
 						}, 
 						function(err) {
-							navigator.notification.alert("An error occured when trying to make your payment. This can occur if the gateways Toast Wallet connects to are overloaded, it can also occur if your payment details are incorrect or the receiving address has not been activated. " + err, 
-							function(){
-								lastpaidnonce = "";
-								showTab(-1);
-								unblockInput();
-							}, 
-							"Error", "OK");
+							// navigator.notification.alert("An error occured when trying to make your payment. This can occur if the gateways Toast Wallet connects to are overloaded, it can also occur if your payment details are incorrect or the receiving address has not been activated. " + err, 
+							// function(){
+							// 	lastpaidnonce = "";
+							// 	showTab(-1);
+							// 	unblockInput();
+							// }, 
+							// "Error", "OK");
+							var errorOccuredStatus = "Error";
+							var errorOccuredMess = "An error occured when trying to make your payment. This can occur if the gateways Toast Wallet connects to are overloaded, it can also occur if your payment details are incorrect or the receiving address has not been activated. " + err;
+							$("#popup-status").text(errorOccuredStatus);
+							$("#popupMessageText").text(errorOccuredMess);
+							$(".popup-imagewrapper").addClass("bg-danger");
+							$('#popup-imagewrapper').attr('src', 'images/close.png');
+							document.getElementById("popupMessage").style.display = "block";
+							document.getElementById("popupOverlay").style.display = "block";
+							setTimeout(function(){
+								$("#popupCloseBtn").on("click",() => {
+									$("#popupMessage").hide();
+									$("#popupOverlay").hide();
+									$(".popup-imagewrapper").removeClass("bg-danger");
+									$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
+									lastpaidnonce = "";
+									showTab(-1);
+									unblockInput();
+								});
+							}, 1000); 
 						}
 					);
 				}
@@ -4464,6 +4536,7 @@ function doConfirmPay(passphrase) {
 		function() { 
 			navigator.notification.alert("Your passphrase is incorrect. You cannot use a recoveryphrase here.", 
 				function(){
+					alert("1");
 					lastpaidnonce = "";
 					unblockInput();
 				},				
@@ -4547,13 +4620,29 @@ function doConfirmAccountFlags(passphrase) {
 			);
 		},
 		function() { 
-			navigator.notification.alert("Your passphrase is incorrect. You cannot use a recoveryphrase here.", 
-				function(){
-					lasttrustlinenonce = "";
-					unblockInput();
-				},				
-				"Error", "OK"
-			);
+			// navigator.notification.alert("Your passphrase is incorrect. You cannot use a recoveryphrase here.", 
+			// 	function(){
+			// 		lasttrustlinenonce = "";
+			// 		unblockInput();
+			// 	},				
+			// 	"Error", "OK"
+			// );
+			var incorrectPassStatus = "Error";
+			var incorrectPassMess = "Your passphrase is incorrect. You cannot use a recoveryphrase here.";
+			$("#popup-status").text(incorrectPassStatus);
+			$("#popupMessageText").text(incorrectPassMess);
+			$(".popup-imagewrapper").addClass("bg-danger");
+			$('#popup-imagewrapper').attr('src', 'images/close.png');
+			document.getElementById("popupMessage").style.display = "block";
+			document.getElementById("popupOverlay").style.display = "block";
+			$("#popupCloseBtn").click(function(){
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				$(".popup-imagewrapper").removeClass("bg-danger");
+				$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
+				lasttrustlinenonce = "";
+				unblockInput();
+			});
 		},
 		function() { 
 			navigator.notification.alert("Could not set account flags due to possible wallet corruption. We recommend backing up your wallet and reinstalling.", 
@@ -4634,6 +4723,7 @@ function doConfirmTrustline(passphrase) {
 		function() { 
 			navigator.notification.alert("Your passphrase is incorrect. You cannot use a recoveryphrase here.", 
 				function(){
+					alert("3");
 					lasttrustlinenonce = "";
 					unblockInput();
 				},				
@@ -4715,31 +4805,32 @@ function doModifyTrustline(nonce) {
 
 
     if (!validateAddress(mtlissueraddr)) {
-		return navigator.notification.alert("The counterparty / issuer address for the trustline is not a valid SystemD address.",
-			function(){
+		// return navigator.notification.alert("The counterparty / issuer address for the trustline is not a valid SystemD address.",
+		// 	function(){
+		// 		$("#mtlissueraddr").focus();
+		// 		unblockInput();
+		// 	}, 
+		// 	"Unusual address format", 
+		// 	"OK"
+		// ); 
+		var errorTrustlineStatus = "Unusual address format";
+		var errorTrustlineMess = "The counterparty / issuer address for the trustline is not a valid SystemD address.";
+		$("#popup-status").text(errorTrustlineStatus);
+		$("#popupMessageText").text(errorTrustlineMess);
+		$(".popup-imagewrapper").addClass("bg-danger");
+		$('#popup-imagewrapper').attr('src', 'images/close.png');
+		document.getElementById("popupMessage").style.display = "block";
+		document.getElementById("popupOverlay").style.display = "block";
+		setTimeout(function(){
+			$("#popupCloseBtn").on("click",() => {
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				$(".popup-imagewrapper").removeClass("bg-danger");
+				$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
 				$("#mtlissueraddr").focus();
 				unblockInput();
-			}, 
-			"Unusual address format", 
-			"OK"
-		); 
-		// var errorTrustlineStatus = "Error";
-		// var errorTrustlineMess = "The counterparty / issuer address for the trustline is not a valid SystemD address.";
-		// $("#popup-status").text(errorTrustlineStatus);
-		// $("#popupMessageText").text(errorTrustlineMess);
-		// $(".popup-imagewrapper").addClass("bg-danger");
-		// $('#popup-imagewrapper').attr('src', 'images/close.png');
-		// document.getElementById("popupMessage").style.display = "block";
-		// document.getElementById("popupOverlay").style.display = "block";
-		// $("#popupCloseBtn").click(function(){
-		// 	// document.getElementById("popupMessage").style.display = "none";
-		// 	$("#popupMessage").hide();
-		// 	$("#popupOverlay").hide();
-		// 	$(".popup-imagewrapper").removeClass("bg-danger");
-		// 	$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
-		// 	$("#mtlissueraddr").focus();
-		// 	unblockInput();
-		// });   
+			});  
+		}, 3000); 
     }
 
     if (!validateCurrency(mtlcurrency)) {
@@ -4855,29 +4946,70 @@ function doAddTrustline(nonce) {
 		);    
     }
 
+console.log(!validateAddress(atlissueraddr),"bskjdfhkdsj");
+
 
     if (!validateAddress(atlissueraddr)) {
-		return navigator.notification.alert("The counterparty / issuer address for the trustline is not a valid SystemD address.",
-			function(){
-				$("#atlissueraddr").focus();
+		console.log(!validateAddress(atlissueraddr)===true);
+		// return navigator.notification.alert("The counterparty / issuer address for the trustline is not a valid SystemD address.",
+		// 	function(){
+		// 		$("#atlissueraddr").focus();
+		// 		unblockInput();
+		// 	}, 
+		// 	"Unusual address format", 
+		// 	"OK"
+		// ); 
+		var errorTrustlineStatus = "Unusual address format";
+		var errorTrustlineMess = "The counterparty / issuer address for the trustline is not a valid SystemD address.";
+		$("#popup-status").text(errorTrustlineStatus);
+		$("#popupMessageText").text(errorTrustlineMess);
+		$(".popup-imagewrapper").addClass("bg-danger");
+		$('#popup-imagewrapper').attr('src', 'images/close.png');
+		document.getElementById("popupMessage").style.display = "block";
+		document.getElementById("popupOverlay").style.display = "block";
+		setTimeout(function(){
+			$("#popupCloseBtn").on("click",() => {
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				$(".popup-imagewrapper").removeClass("bg-danger");
+				$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
+				$("#mtlissueraddr").focus();
 				unblockInput();
-			}, 
-			"Unusual address format", 
-			"OK"
-		);    
+			});  
+		}, 1000);  
     }
-
-    if (!validateCurrency(atlcurrency)) {
-		return navigator.notification.alert("Invalid currency code. Must be 3 characters A-Z, 0-9 or any of the following ? ! @ # $ % ^ & * < > ( ) { } [ ] |", 
-			function(){
+    else if (!validateCurrency(atlcurrency)) {
+		// return navigator.notification.alert("Invalid currency code. Must be 3 characters A-Z, 0-9 or any of the following ? ! @ # $ % ^ & * < > ( ) { } [ ] |", 
+		// 	function(){
+		// 		$("#atlcurrency").focus();
+		// 		unblockInput();
+		// 	}, 
+		// 	"Invalid currency code", 
+		// 	"OK"
+		// );   
+		var errorAtlcurrencyStatus = "Invalid currency code";
+		var errorAtlcurrencyMess = "Invalid currency code. Must be 3 characters A-Z, 0-9 or any of the following ? ! @ # $ % ^ & * < > ( ) { } [ ] |";
+		$("#popup-status").text(errorAtlcurrencyStatus);
+		$("#popupMessageText").text(errorAtlcurrencyMess);
+		$(".popup-imagewrapper").addClass("bg-danger");
+		$('#popup-imagewrapper').attr('src', 'images/close.png');
+		document.getElementById("popupMessage").style.display = "block";
+		document.getElementById("popupOverlay").style.display = "block";
+		setTimeout(function(){
+			$("#popupCloseBtn").on("click",() => {
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				$(".popup-imagewrapper").removeClass("bg-danger");
+				$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
 				$("#atlcurrency").focus();
 				unblockInput();
-			}, 
-			"Invalid currency code", 
-			"OK"
-		);    
+			});  
+		}, 1000); 
     }
 
+if(!validateAddress(atlissueraddr) === false && !validateCurrency(atlcurrency) === false){
+	this.isFinal = true;
+}
 
     var invalidLimit = ()=>{
 		return navigator.notification.alert("Invalid limit. Must be greater than or equal to 0.", 
@@ -5601,6 +5733,7 @@ function doConfirmCancelOrder(passphrase) {
 		function() { 
 			navigator.notification.alert("Your passphrase is incorrect. You cannot use a recoveryphrase here.", 
 				function(){
+					alert("4");
 					lastcancelordernonce = "";
 					unblockInput();
 				},				
@@ -5689,6 +5822,7 @@ function doConfirmOrder(passphrase) {
 		function() { 
 			navigator.notification.alert("Your passphrase is incorrect. You cannot use a recoveryphrase here.", 
 				function(){
+					alert("5");
 					lastordernonce = "";
 					unblockInput();
 				},				
@@ -5843,26 +5977,60 @@ function doPay(nonce) {
 		// valid
 	} else {
 
-		navigator.notification.alert("The destination address you have entered does not appear to be a valid SystemD address. You can still attempt to send but the SYD Ledger will charge a fee on failure.",
-			function(){
+		// navigator.notification.alert("The destination address you have entered does not appear to be a valid SystemD address. You can still attempt to send but the SYD Ledger will charge a fee on failure.",
+		// 	function(){
+		// 		$("#toaddress").focus();
+		// 		unblockInput();
+		// 	}, 
+		// 	"Unusual address format", 
+		// 	"OK"
+		// );
+		var sendFailureStatus = "Unusual address format";
+		var sendFailureMess = "The destination address you have entered does not appear to be a valid SystemD address. You can still attempt to send but the SYD Ledger will charge a fee on failure.";
+		$("#popup-status").text(sendFailureStatus);
+		$("#popupMessageText").text(sendFailureMess);
+		$(".popup-imagewrapper").addClass("bg-danger");
+		$('#popup-imagewrapper').attr('src', 'images/close.png');
+		document.getElementById("popupMessage").style.display = "block";
+		document.getElementById("popupOverlay").style.display = "block";
+		setTimeout(function(){
+			$("#popupCloseBtn").on("click",() => {
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				$(".popup-imagewrapper").removeClass("bg-danger");
 				$("#toaddress").focus();
 				unblockInput();
-			}, 
-			"Unusual address format", 
-			"OK"
-		);
-
+			});	
+		}, 1000);
 	}
 
 	if (payto == payfrom) {
-		navigator.notification.alert("A SystemD address cannot pay SYD from itself to itself.",
-			function(){
+		// navigator.notification.alert("A SystemD address cannot pay SYD from itself to itself.",
+		// 	function(){
+		// 		$("#toaddress").focus();
+		// 		unblockInput();
+		// 	}, 
+		// 	"Cannot pay to this address", 
+		// 	"OK"
+		// );
+		var  systemdAddressStatus = "Cannot pay to this address";
+		var systemdAddressMess = "A SystemD address cannot pay SYD from itself to itself.";
+		$("#popup-status").text(systemdAddressStatus);
+		$("#popupMessageText").text(systemdAddressMess);
+		$(".popup-imagewrapper").addClass("bg-danger");
+		$('#popup-imagewrapper').attr('src', 'images/close.png');
+		document.getElementById("popupMessage").style.display = "block";
+		document.getElementById("popupOverlay").style.display = "block";
+		setTimeout(function(){
+			$("#popupCloseBtn").on("click",() => {
+				$("#popupMessage").hide();
+				$("#popupOverlay").hide();
+				$(".popup-imagewrapper").removeClass("bg-danger");
+				$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
 				$("#toaddress").focus();
 				unblockInput();
-			}, 
-			"Cannot pay to this address", 
-			"OK"
-		);
+			});
+		}, 1000);
 		return;	
 	}
 
@@ -5887,14 +6055,29 @@ function doPay(nonce) {
     if ( asset == 'XRP' ) issuer = '';
 
 	if (amount == "" || parseFloat(amount)+ "" != (""+amount).trim()) {
-		navigator.notification.alert("You must select a valid amount to send", 
-			function(){
-				$("#payamount").focus();
-				unblockInput();
-			}, 
-			"Select a payment amount", 
-			"OK"
-		);
+		// navigator.notification.alert("You must select a valid amount to send", 
+		// 	function(){
+		// 		$("#payamount").focus();
+		// 		unblockInput();
+		// 	}, 
+		// 	"Select a payment amount", 
+		// 	"OK"
+		// );
+		var paymentSelectStatus = "Select a payment amount";
+		var paymentSelectMess = "You must select a valid amount to send";
+		$("#popup-status").text(paymentSelectStatus);
+		$("#popupMessageText").text(paymentSelectMess);
+		$(".popup-imagewrapper").addClass("bg-danger");
+		$('#popup-imagewrapper').attr('src', 'images/close.png');
+		document.getElementById("popupMessage").style.display = "block";
+		document.getElementById("popupOverlay").style.display = "block";
+		$("#popupCloseBtn").click(function(){
+			$("#popupMessage").hide();
+			$("#popupOverlay").hide();
+			$(".popup-imagewrapper").removeClass("bg-danger");
+			$("#payamount").focus();
+			unblockInput()
+		});	
 		return;
 	}
 
@@ -5987,18 +6170,52 @@ function checkAccountIsFunded(payfrom, amount, asset, issuer, failurefunc, silen
             return failurefunc();
         }
     }
-
-    return navigator.notification.confirm("Toast Wallet was unable to check your account balance at this time. Please confirm that you have left " + xrpreserve + " SYD reserve in your account after the " + amount + " SYD transaction before continuing.",
-			function(b){
-				if (b == 1) {
-					return successfunc();
-				} else {
-				    return silentfailurefunc();
-				}
-			}, 
-			"SYD balance not confirmed",
-			[ "Yes continue", "Cancel" ]
-	);			
+if(this.isFinal){
+	// return navigator.notification.confirm("Toast Wallet was unable to check your account balance at this time. Please confirm that you have left " + xrpreserve + " SYD reserve in your account after the " + amount + " SYD transaction before continuing.",
+	// 		function(b){
+	// 			if (b == 1) {
+	// 				return successfunc();
+	// 			} else {
+	// 			    return silentfailurefunc();
+	// 			}
+	// 		}, 
+	// 		"SYD balance not confirmed",
+	// 		[ "Yes continue", "Cancel" ]
+	// );	
+	var checkBalanceStatus = "SYD balance not confirmed";
+	var checkBalanceMess = "Toast Wallet was unable to check your account balance at this time. Please confirm that you have left " + xrpreserve + " SYD reserve in your account after the " + amount + " SYD transaction before continuing.";
+	$("#popup-status").text(checkBalanceStatus);
+	$("#popupMessageText").text(checkBalanceMess);
+	$("#popupCloseBtn").text('Yes continue');
+	$(".popup-imagewrapper").addClass("bg-danger");
+	$('#popup-imagewrapper').attr('src', 'images/close.png');
+	document.getElementById("popupMessage").style.display = "block";
+	document.getElementById("popupOverlay").style.display = "block";
+	document.getElementById("popupCancelBtn").style.display = "block";
+	setTimeout(function(){
+		$("#popupCloseBtn").on("click",() => {
+			$("#popupMessage").hide();
+			$("#popupOverlay").hide();
+			$(".popup-imagewrapper").removeClass("bg-danger");
+			$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
+			$("#popupMessage #popupCancelBtn").hide();
+			$("#popupCloseBtn").text('OK');
+			this.isFinal=false;
+			return successfunc();
+		});  
+		$("#popupCancelBtn").on("click",(b) => {
+			console.log(b);
+			$("#popupMessage").hide();
+			$("#popupOverlay").hide();
+			$(".popup-imagewrapper").removeClass("bg-danger");
+			$('#popup-imagewrapper').attr('src', 'images/check-mark.png');
+			$("#popupMessage #popupCancelBtn").hide();
+			$("#popupCloseBtn").text('OK');
+			return silentfailurefunc();
+		}); 
+	}, 1000);
+} 
+   		
 
 }
 

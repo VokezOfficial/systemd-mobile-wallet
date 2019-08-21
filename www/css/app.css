@@ -179,7 +179,6 @@ textarea {
 .toggleswitch {
     font-size: 2em;
     vertical-align: middle;
-    opacity: 0.5;
     margin-left: 0.5em;
     color: #fff;
     float: right;
@@ -553,7 +552,7 @@ img.loader {
 /*    min-height: 4.5em; */
     border: 0;
     margin: 0;
-    border-radius: 3px;
+    border-radius: 10px;
     padding-left: 0.4em;
     padding-right: 0.4em;    
 }
@@ -626,16 +625,14 @@ div.input-group>span.input-group-btn>button {
     top: 0;
     left: 0;
     width: 100vw;
-    background: #41a447;
     margin: 0;
     list-style: none;
     z-index: 90;
-    border-bottom: 1px solid hsla(214, 50%, 25%, 0.2);
-    /* height: 4em !important; */
-    height: 156.9pt !important;
-    border-bottom-right-radius: 50%;
-    border-bottom-left-radius: 50%;
-    background-image: linear-gradient(#76f2fb, #78c8fe); 
+    height: 20% !important;
+    background-image: url(../images/topbar_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 #accdetailsqr {
     padding-top: 1em;
@@ -1275,13 +1272,14 @@ input
     position: relative;
 }
 #btnaddaccount{
-    background: #77d8fd;
+    background: linear-gradient(#76f2fb, #78c8fe); 
     width: 57.2pt;
     border-radius: 50% !important;
     height: 57.2pt;
     position: fixed;
     bottom: 43px;
     right: 15px;
+    z-index: 99;
 }
 #btnaddaccount i{
     padding: 7px;
@@ -1475,7 +1473,8 @@ fieldset[disabled] .form-control,
     border: 0;
     padding: 13px;
 }
-#navheader .headerleft{
+#navheader .headerleft,
+#navheader .headerright{
     position: relative;
 }
 #navheader .headerleft .fa-chevron-left:before {
@@ -1485,6 +1484,15 @@ fieldset[disabled] .form-control,
     width: 23px;
     height: 15px;
     background-repeat: no-repeat;
+}
+#navheader .headerright .fa-lock:before {
+    content: "";
+    position: absolute;
+    background: url(../images/logout.png);
+    width: 23px;
+    height: 25px;
+    background-repeat: no-repeat;
+    right: 15px;
 }
 .resetpin-btn,#btnsetaccountflags,.backtostartBtn,#btnpay,.tabrecovery-resetBtn,.tabgenaccount-importbtn{
     min-width: 14em !important;
@@ -1836,7 +1844,6 @@ textarea#walletbackup{
     height: 60pt;
     display: flex;
     align-items: center;
-    margin-top: 25px;
     justify-content: space-between;
 }
 #tabpaymentconfirm #confirmpayfromaccount,
@@ -1892,4 +1899,63 @@ textarea#walletbackup{
     background-repeat: no-repeat;
     top: -15px;
     right: 0;
+}
+.landing-wrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #343232;
+    top: 0;
+    z-index: 9999;
+    display: none;
+}
+.landing-header{
+    background: url(../images/landding_topbar_bg.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 40%;
+}
+.landing-image-container{
+    width: 133pt;
+    height: 133pt;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%,-70%);
+}
+.landing-image-container img{
+    width: 100%;
+    height:100%
+}
+#navfooter #navaccounts,
+#navfooter #navpayments,
+#navfooter #navsettings{
+    position: relative;
+}
+#navfooter #navaccounts .fa-home:before,
+#navfooter #navpayments .fa-usd:before,
+#navfooter #navsettings .fa-cog:before{
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat !important;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+#navfooter #navaccounts .fa-home:before{
+    background: url(../images/home.png);
+}
+#navfooter #navpayments .fa-usd:before{
+    background: url(../images/sent_money.png);
+}
+#navfooter #navsettings .fa-cog:before{
+    background: url(../images/settings.png);
+}
+#popupMessage #popupCancelBtn{
+    display: none;
+    margin: 12px auto 0;
 }
