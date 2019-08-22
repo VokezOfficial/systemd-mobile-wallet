@@ -613,7 +613,7 @@ div.input-group>span.input-group-btn>button {
     list-style: none;
     margin: 0;
     text-align: center;
-    z-index: 90;
+    z-index: 100;
     border-top: 1px solid hsla(214, 50%, 25%, 0.25);
     height: 3.5em !important;
     overflow: hidden;
@@ -628,7 +628,7 @@ div.input-group>span.input-group-btn>button {
     margin: 0;
     list-style: none;
     z-index: 90;
-    height: 20% !important;
+    height: 22% !important;
     background-image: url(../images/topbar_bg.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -1075,6 +1075,7 @@ ul.iosheader > li > * {
     opacity: 0.5;
     z-index: 91;
     font-size: 2em !important;
+    display: none !important;
 }
 .pinnumber {
     /* color: rgba(255,255,255,0.7); */
@@ -1228,28 +1229,37 @@ input
 .custom-z_depth{
     background: #525252;
     border-radius: 5px;
-    height: 330pt;
+    height: 75%;
     padding: 18px 16px 30px;
     margin-top: 110px;
+}
+#tabnickchange.custom-z_depth,
+#tabsubmitofflinetx.custom-z_depth,
+#tabrecovery.custom-z_depth{
+    height: 50%;
+}
+#tabaccountsecret.screentab{
+    height: 36% !important;
+}
+#tabdonate.custom-z_depth,
+#tabaccountdelete.screentab{
+    height: 46% !important;
 }
 #tabaccountdetails.screentab{
     padding: 10px 0;
 }
 #tabbackupreminder.screentab h1{
-    font-size: 18pt;
+    font-size: 20pt;
     line-height: 24pt;
     letter-spacing: 0.4pt;
     font-weight: normal;
-    margin: 0 0 20pt;
-    font-family: Quicksand-Regular;
+    margin: 10px 0 20pt;
 }  
 #tabbackupreminder.screentab p{
-    /* font-size: 14pt;
-    line-height: 20pt; */
+    font-size: 17px;
     letter-spacing: 0.25pt;
     text-align: left !important;
     margin-bottom: 0;
-    font-family: 'Quicksand-Medium';
 }
 #tabbackupreminder.screentab div{
     margin-top: -10px;
@@ -1272,14 +1282,28 @@ input
     position: relative;
 }
 #btnaddaccount{
-    background: linear-gradient(#76f2fb, #78c8fe); 
+    /* background: linear-gradient(#76f2fb, #78c8fe); 
     width: 57.2pt;
     border-radius: 50% !important;
     height: 57.2pt;
     position: fixed;
-    bottom: 43px;
-    right: 15px;
-    z-index: 99;
+    bottom: 46px;
+    right: 44px;
+    z-index: 999;
+    border: 0; */
+    background: transparent;
+    border: transparent;
+}
+#btnaddaccount>a{
+    background: linear-gradient(#76f2fb, #78c8fe);
+    width: 57.2pt;
+    border-radius: 50% !important;
+    height: 57.2pt;
+    position: fixed;
+    bottom: 50px;
+    right: 44px;
+    z-index: 999;
+    border: 0;
 }
 #btnaddaccount i{
     padding: 7px;
@@ -1288,6 +1312,27 @@ input
     background: rgb(73, 73, 73);
     text-align: left;
     height: 80px !important;
+}
+#navfooter:after{
+    content: "";
+    width: 134pt;
+    height: 5px;
+    background: #6b6b6b;
+    position: absolute;
+    left: 50%;
+    border-radius: 50px;
+    bottom: 9pt;
+    transform: translateX(-50%);
+}
+#navfooter:before{
+    content: "";
+    width: 140px;
+    height: 50px;
+    position: fixed;
+    background: url(../images/1.png);
+    right: -1px;
+    bottom:31px;
+    background-repeat: no-repeat;
 }
 #navfooter li {
     min-width: calc(100%/4.5);
@@ -1600,18 +1645,20 @@ fieldset[disabled] .form-control,
     height: 26px;
     background-repeat: no-repeat;
     right: -7px;
-    top: 13px;
+    top: 25px;
 }
 .appversion-details{
     font-size: 10px;
     margin-top: 20px;
     color: #a7a7a7;
+    position: absolute;
+    bottom: 15px;
 }
 .appversion-details div{
     margin-top: 5px;
 }
 #tablicense{
-    z-index: 99;
+    z-index: 9999;
     margin-top: 110px;
     background: #343232;
 }
@@ -1625,6 +1672,7 @@ fieldset[disabled] .form-control,
 #tabshowrecovery{
     z-index: 99;
     margin-top: 110px;
+    height: 70%;
 }
 .tabshowrecoveryImportant{
     background-image: linear-gradient(#ff9396, #f0595d);
@@ -1846,12 +1894,17 @@ textarea#walletbackup{
     align-items: center;
     justify-content: space-between;
 }
-#tabpaymentconfirm #confirmpayfromaccount,
+#tabpaymentconfirm .confirmpayfromaccount,
 #tabaccountflagsconfirm .flagconfirm-wrapper,
 #tabtrustlineconfirm .tabtrustlineconfirm{
+    height: 75%;
+}
+#tabaccountflagsconfirm .flagconfirm-wrapper>div,
+#tabtrustlineconfirm .tabtrustlineconfirm >div,
+#tabpaymentconfirm .confirmpayfromaccount>div{
     overflow: auto !important;
     white-space: nowrap;
-    height: 64%;
+    height: 100%;
 }
 .confirmsend-wrapper,
 .flagconfirm-wrapper,
@@ -1917,6 +1970,11 @@ textarea#walletbackup{
     width: 100%;
     height: 40%;
 }
+.landing-header-text{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+}
 .landing-image-container{
     width: 133pt;
     height: 133pt;
@@ -1958,4 +2016,24 @@ textarea#walletbackup{
 #popupMessage #popupCancelBtn{
     display: none;
     margin: 12px auto 0;
+}
+.nav-footer-img{
+    position: fixed;
+    width: 140px;
+    height: 50px;
+    right: 9px;
+    z-index: 99;
+    bottom: 39px
+}
+.nav-img{
+    width: 100%;
+    height: 100%;
+}
+.tabrestore2-img-wrapper,
+.tabsetpassphrase-img-wrapper{
+    text-align: center;
+    margin-top: 20px;
+}
+.tabsetpassphrase-img-wrapper{
+    margin-bottom: 20px;
 }
