@@ -33,7 +33,6 @@
     font-family: Quicksand-Bold !important;
 }
 
-
 html {
 	height: 100vh;
 	min-height: 100vh;
@@ -69,14 +68,11 @@ textarea {
 }
 #generatedaddress, #accdetailssecretaddress, #accsecret, #accdetailsaddress {
     font-size: 15px !important;
-    /* color: black; */
     color :#979797;
     border: 1px dashed#979797;
     box-shadow: none;
-    /* text-align: center; */
     overflow-wrap: break-word;
     padding: 10px;
-/*    display: inline-block; */
     max-width: 100%;
     overflow: hidden;
     text-overflow: clip;
@@ -88,7 +84,6 @@ textarea {
 	position:relative;
     padding: 10px;
 }
-
 
 .accopt {
     width: 10em;
@@ -102,7 +97,6 @@ textarea {
 .transactionlist i.fa {
     display: inline;
 }
-
 
 /* pinpad lettering contributed by https://github.com/WietseWind */
 .pinpad button div{
@@ -159,7 +153,6 @@ textarea {
     top: 0;
     width: 50%;
     height: 100%;
-    /* filter: blur(5px); */
     font-size: 1.3em !important;
     line-height: 1.15em;
     filter: blur(3px);
@@ -168,6 +161,7 @@ textarea {
 
 #tabbackup2 h3 {
     margin-top: 0;
+    margin-bottom: 20px;
 }
 #tabsettings button, #tabaddaccount button, #tabgenaccount button, 
 #tabsetpassphrase button, #tabchangepassphrase button, #tabshowrecovery button, 
@@ -187,7 +181,6 @@ textarea {
 
 .paygrouping {
     margin-bottom: 0.5em;
-    /* border: 1px solid rgba(0,0,0,0.2); */
 }
 
 .paygrouping > div {
@@ -247,7 +240,6 @@ ul#adtrustlines {
     color:red;
 }
 
-
 .adtlheader {
     justify-content: space-between;
     width: 100%;
@@ -256,7 +248,6 @@ ul#adtrustlines {
     margin-top: 0.4em;
     margin-bottom: 0.8em;    
 }
-
 
 .adtlrow {
     width: 100%;
@@ -270,7 +261,6 @@ span.adtlorder {
     padding-left: 2em;padding-right: 2em;font-size: 0.7em;line-height: 2.5em;font-weight: 500;color: #01d301;
 }
 
-
 .tlissuer {
     font-size: 0.8em;
     line-height: 1.8em;
@@ -280,7 +270,6 @@ span.adtlorder {
     margin-right: 0.5em;    
     flex: 1;
 }
-
 
 .adtlrow.adtlbuyrow {
     background: rgba(0,255,0,0.2); 
@@ -310,14 +299,12 @@ li.adtrustline:not(:first-of-type) {
     display: inline-flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    /* background: #286abc; */
 }
 .accountdetailsselector .accdetailsinnertabselected{
     border-color: #76f2fb;
 }
 
 .accountdetailsselector > *:not(.accdetailsinnertabselected) {
-    /* background: rgb(51, 122, 183) !important; */
     color: white !important;
 }
 
@@ -326,31 +313,15 @@ li.adtrustline:not(:first-of-type) {
 .accountdetailsselector > li {
     flex: 2;
     text-align: center;
-    /* padding-top: 0.3em; */
     padding-bottom: 0.6em;
     border-radius: 2px 2px 0px 0px;
     border-bottom: 2px solid #979797;
-
 }
-
-/* div#tabaccountdetails {
-    padding: 0;
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-} */
 
 div#accdetailstransactiondetails {
     margin-left: 1em;
     margin-right: 1em;
 }
-
-/* .accountdetailsselector > li:not(:first-of-type) {
-    border-left: 1px solid #286abc;
-} */
-
-/* .accountdetailsselector > li:last-of-type {
-} */
 
 div#accdetailsaddressdetails {
     margin-left: 1em;
@@ -524,7 +495,6 @@ ul.verticalform > li {
     height: 100%;
 }
 
-
 .address {
     text-overflow: ellipsis;
     overflow: hidden;
@@ -543,13 +513,11 @@ img.loader {
     left: calc(50% - 25px);
 }
 .amount {
-    /*text-align: right;*/
     flex: 1;
 }
 #accountslist > li {
     text-overflow: ellipsis;
     overflow: hidden;
-/*    min-height: 4.5em; */
     border: 0;
     margin: 0;
     border-radius: 10px;
@@ -592,9 +560,6 @@ label {
 	z-index: 2;
 }
 
-
-
-
 ::-webkit-scrollbar {
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
@@ -618,7 +583,6 @@ div.input-group>span.input-group-btn>button {
     height: 3.5em !important;
     overflow: hidden;
 }
-
 
 #navheader {
     position: absolute;
@@ -646,11 +610,9 @@ button, button:focus, button:active, button:hover {
     max-width: 50%;
 }
 
-
 *[ontouchend], *[ontouchstart], .headerleft, .headerright {
     cursor: pointer;
 }
-
 
 .pinpad_pending:before {
     content: "Please login to finalize your payment...";
@@ -699,7 +661,6 @@ span#accdetailsamount {
     background: rgba(3, 151, 0, 0.8);
 }
 
-
 .adtlinfo {
     font-size: 0.8em;
     padding-top: 2px;
@@ -743,7 +704,6 @@ i.fa.fa-exchange {
     font-size: 1.4em;
 }
 
-
 .adtllimitbutton {
     flex: 2;
     max-width: 15em;
@@ -761,7 +721,6 @@ i.fa.fa-exchange {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
 }
-
 
 .chartelered {
     display: inline-block;
@@ -793,20 +752,12 @@ i.fa.fa-exchange {
     max-width: 20em;
 }
 
-
 .accdetailbuttons > button {
     flex: 1;
     margin: 0.5em;
     min-width: 8em;
     max-width: 10em;
 }
-
-/* .settingsbuttons {
-    max-width: 40em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-} */
 
 .settingsbuttons > button {
     margin: 0.5em;
@@ -821,8 +772,6 @@ i.fa.fa-exchange {
     flex-direction: column;
     justify-content: flex-start;
 }
-
-
 
 .adtlgraph > * {
     vertical-align: bottom;
@@ -948,12 +897,10 @@ i.fa.fa-exchange {
 
 .trustlines {
     display: flex;
-/*   flex-direction: row-reverse;*/
     flex-wrap: wrap;
     margin-right:0;
     margin-left:0;
     justify-content:space-between;   
-/*    background: rgba(41, 206, 160, 0.05);*/
     padding: 0.2em;
 }
 
@@ -968,7 +915,6 @@ span.trustline_issuer {
 .trustline>.amount {
     white-space: nowrap;
 }
-
 
 .accountline .amount {
     text-align: right;
@@ -989,7 +935,6 @@ span.trustline_issuer {
 
 #navheader > li {
     vertical-align: middle;
-    /* margin: 0; */
     display: inline-block;
     font-size: 14pt;
     line-height: 26pt;
@@ -1037,14 +982,10 @@ ul.iosheader > li > * {
     font-size: 0.8em;
 }
 
-
-
 .pinpad {
     text-align: center;
     margin-top: calc(50vh - 20em);
 }
-
-
 
 .logobackground {
     background: url('images/toastwallet4finalgrd2new.png') no-repeat;
@@ -1052,21 +993,21 @@ ul.iosheader > li > * {
     height: 100vh;
 }
 
-
-
 .darkbackground {
-    /* background: rgb(51, 122, 183); */
     background: #343232;
     background-repeat: no-repeat;
 }
 .darkbackground2 {
-    /* background: linear-gradient(45deg, #41a447, rgb(51, 122, 183)), rgb(51, 122, 183); */
     background-repeat: no-repeat;
 }
 
 #tablicense h1 {
     margin: 0 0 0.3em 0 !important;
     padding: 0 !important;
+    font-size: 22pt;
+}
+.toast-center p{
+    letter-spacing: 0.25pt;
 }
 #morecontentindicator {
     position: fixed;
@@ -1078,26 +1019,10 @@ ul.iosheader > li > * {
     display: none !important;
 }
 .pinnumber {
-    /* color: rgba(255,255,255,0.7); */
     color: #78c8fe;
     margin-bottom: 15px;
 }
 
-/*.darkbackground:after {*/
-    /*content: " ";*/
-    /*display: block;*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*width: 100vw;*/
-    /*height: 100vh;*/
-    /*background: url(../images/background.png);*/
-    /*opacity: 0.1;*/
-    /*background-size: 100%;*/
-    /*background-repeat: no-repeat;*/
-    /*background-position-y: 50%;*/
-    /*z-index: -1;*/
-/*}*/
 .pinpad button {
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255,255,255,0.1);
@@ -1111,7 +1036,6 @@ ul.iosheader > li > * {
     position: relative;
     text-align: center;
 }
-
 
 .pinpad *:focus {
     outline: none;
@@ -1134,7 +1058,6 @@ ul.iosheader > li > * {
 }
 
 * {
- /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; */
  font-family: "Quicksand-Regular",sans-serif;
 }
 
@@ -1228,22 +1151,34 @@ input
 #tabaccountsecret.screentab,
 .custom-z_depth{
     background: #525252;
-    border-radius: 5px;
+    border-radius: 10px;
     height: 75%;
     padding: 18px 16px 30px;
     margin-top: 110px;
 }
 #tabnickchange.custom-z_depth,
 #tabsubmitofflinetx.custom-z_depth,
-#tabrecovery.custom-z_depth{
+#tabrecovery.custom-z_depth,
+#tabqrscan.custom-z_depth{
     height: 50%;
 }
 #tabaccountsecret.screentab{
-    height: 36% !important;
+    height: 270px;
 }
 #tabdonate.custom-z_depth,
 #tabaccountdelete.screentab{
     height: 46% !important;
+}
+#tabgenaccount.screentab,
+#tabaddexistingaccount.screentab{
+    height: 60% !important;
+}
+#tabchangepassphrase.custom-z_depth,
+#tabrestore2.custom-z_depth{
+    height: 63% !important;
+}
+#tabrestore.custom-z_depth{
+    height: 65% !important;
 }
 #tabaccountdetails.screentab{
     padding: 10px 0;
@@ -1282,22 +1217,11 @@ input
     position: relative;
 }
 #btnaddaccount{
-    /* background: linear-gradient(#76f2fb, #78c8fe); 
-    width: 57.2pt;
-    border-radius: 50% !important;
-    height: 57.2pt;
-    position: fixed;
-    bottom: 46px;
-    right: 44px;
-    z-index: 999;
-    border: 0; */
     background: transparent;
     border: transparent;
 }
 #btnaddaccount>a{
-    background: linear-gradient(#76f2fb, #78c8fe);
     width: 57.2pt;
-    border-radius: 50% !important;
     height: 57.2pt;
     position: fixed;
     bottom: 50px;
@@ -1312,6 +1236,7 @@ input
     background: rgb(73, 73, 73);
     text-align: left;
     height: 80px !important;
+    border: 0;
 }
 #navfooter:after{
     content: "";
@@ -1329,9 +1254,9 @@ input
     width: 140px;
     height: 50px;
     position: fixed;
-    background: url(../images/1.png);
+    background: url(../images/footer-curve.png);
     right: -1px;
-    bottom:31px;
+    bottom:30px;
     background-repeat: no-repeat;
 }
 #navfooter li {
@@ -1569,9 +1494,7 @@ fieldset[disabled] .form-control,
 #acc_deleteaddress{
     background-image: linear-gradient(#ff9396, #f0595d);
 }
-/* #tabaccountsecret.screentab{
-    height: 300px;
-} */
+
 #tabaddtrustline #btnaddtrustline{
     min-width: 14em;
     padding: 13px;
@@ -1585,6 +1508,7 @@ fieldset[disabled] .form-control,
     padding-left: 40px;
     position: relative;
     width: 100%;
+    font-size: 16px;
 }
 #tabsettings .settingsbuttons button:before {
     content: "";
@@ -1593,7 +1517,7 @@ fieldset[disabled] .form-control,
     position: absolute;
     left: 0;
     background-repeat: no-repeat !important;
-    top: 1px;
+    top: 4px;
 }
 #tabsettings .settingsbuttons button:first-child:before{
     background: url(../images/icn_support.png); 
@@ -1606,6 +1530,9 @@ fieldset[disabled] .form-control,
 }
 #tabsettings #btnsettingschangepassphrase:before{
     background: url(../images/icn_changepassphrase.png); 
+}
+#tabsettings #btnsettingschangepassphrase.changepin-btn:before{
+    background: url(../images/icn_changepin.png); 
 }
 #tabsettings #btnsettingsresortbackup:before{
     background: url(../images/icn_restore_wallet.png);
@@ -1623,8 +1550,7 @@ fieldset[disabled] .form-control,
     border-radius: 50px;
     padding: 17px;
 }
-#btncopyaddress .fa-files-o,
-#btnaddaccount .fa-plus-circle {
+#btncopyaddress .fa-files-o {
     position: relative;
 }
 #btncopyaddress .fa-files-o:before {
@@ -1636,16 +1562,6 @@ fieldset[disabled] .form-control,
     background-repeat: no-repeat;
     top: -15px;
     right: 0;
-}
-#btnaddaccount .fa-plus-circle:before{
-    content: "";
-    position: absolute;
-    background: url(../images/plus.png);
-    width: 26px;
-    height: 26px;
-    background-repeat: no-repeat;
-    right: -7px;
-    top: 25px;
 }
 .appversion-details{
     font-size: 10px;
@@ -1668,11 +1584,16 @@ fieldset[disabled] .form-control,
     border-radius: 10px;
     margin-bottom: 1em;
     margin-top: -9px;
+    letter-spacing: 0.25pt;
+}
+.tablicenseImpNote .important-text{
+    font-size: 20pt;
+    letter-spacing: 0.36pt;
 }
 #tabshowrecovery{
     z-index: 99;
     margin-top: 110px;
-    height: 70%;
+    height: 75%;
 }
 .tabshowrecoveryImportant{
     background-image: linear-gradient(#ff9396, #f0595d);
@@ -1691,6 +1612,7 @@ fieldset[disabled] .form-control,
     border-radius: 15px;
     padding: 20px;
     border-left:0;
+    letter-spacing: 0.25pt;
 }
 .licence-buttons button,
 #tabrestore2Btn,
@@ -1707,7 +1629,8 @@ fieldset[disabled] .form-control,
     width: 220px;
     border-radius: 50px;
     border: 0;
-    padding: 13px;
+    padding: 15px;
+    font-size: 12pt;
 }
 #btncopywallet{
     width: 170px !important;
@@ -1765,7 +1688,7 @@ fieldset[disabled] .form-control,
 .tabcorruptionprompt-text{
     background-image: linear-gradient(#ff9396, #f0595d);
     padding: 15px;
-    border-radius: 3px;
+    border-radius: 10px;
     margin-bottom: 1em;
 }
 input#corruptionpp,
@@ -1828,6 +1751,8 @@ textarea#walletbackup{
     color: #fff;
     background: transparent;
     border: 1px dashed #fff;
+    border-radius: 10px;
+    padding: 10px;
 }
 /* popup styles start from here */
 .popup-wrapper{
@@ -1919,6 +1844,7 @@ textarea#walletbackup{
     border-bottom: 1px solid #bebebe80;
     padding: 15px 20px;
     margin-bottom: 0;
+    display: list-item;
 }
 .tabsubmitofflinetx-imagewrapper{
     position: relative;
