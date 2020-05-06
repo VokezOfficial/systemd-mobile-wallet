@@ -1,16 +1,16 @@
 {
-  "name": "ToastWallet",
+  "name": "SystemD Wallet",
   "version": "2.3.13",
-  "description": "Toast Wallet is a Ripple wallet for Android and iOS.",
+  "description": "SystemD Wallet is for Android and iOS.",
   "main": "electron-start.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/ToastWallet/core",
+  "repository": "https://github.com/VokezOfficial/systemd-mobile-wallet",
   "keywords": [
     "XRP",
     "Ripple",
-    "Toast",
+    "SystemD",
     "Wallet"
   ],
   "author": "StarStone Limited",
@@ -20,7 +20,7 @@
     "electron-builder": "^19.19.1"
   },
   "build": {
-    "appId": "com.toastwallet.core",
+    "appId": "io.vokez.systemd.wallet.core",
     "compression": "maximum",
     "win": {
       "target": "appx",

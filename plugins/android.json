@@ -8,12 +8,69 @@
     },
     "installed_plugins": {
         "com.verso.cordova.clipboard": {
-            "PACKAGE_NAME": "com.zvi.toastwallet.core"
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
         },
         "cordova-android-support-gradle-release": {
             "ANDROID_SUPPORT_VERSION": "25",
-            "PACKAGE_NAME": "com.zvi.toastwallet.core"
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-build-architecture": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-plugin-crosswalk-webview": {
+            "XWALK_VERSION": "23+",
+            "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+            "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+            "XWALK_MODE": "embedded",
+            "XWALK_MULTIPLEAPK": "true",
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-plugin-sqlite-2": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
         }
     },
-    "dependent_plugins": {}
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
+        }
+    }
 }

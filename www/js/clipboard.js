@@ -707,7 +707,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
     function getAttributeValue(suffix, element) {
         var attribute = 'data-clipboard-' + suffix;
 
-        // patches to catch stray events caused by click proxy in toast
+        // patches to catch stray events caused by click proxy in SystemD
         if (element == undefined) return false;
         if (typeof(element.hasAttribute) != "function") return false;
 

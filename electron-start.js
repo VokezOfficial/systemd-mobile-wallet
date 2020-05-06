@@ -54,7 +54,7 @@ function createWindow () {
   mainWindow = new BrowserWindow({
 	width: 450, 
 	height: 680,
-	title: "Toast Wallet",
+	title: "SystemD Wallet",
 	icon: '/img/64.png'
   })
 

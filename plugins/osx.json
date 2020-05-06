@@ -77,10 +77,10 @@
             "PACKAGE_NAME": "com.phonegap.helloworld"
         },
         "ionic-plugin-keyboard": {
-            "PACKAGE_NAME": "com.toastwallet.core"
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
         },
         "cordova-build-architecture": {
-            "PACKAGE_NAME": "com.toastwallet.core"
+            "PACKAGE_NAME": "io.vokez.systemd.wallet.core"
         }
     },
     "dependent_plugins": {

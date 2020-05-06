@@ -48,7 +48,7 @@
 
 	
 		window.onerror = function(message, url, lineNumber) {  
-            x = "We're sorry: An unexpected error has occured with Toast Wallet. Please report the below to support@toastwallet.com along with what you were trying to do at the time the error occured. If you haven't already it would be prudent to make a backup of your wallet. You may need to restart Toast Wallet by closing it manually. " + message + " " + url + " " + lineNumber;
+            x = "We're sorry: An unexpected error has occured with SystemD Wallet. Please report the below to support.mobile@vokez.io along with what you were trying to do at the time the error occured. If you haven't already it would be prudent to make a backup of your wallet. You may need to restart SystemD Wallet by closing it manually. " + message + " " + url + " " + lineNumber;
 			console.log("Error: " + message + ", url: " + url + " line: " + lineNumber);
             try {
 			// navigator.notification.alert(x, 
@@ -396,7 +396,7 @@
 <div id="tabbackup2" class="screentab custom-z_depth" data-primarytab="false" hasback="true" data-title="Encrypted Backup" style="display: none;">
     <div class="divbackuprompt">
         <h3 class="Quicksand-Medium" style="text-align:center;">The data below is your encrypted wallet backup</h3>
-        <p>You should make a new backup whenever you add a new account to your wallet, change your passphrase or change your pin. Toast Wallet will prompt you when a new backup is required.</p>
+        <p>You should make a new backup whenever you add a new account to your wallet, change your passphrase or change your pin. SystemD Wallet will prompt you when a new backup is required.</p>
     	<center>
 		    <button  id="btncopywallet" data-clipboard-target="#walletbackup" type="button" class="btn btn-info copybtnaction">Copy</button>
 	    </center>
@@ -409,7 +409,7 @@
 	<div class="tabrestore2-img-wrapper">
 		<img src="images/image_restore_wallet.png" alt="image_restore_wallet">
 	</div>
-    <p class="tabrestore2text" style="text-align:justify;">If you have a backup code you exported from another copy of Toast Wallet you can import it here. Doing so will create a copy of that wallet on this device.</p>
+    <p class="tabrestore2text" style="text-align:justify;">If you have a backup code you exported from another copy of SystemD Wallet you can import it here. Doing so will create a copy of that wallet on this device.</p>
     <div>
     <label style="color:white;">Backup code</label>
     <input ontouchend="te(event, quickSelectInput)" type="text" class="form-control" id="restorebackup2">
@@ -456,7 +456,7 @@
 <div><p style=" text-align:justify;">Your six(6) word recovery phrase appears below. Write it down on paper and store it in a safe location. If you ever forget your passphrase this code will be the only way for you to regain access to your SYD. &nbsp;
     Never share your recovery phrase with anyone.</p></div>
 
-<div><p style="text-align:justify;">This recovery phrase is useless without a backup. Please make a backup using the settings menu after you finish adding or generating all of your addresses. Toast Wallet backups are data backups, this means you will only have access to the addresses you had in your wallet at the time you made the backup!</p></div>
+<div><p style="text-align:justify;">This recovery phrase is useless without a backup. Please make a backup using the settings menu after you finish adding or generating all of your addresses. SystemD Wallet backups are data backups, this means you will only have access to the addresses you had in your wallet at the time you made the backup!</p></div>
 </div>
 <div id="showrecoveryphrase" class="Quicksand-Medium"></div>
 <br>
@@ -558,7 +558,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 
     <div id="afofflinecodediv" style="display:none;">
         <br>
-        <label class="Quicksand-Regular">Scan Red QR into Online Toast</label>
+        <label class="Quicksand-Regular">Scan Red QR into Online SystemD</label>
         <center>
             <div id="aftabredqr">
             </div>
@@ -750,7 +750,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
             </div>
         </center>
       	<br />    
-        <label>Confirmation Code (from Online Toast Wallet)</label>
+        <label>Confirmation Code (from Online SystemD Wallet)</label>
         <input ontouchend="te(event, quickSelectInput)"  type="text" id="atlofflinecode" class="form-control" placeholder="">
         <br>
     </div>
@@ -800,7 +800,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
             </div>
         </center>
       	<br />    
-        <label>Confirmation Code (from Online Toast Wallet)</label>
+        <label>Confirmation Code (from Online SystemD Wallet)</label>
         <input ontouchend="te(event, quickSelectInput)"  type="text" id="mtlofflinecode" class="form-control" placeholder="">
         <br>
     </div>
@@ -976,7 +976,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 </div>
 
 
-<div id="tablogin" class="screentab" data-primarytab="true" data-title="Toast Wallet" data-dark="true" data-recovery="true" style="display: none;">
+<div id="tablogin" class="screentab" data-primarytab="true" data-title="SystemD Wallet" data-dark="true" data-recovery="true" style="display: none;">
     
 	<center>
 	<div class="pinpad">
@@ -1159,7 +1159,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
         <br>
         <p style="color:black;">Please ensure the clock on your offline device is set correctly, otherwise your order's expiry date will be wrong when submitted to the XRP Ledger.</p>
       	<br>    
-        <label>Confirmation Code (from Online Toast Wallet)</label>
+        <label>Confirmation Code (from Online SystemD Wallet)</label>
         <input ontouchend="te(event, quickSelectInput)" type="text" id="ntloofflinecode" class="form-control" placeholder="">
         <br>
     </div>
@@ -1393,7 +1393,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 
 <div id="tabgreenqr" class="screentab" data-primarytab="true" data-title="Offline Transaction" style="display:none">
     <center>
-    <p style="color:black; font-weight: bold;">Scan this green QR code in your online Toast Wallet to submit the transaction.</p>
+    <p style="color:black; font-weight: bold;">Scan this green QR code in your online SystemD Wallet to submit the transaction.</p>
     <div id="divgreenqrdisplay">
     </div>  
     </center>  
@@ -1413,7 +1413,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
         </center>
       	<br />    
         <label>Confirmation Code</label>
-        <input ontouchend="te(event, quickSelectInput)"  type="text" id="payofflinecode" class="form-control" placeholder="(from Online Toast Wallet)">
+        <input ontouchend="te(event, quickSelectInput)"  type="text" id="payofflinecode" class="form-control" placeholder="(from Online SystemD Wallet)">
     </div>
     <br>
 
@@ -1483,7 +1483,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 			<img src="images/image_offlinetransaction.png" alt="image_offlinetransaction">
 			<img class="no-wifi-img" src="images/no-wifi.png" alt="no-wifi">
 		</div>
-		<p class="tabsubmitofflinetx-content">Open Toast Wallet 2.2.0 or newer on your offline device and use the send tab to create a payment then follow the steps below to submit the payment.</p><br>
+		<p class="tabsubmitofflinetx-content">Open SystemD Wallet 2.2.0 or newer on your offline device and use the send tab to create a payment then follow the steps below to submit the payment.</p><br>
 	</center>
     <div id="submitofflinetxstep1">
 	<label>Scan red QR code</label><div class="input-group">
@@ -1511,7 +1511,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 <div id="tabconnectionselect" class="screentab custom-z_depth" data-primarytab="true" data-hasback="false" data-dark="true" data-noright="true" data-title="Connection Issue" style="padding-bottom: 0em;">
     <center>
         <h1>Connection Issue</h1>
-	<p>Toast Wallet is unable to connect either because your device has no network connectivity, or because the public gateway servers Toast Wallet uses to connect to the SYD Ledger are down or under heavy load&mdash;this has nothing to do with the SYD Ledger itself, only the servers that Toast Wallet uses to <i>access</i> the network.</p><br>
+	<p>SystemD Wallet is unable to connect either because your device has no network connectivity, or because the public gateway servers SystemD Wallet uses to connect to the SYD Ledger are down or under heavy load&mdash;this has nothing to do with the SYD Ledger itself, only the servers that SystemD Wallet uses to <i>access</i> the network.</p><br>
         <div>
 		<div align="left">
 	        	<label style="color:white; text-align:left;">Specify a different gateway server (optional)</label>
@@ -1527,7 +1527,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 
 <div id="tabaddgateway" class="screentab" data-primarytab="false" data-hasback="true" data-dark="false" data-noright="false" data-title="Add Gateway" style="padding-bottom: 0em;">
     <center>
- 	<p style="color:black;">Add a custom gateway you would like Toast Wallet to connect to. A connection will be attempted and if it is successful the gateway will be stored and remembered as your preferred gateway.</p>
+ 	<p style="color:black;">Add a custom gateway you would like SystemD Wallet to connect to. A connection will be attempted and if it is successful the gateway will be stored and remembered as your preferred gateway.</p>
 	        	<label style="color:white; text-align:left;">Specify additional gateway server</label>
 			<input ontouchend="te(event, quickSelectInput)" type="text" id="txtnewgateway2" class="form-control" placeholder="wss://">
     <br />
@@ -1541,8 +1541,8 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 <div id="tabsettings" class="screentab custom-z_depth" data-primarytab="true" data-title="Settings" style="display:none">
     
         <div class="settingsbuttons">
-            <button type="button" class="btn btn-success" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showDonationTab();})">Support Toast Wallet</button>
-            <button type="button" class="btn btn-primary" id="btnfaq" ontouchstart="ts(event)" ontouchend="te(event, ()=>{window.open('https://toastwallet.com/faq', '_system');})">FAQ / Help</button>
+            <button type="button" class="btn btn-success" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showDonationTab();})">Support SystemD Wallet</button>
+            <button type="button" class="btn btn-primary" id="btnfaq" ontouchstart="ts(event)" ontouchend="te(event, ()=>{window.open('https://vokez.io/faq', '_system');})">FAQ / Help</button>
             <button type="button" class="btn btn-primary changepin-btn" id="btnsettingschangepassphrase" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showTab('#tabrecovery');})">Change PIN</button>
             <button type="button" class="btn btn-primary" id="btnsettingschangepassphrase" ontouchstart="ts(event)" ontouchend="te(event, ()=>{showTab('#tabchangepassphrase');})">Change Passphrase</button>
             <button type="button" class="btn btn-primary" ontouchstart="ts(event)" ontouchend="te(event, ()=>{doGenerateBackup();})">Backup Wallet</button>
@@ -1580,7 +1580,7 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 
 <div id="tabcorruptionprompt" class="screentab" data-primarytab="true" data-hasback="false"  data-noright="true" data-title="Recover Corrupt Data" style="display: none;">
     <div class="tabcorruptionprompt-text">
-		<p style="text-align:justify;">Toast Wallet may be able to recover some of your data, please enter your passphrase and recovery phrase <u>if you know them</u>. If you only know one only then enter the one you know. If you don't know either then don't enter either. <b>Warning entering these incorrectly may result in further corruption.</b></p>
+		<p style="text-align:justify;">SystemD Wallet may be able to recover some of your data, please enter your passphrase and recovery phrase <u>if you know them</u>. If you only know one only then enter the one you know. If you don't know either then don't enter either. <b>Warning entering these incorrectly may result in further corruption.</b></p>
 	</div>
 	<div class="tabcorruptionprompt-innerdiv">
 		<p style="text-align:justify;padding-bottom: 15px;">A valid alternative, if you have a backup, is simply to reinstall the app and restore your backup from the settings menu.</p>
@@ -1615,12 +1615,12 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 
 
 
-<div id="tabdonate" class="screentab custom-z_depth" data-primarytab="true" data-hasback="false" data-dark="true" data-noright="true" data-title="Support Toast Wallet" style="padding-bottom: 0em;">
+<div id="tabdonate" class="screentab custom-z_depth" data-primarytab="true" data-hasback="false" data-dark="true" data-noright="true" data-title="Support SystemD Wallet" style="padding-bottom: 0em;">
    <center>
-    <h1 class="Quicksand-Medium">Toast Wallet</h1>
+    <h1 class="Quicksand-Medium">SystemD Wallet</h1>
 
 	<center>
-<p style="text-align:center;">We rely on your contributions to keep Toast Wallet free and running smoothly.</p>
+<p style="text-align:center;">We rely on your contributions to keep SystemD Wallet free and running smoothly.</p>
 <p style="text-align:center;">Please consider supporting us:</p><br>
 	<br>
 	<div>
@@ -1640,12 +1640,12 @@ I understand that the recovery phrase IS NOT A WALLET BACKUP.</p><br>
 	<div class="tablicenseImpNote ">
 		<p class="Quicksand-Medium important-text">Important Notice</p>
 		<p>There is a <b><span id="minxrp3">20</span> SYD reserve requirement</b> for all SystemD accounts on the SYD Ledger. When you activate an account you will not get these funds back until the network lowers the reserve requirement.</p>
-		<p>Toast Wallet keeps your data on your devices. It does not send your data back to our servers&mdash;we cannot help you if you lose your phrases or backup.</p>
+		<p>SystemD Wallet keeps your data on your devices. It does not send your data back to our servers&mdash;we cannot help you if you lose your phrases or backup.</p>
 	</div>
 	<div class="toast-center">
-    	<h1 class="Quicksand-Medium">Toast Wallet</h1>
+    	<h1 class="Quicksand-Medium">SystemD Wallet</h1>
 		<p>This software is licensed under the GPL 2.0 <br><b>without any warranty. Use at own risk.</b></p>
-		<p><a href="https://github.com/ToastWallet/core" target="_blank" style="color:#10f58a; ">Tap here to view full source code on GitHub</a></p></center> 
+		<p><a href="https://github.com/VokezOfficial/systemd-mobile-wallet" target="_blank" style="color:#10f58a; ">Tap here to view full source code on GitHub</a></p></center> 
 	</div>
 <blockquote class="publiclicense-section">GNU GENERAL PUBLIC LICENSE
 
@@ -1935,7 +1935,7 @@ function doSubmitOfflineTransaction(stage, content) {
 
         var failurefunc = function(fail) {
 
-	        return navigator.notification.alert("An error occured when trying to query the SYD Ledger. This can occur if the gateways Toast Wallet connects to are overloaded, it can also occur if your device has no connectivity. " + fail,
+	        return navigator.notification.alert("An error occured when trying to query the SYD Ledger. This can occur if the gateways SystemD Wallet connects to are overloaded, it can also occur if your device has no connectivity. " + fail,
 				function() {
                     doSubmitOfflineTransaction(0);
                     unblockInput();
@@ -2109,7 +2109,7 @@ function doSubmitOfflineTransaction(stage, content) {
                     }
             , 
             function(err) {
-                navigator.notification.alert("An error occured when trying to make your payment. This can occur if the gateways Toast Wallet connects to are overloaded, it can also occur if your payment details are incorrect or the receiving address has not been activated. " + err, 
+                navigator.notification.alert("An error occured when trying to make your payment. This can occur if the gateways SystemD Wallet connects to are overloaded, it can also occur if your payment details are incorrect or the receiving address has not been activated. " + err, 
                 function(){
                     showTab(-1);
                     unblockInput();
@@ -2515,13 +2515,13 @@ function setAndShowNewRecoveryPhrase(passphrase) {
 			unblockInput();
 		}, 
 		function() {
-			// navigator.notification.alert('Unable to setup your recovery phrase, possibly due to a device error or out of storage. Toast Wallet cannot proceed and will now restart.', 
+			// navigator.notification.alert('Unable to setup your recovery phrase, possibly due to a device error or out of storage. SystemD Wallet cannot proceed and will now restart.', 
 			// function(){ 
 			// 	restart(); 
 			// 	unblockInput(); 
 			// }, 'Fatal Error', "OK");
 			var unableRrecoveryStatus = "Fatal Error";
-			var unableRrecoveryMess = "Unable to setup your recovery phrase, possibly due to a device error or out of storage. Toast Wallet cannot proceed and will now restart.";
+			var unableRrecoveryMess = "Unable to setup your recovery phrase, possibly due to a device error or out of storage. SystemD Wallet cannot proceed and will now restart.";
 			$("#popup-status").text(unableRrecoveryStatus);
 			$("#popupMessageText").text(unableRrecoveryMess);
 			$(".popup-imagewrapper").addClass("bg-danger");
@@ -3493,7 +3493,7 @@ function refreshTrustlines(account, after) {
     };
 
     var e = ()=>{
-        $('#adtrustlines')[0].innerHTML = '<li><i class="trustlines-content Quicksand-Regular">There was an error loading the account. It may not be activated. If you know it is then check your connection or restart Toast Wallet.</i></li>';
+        $('#adtrustlines')[0].innerHTML = '<li><i class="trustlines-content Quicksand-Regular">There was an error loading the account. It may not be activated. If you know it is then check your connection or restart SystemD Wallet.</i></li>';
         return;
     }
 
@@ -4645,7 +4645,7 @@ function doConfirmPay(passphrase) {
 										function(doc) {
 										return { data: JSON.stringify(donation)	}; 
 									}).then( function() {
-										navigator.notification.alert("Thank you for your donation! Your contribution helps us keep Toast Wallet running!", 
+										navigator.notification.alert("Thank you for your donation! Your contribution helps us keep SystemD Wallet running!", 
 											function(){
 												clearPaymentScreen();
 												showTab("#tabaccounts");
@@ -4681,7 +4681,7 @@ function doConfirmPay(passphrase) {
 								}	
 						}, 
 						function(err) {
-							// navigator.notification.alert("An error occured when trying to make your payment. This can occur if the gateways Toast Wallet connects to are overloaded, it can also occur if your payment details are incorrect or the receiving address has not been activated. " + err, 
+							// navigator.notification.alert("An error occured when trying to make your payment. This can occur if the gateways SystemD Wallet connects to are overloaded, it can also occur if your payment details are incorrect or the receiving address has not been activated. " + err, 
 							// function(){
 							// 	lastpaidnonce = "";
 							// 	showTab(-1);
@@ -4689,7 +4689,7 @@ function doConfirmPay(passphrase) {
 							// }, 
 							// "Error", "OK");
 							var errorOccuredStatus = "Error";
-							var errorOccuredMess = "An error occured when trying to make your payment. This can occur if the gateways Toast Wallet connects to are overloaded, it can also occur if your payment details are incorrect or the receiving address has not been activated. " + err;
+							var errorOccuredMess = "An error occured when trying to make your payment. This can occur if the gateways SystemD Wallet connects to are overloaded, it can also occur if your payment details are incorrect or the receiving address has not been activated. " + err;
 							$("#popup-status").text(errorOccuredStatus);
 							$("#popupMessageText").text(errorOccuredMess);
 							$(".popup-imagewrapper").addClass("bg-danger");
@@ -4916,7 +4916,7 @@ function doConfirmTrustline(passphrase) {
 									}, "Success", "OK"); 
 						}, 
 						function(err) {
-							// navigator.notification.alert("An error occured when trying to set the trustline. This can occur if the gateways Toast Wallet connects to are overloaded, it can also occur if your trustline details are incorrect or the receiving address has not been activated. " + err, 
+							// navigator.notification.alert("An error occured when trying to set the trustline. This can occur if the gateways SystemD Wallet connects to are overloaded, it can also occur if your trustline details are incorrect or the receiving address has not been activated. " + err, 
 							// function(){
 							// 	lasttrustlinenonce = "";
 							// 	showTab(-1);
@@ -4924,7 +4924,7 @@ function doConfirmTrustline(passphrase) {
 							// }, 
 							// "Error", "OK");
 							var errorOccuredStatus = "Error";
-							var errorOccuredMess = "An error occured when trying to set the trustline. This can occur if the gateways Toast Wallet connects to are overloaded, it can also occur if your trustline details are incorrect or the receiving address has not been activated. " + err;
+							var errorOccuredMess = "An error occured when trying to set the trustline. This can occur if the gateways SystemD Wallet connects to are overloaded, it can also occur if your trustline details are incorrect or the receiving address has not been activated. " + err;
 							$("#popup-status").text(errorOccuredStatus);
 							$("#popupMessageText").text(errorOccuredMess);
 							$(".popup-imagewrapper").addClass("bg-danger");
@@ -5535,7 +5535,7 @@ function validateOfflineCode(offlinecode, offlinecodefield) {
         }
 
         if (!codevalid) {
-            navigator.notification.alert("Your offline code appears to be incorrect. Check you scanned the red QR code on the online version of Toast Wallet first.", 
+            navigator.notification.alert("Your offline code appears to be incorrect. Check you scanned the red QR code on the online version of SystemD Wallet first.", 
                 function(){
                     $(offlinecodefield).focus();
                     unblockInput();
@@ -5982,7 +5982,7 @@ function doConfirmCancelOrder(passphrase) {
 						
 						}, 
 						function(err) {
-							navigator.notification.alert("An error occured when trying to submit your transaction. This can occur if the gateways Toast Wallet connects to are overloaded, it can also occur if your transaction details are incorrect or the receiving address has not been activated. " + err, 
+							navigator.notification.alert("An error occured when trying to submit your transaction. This can occur if the gateways SystemD Wallet connects to are overloaded, it can also occur if your transaction details are incorrect or the receiving address has not been activated. " + err, 
 							function(){
 								lastcancelordernonce = "";
 								showTab(-1);
@@ -6071,7 +6071,7 @@ function doConfirmOrder(passphrase) {
 						
 						}, 
 						function(err) {
-							navigator.notification.alert("An error occured when trying to submit your transaction. This can occur if the gateways Toast Wallet connects to are overloaded, it can also occur if your transaction details are incorrect or the receiving address has not been activated. " + err, 
+							navigator.notification.alert("An error occured when trying to submit your transaction. This can occur if the gateways SystemD Wallet connects to are overloaded, it can also occur if your transaction details are incorrect or the receiving address has not been activated. " + err, 
 							function(){
 								lastordernonce = "";
 								showTab(-1);
@@ -6522,7 +6522,7 @@ function checkAccountIsFunded(payfrom, amount, asset, issuer, failurefunc, silen
         }
     }
 if(this.isFinal){
-	// return navigator.notification.confirm("Toast Wallet was unable to check your account balance at this time. Please confirm that you have left " + xrpreserve + " SYD reserve in your account after the " + amount + " SYD transaction before continuing.",
+	// return navigator.notification.confirm("SystemD Wallet was unable to check your account balance at this time. Please confirm that you have left " + xrpreserve + " SYD reserve in your account after the " + amount + " SYD transaction before continuing.",
 	// 		function(b){
 	// 			if (b == 1) {
 	// 				return successfunc();
@@ -6534,7 +6534,7 @@ if(this.isFinal){
 	// 		[ "Yes continue", "Cancel" ]
 	// );	
 	var checkBalanceStatus = "SYD balance not confirmed";
-	var checkBalanceMess = "Toast Wallet was unable to check your account balance at this time. Please confirm that you have left " + xrpreserve + " SYD reserve in your account after the " + amount + " SYD transaction before continuing.";
+	var checkBalanceMess = "SystemD Wallet was unable to check your account balance at this time. Please confirm that you have left " + xrpreserve + " SYD reserve in your account after the " + amount + " SYD transaction before continuing.";
 	$("#popup-status").text(checkBalanceStatus);
 	$("#popupMessageText").text(checkBalanceMess);
 	$("#popupCloseBtn").text('Yes continue');
@@ -7366,7 +7366,7 @@ onDeviceReady: function() {
 
 
 			if (device.platform == 'iOS' && parseFloat("0" + device.version ) < 11) {
-				navigator.notification.alert("Toast Wallet does not work with iOS versions below 11.0. Toast Wallet will now start in offline mode.", 
+				navigator.notification.alert("SystemD Wallet does not work with iOS versions below 11.0. SystemD Wallet will now start in offline mode.", 
 					()=>{
 						hideSpinner();
 						doOfflineMode(true);
@@ -7708,7 +7708,7 @@ function importAddress(secret, address, nickname, passphrase, successfunc, failu
 		} else {
             
             if (offlinemode) {
-                return navigator.notification.alert("You are adding an account with a regular key in offline mode. Toast Wallet has no way to ensure this regular key corresponds to your SystemD account. The account will be added however transactions may fail if the regular key is incorrect.", ()=>{return _import(secret, address, nickname, passphrase, successfunc, failurefunc);}, "Warning", "OK");
+                return navigator.notification.alert("You are adding an account with a regular key in offline mode. SystemD Wallet has no way to ensure this regular key corresponds to your SystemD account. The account will be added however transactions may fail if the regular key is incorrect.", ()=>{return _import(secret, address, nickname, passphrase, successfunc, failurefunc);}, "Warning", "OK");
             }
 
 			// this could be a set regular key account, check the regular key
@@ -8216,7 +8216,7 @@ function doResetGatewayPrompt() {
 		if (gateways['gateways'] == undefined || gateways['gateways'].length == 0) {
 			navigator.notification.alert('You have no custom gateways set.', ()=>{}, "No Gateways Set", "OK");
 		} else {
-			navigator.notification.confirm("This will clear the custom gateways that Toast Wallet connects to. The default gateways will be restored next time the app starts. Would you like to clear custom gateways? This will not harm you wallet.",
+			navigator.notification.confirm("This will clear the custom gateways that SystemD Wallet connects to. The default gateways will be restored next time the app starts. Would you like to clear custom gateways? This will not harm you wallet.",
 			function(b) {
 				if (b == 1) {
 					db.upsert("savedgateways",
@@ -8415,7 +8415,7 @@ function doRekeyAccount(passphrase) {
 
 				if (scenario == 3) {
 					// prompt if they want the master key disabled	
-					navigator.notification.confirm("Toast Wallet has detected your master key is still enabled, would you like to disable it after rekeying your account? If you don't know what this is choose Do NOT Disable.",
+					navigator.notification.confirm("SystemD Wallet has detected your master key is still enabled, would you like to disable it after rekeying your account? If you don't know what this is choose Do NOT Disable.",
 						function(b){
 							if (b == 1) {
 								rekeyAccount(passphrase, true, suc, fail);
