@@ -16,7 +16,7 @@
   "author": "StarStone Limited",
   "license": "GPL 2.0",
   "devDependencies": {
-    "electron": "~1.6.2",
+    "electron": "~15.5.5",
     "electron-builder": "^19.19.1"
   },
   "build": {
